@@ -7,13 +7,23 @@ Our project paper, Convolutional Neural Network Pruning with Structural Redundan
 
 ## 1.1. Paper summary
 
-Compared to the existing works on network prunning those focus on removing the least important filters, Wang et al. proposed a method that pruns a filter in the layer with the most structural redundancy [1-4]. To analyze the structural redundancy of the layers, authors represent each layer as a graph and use ℓ-covering along with the quotient space. A graph with a higher ℓ-covering number and larger quotient space size indicates less redundancy. After identifying the most redundant layer using the constructed graphs, the filter to be pruned must be selected in that layer. Although there are different filter selection strategies [2], the authors used a simple strategy by pruning the filters with smaller absolute weights [1]. This pruning method resulted in 44.1% reduction in FLOPs while losing only 0.37% top-1 accuracy on ResNet50 with ImageNet dataset.   
+Compared to the existing works on network prunning those focus on removing the least important filters, Wang et al. proposed a method that pruns a filter in the layer with the most structural redundancy [1-4]. To analyze the structural redundancy of the layers, authors represent each layer as a graph and use ℓ-covering along with the quotient space. A graph with a higher ℓ-covering number and larger quotient space size indicates less redundancy. After identifying the most redundant layer using the constructed graphs, the filters to be pruned must be selected in that layer. Although there are different filter selection strategies [2], the authors used a simple strategy by pruning the filters with smaller absolute weights [1]. This pruning method resulted in 44.1% reduction in FLOPs while losing only 0.37% top-1 accuracy on ResNet50 with ImageNet dataset.   
 
 # 2. The method and my interpretation
 
 ## 2.1. The original method
 
-To analyze the structural redundancy of the layers, authors represent each layer as a graph and use l-covering along with the quotient space. For the graph, weights are flatten and normalized to change their lengths to 1, so that each filter is unit vector. Euclidian distance 
+Initially, authors start by representing each layer as a graph so that they can find the layer with the most structural redundancy. For constructing the graph, weights are flatten and normalized to change their lengths to 1, so that each filter is unit vector. The filters form the vertices of the graphs and if Euclidean distance between two different filters is smaller than a threshold γ an edge is added between the two vertices representing those filters. This forms an undirected, unweighted graph which may or may not be connected. By calculating ℓ-covering and quotient space values the authors find the most structurally redundant layer. Since calculation of ℓ-covering is NP-Hard, authors simply selected ℓ = 1 to achieve a reasonable computation time. High covering number can be presumed as most of the filters in that layer are linearly independent.
+
+With the identification of the most structurally redundant layer, next step is finding the filters to be pruned. Here, different metrics can be used, yet the authors use a simple method of pruning the filters with smaller absolute weights. The reasoning is provided as a theoretical proof in the paper. In this proof, five different prunnings and resulting accuracies are compared. In a setting with two layers where η is a more redundant layer than ξ;
+
+- p<sub>o</sub> denotes the accuracy with no pruning
+- p<sub>ηr</sub> denotes the accuracy with a random pruning from layer η
+- p<sub>η'</sub> denotes the accuracy with pruning the least important filter from layer η
+- p<sub>ξ'</sub> denotes the accuracy with pruning the least important filter from layer ξ
+- p<sub>g</sub> denotes the accuracy with pruning the least important overall filter
+
+The relationship between these five accuracies are given as p<sub>ξ'</sub> ≤ p<sub>g</sub> ≤ p<sub>ηr</sub> ≤ p<sub>η'</sub> ≤ p<sub>o</sub>. However, with large enough n, where n denotes the filter size of η, p<sub>ηr</sub> ≈ p<sub>η'</sub> ≈ p<sub>o</sub>. Thus, the authors avoided calculating the least important filter and preferred a method that might yield a result similar to p<sub>ηr</sub> while improving the performance. 
 
 ## 2.2. My interpretation 
 
@@ -62,4 +72,5 @@ Zhang. Eigendamage: Structured pruning in the kroneckerfactored eigenbasis. arXi
 
 # Contact
 
-@TODO: Provide your names & email addresses and any other info with which people can contact you.
+Mustafa Duymuş (mduymus@ceng.metu.edu.tr) 
+Erce Guder     (guder.erce@gmail.com)
