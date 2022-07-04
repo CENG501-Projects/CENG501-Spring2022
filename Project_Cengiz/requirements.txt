@@ -1,0 +1,5 @@
+numpy
+Pillow
+matplotlib
+tensorboard
+tensorboardX
