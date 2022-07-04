@@ -27,7 +27,7 @@ The relationship between these five accuracies are given as p<sub>ξ'</sub> ≤ 
 
 ## 2.2. My interpretation 
 
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+The paper is well-written and there are not much problems with the explanations, however the filter selection is the most simplified aspect of the paper. Although the theoretical proof provides a good reasoning, the performance improvement by simplification of this part is still not clear. As a result, we preferred to select to-be-pruned filters randomly based on the proof and the relationship p<sub>ηr</sub> ≈ p<sub>η'</sub>.
 
 # 3. Experiments and results
 
