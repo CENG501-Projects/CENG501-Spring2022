@@ -6,9 +6,14 @@ This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.
 
 @TODO: Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
 
+Shadow removol is one of the most important preprocessing application for the computer vision studies.  It brings up challanges for tracking and object detection. Recently developed shadow removel methodologies has problems of ignoring the spatially varient property of shadow images, lacking interpretability of CNN structures and not using masking information in the dataset efficiently resulting in ligthing the nonshadow dark albedo material areas. Our project paper, Efficient Model-Driven Network for Shadow Removal by Zhu et al., proposes deep network combines both model-driven and data-driven CNN-based approaches for shadow removal to overcome aforementioned problems. 
+
+
 ## 1.1. Paper summary
 
 @TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
+
+In the paper, drawbacks of currently available shadow removel approaches are shown such as not taking spatially-varient property of shadow images by 
 
 # 2. The method and my interpretation
 
