@@ -13,7 +13,7 @@ Shadow removol is one of the most important preprocessing application for the co
 
 @TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
 
-In the paper, drawbacks of currently available shadow removel approaches are shown such as not taking spatially-varient property of shadow images by 
+In the paper, drawbacks of currently available shadow removel approaches are shown such as taking shadow effects uniform. To overcome this problem, an illumination transformation matrix is proposed such non-shadow pıxel values are equal to its value. By this way spatially variant property of shadow images are considered. 
 
 # 2. The method and my interpretation
 
