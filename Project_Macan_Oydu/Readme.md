@@ -36,6 +36,8 @@ For the loss function, MSE is used.
 
 As explained in the paper, scales of the original UNet are replaced with depth convolution blocks given in the figure 4 of the paper. Since expansion coefficients of the depth convolutions are not given in the paper, we took expansion coefficients as 4 and 6 (same as in ResNet and Mobilenetv2 respectively) in "NetworkA" and "NetworkInit" respectively. Size of these convolutions are taken as 3x3 same as in ResNet and Mobilenetv2. Also, it is mentioned that "NetworkA" and "NetworkInit" involves 4 scales and have channels from the 1st to 4th scale 32, 64, 28, 256 respectively. We assumed that after 4th scale, there are 512 channels. 
 
+Same hyperparameters are used for our model. Mean squared error is used as loss function and implemented as given in the paper. Same as in the paper, Adam optimizer and Cosine Annealing scheduler are used during training. However, maximum number of iterations (T_max) for Cosine Annealing scheduler is not mentioned in the paper. Therefore, we took it same as number of epochs (150).
+
 # 3. Experiments and results
 
 ## 3.1. Experimental setup
