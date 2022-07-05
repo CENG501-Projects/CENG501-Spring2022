@@ -37,9 +37,9 @@ where M is shadow mask where pixel values of shadow regions are 1 and other for 
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
 
-In tthe paper, basic blocks of models of Na and Ninit are illusturated as such. 
+In the paper, basic blocks of models of Na and Ninit are illusturated as such. 
 
-We did not understand what is the depth convolution. So we decided to take it as 3x3 convolution since it is used in the U-net. We decided not to use ReLU which comes after 3x3 convolution layer which is used in U-net since as it is shown in the illustration, Leaky ReLU is used after depth convolution. Secondly, it is mentioned that Na and Ninit involves 4 scales and have channels from the first to fouth scale 32,64,128,256 respectively. We assumed that after 4th scale, there are 512 channels. 
+We did not understand what is the depth convolution. So we decided to take it as 3x3 convolution since it is used in the U-net. We decided not to use ReLU which comes after 3x3 convolution layer which is used in U-net since as it is shown in the illustration, Leaky ReLU is used after depth convolution. Secondly, it is mentioned that Na and Ninit involves 4 scales and have channels from the 1st to 4th scale 32,64,128,256 respectively. We assumed that after 4th scale, there are 512 channels. 
 
 # 3. Experiments and results
 
