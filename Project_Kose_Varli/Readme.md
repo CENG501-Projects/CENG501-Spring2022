@@ -15,7 +15,7 @@ The paper proposes an alternative optimization scheme based on batch shuffling a
 ## 2.1. The original method
 
 SMG:  
-The exact algorithm will be given below. Thus, we will be focusing on what makes the scheme different from existing shuffle-based momentum techniques. Unlike existing momentum methods where the momentum is updated recursively in each iteration, the method fixes the momentum at the beginning of each epoch. The momentum is only updated at the end of each epoch by averaging all the gradient components evaluated. To avoid storing the gradients, an auxiliary variable v is introduced, which keeps track of the gradient average. Lastly, in the algorithm, there is a hyperparameter $\beta$ which is fixed, but in the paper, it is stated that it is also possible to make $\beta$ adaptive. The exact algorithm can be seen below.
+The exact algorithm will be given below. Thus, we will be focusing on what makes the scheme different from existing shuffle-based momentum techniques. Unlike existing momentum methods where the momentum is updated recursively in each iteration, the method fixes the momentum at the beginning of each epoch. The momentum is only updated at the end of each epoch by averaging all the gradient components evaluated. To avoid storing the gradients, an auxiliary variable v is introduced, which keeps track of the gradient average. Lastly, in the algorithm, there is a hyperparameter   $\beta $   which is fixed, but in the paper, it is stated that it is also possible to make $\beta$ adaptive. The exact algorithm can be seen below.
 
 
 ![SMG](https://user-images.githubusercontent.com/44121631/177314075-06f40c29-65a0-4c2a-9e16-772615d465be.png)
