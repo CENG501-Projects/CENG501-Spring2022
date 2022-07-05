@@ -72,5 +72,5 @@ Zhang. Eigendamage: Structured pruning in the kroneckerfactored eigenbasis. arXi
 
 # Contact
 
-Mustafa Duymuş (mduymus@ceng.metu.edu.tr) 
+Mustafa Duymuş (mduymus@ceng.metu.edu.tr) <br />
 Erce Guder     (guder.erce@gmail.com)
