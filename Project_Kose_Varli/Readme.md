@@ -1,4 +1,4 @@
-# @TODO: Paper title
+# SMG: A Shuffling Gradient-Based Method with Momentum
 
 This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.edu.tr/~skalkan/DL/) project for reproducing a paper without an implementation. See [CENG501 (Spring 2022) Project List](https://github.com/CENG501-Projects/CENG501-Spring2022) for a complete list of all paper reproduction projects.
 
@@ -15,19 +15,17 @@ The paper proposes an alternative optimization scheme based on batch shuffling a
 ## 2.1. The original method
 
 SMG:  
-The exact algorithm will be given below. Thus, we will be focusing on what makes the scheme different from existing shuffle-based momentum techniques. Unlike existing momentum methods where the momentum is updated recursively in each iteration, the method fixes the momentum at the beginning of each epoch. The momentum is only updated at the end of each epoch by averaging all the gradient components evaluated. To avoid storing the gradients, an auxiliary variable v is introduced, which keeps track of the gradient average. Lastly, in the algorithm, there is a hyperparameter beta which is fixed, but in the paper, it is stated that it is also possible to make beta adaptive. 
+The exact algorithm will be given below. Thus, we will be focusing on what makes the scheme different from existing shuffle-based momentum techniques. Unlike existing momentum methods where the momentum is updated recursively in each iteration, the method fixes the momentum at the beginning of each epoch. The momentum is only updated at the end of each epoch by averaging all the gradient components evaluated. To avoid storing the gradients, an auxiliary variable v is introduced, which keeps track of the gradient average. Lastly, in the algorithm, there is a hyperparameter $\beta$ which is fixed, but in the paper, it is stated that it is also possible to make $\beta$ adaptive. The exact algorithm can be seen below.
 
 
-The exact algorithm is:
 ![SMG](https://user-images.githubusercontent.com/44121631/177314075-06f40c29-65a0-4c2a-9e16-772615d465be.png)
 
 
 
-SSMG: Again the exact algorithm will be given below. SSMG is the single shuffle variant of SMG. In SMG, the batch is reshuffled at the beginning of each epoch, but in SSMG, the dataset is shuffled only once at the beginning of the training and held fixed throughout the training. Unlike SMG, SSMG directly incorporates the momentum term in each iteration and updates it recursively. The rest of the algorithm is similar to SMG.
+SSMG: Again the exact algorithm will be given below. SSMG is the single shuffle variant of SMG. In SMG, the batch is reshuffled at the beginning of each epoch, but in SSMG, the dataset is shuffled only once at the beginning of the training and held fixed throughout the training. Unlike SMG, SSMG directly incorporates the momentum term in each iteration and updates it recursively. The rest of the algorithm is similar to SMG. The exact algorithm can be seen below.
 
 
 
-The exact algorithm is:
 ![SSMG](https://user-images.githubusercontent.com/44121631/177314110-b62ab3e0-a73f-4772-8bdd-f7678cbd4865.png)
 
 
