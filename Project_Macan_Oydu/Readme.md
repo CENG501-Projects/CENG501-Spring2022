@@ -21,6 +21,14 @@ In the paper, drawbacks of currently available shadow removel approaches are sho
 
 @TODO: Explain the original method.
 
+Formulation provided in paper is shown down below.
+
+Ins = (1+A)*Is,
+s.t. ||(1-M)*A||2 = 0
+
+where M is shadow mask where pixel values of shadow regions are 1 and other for other regions 0. A is illumination transformation map which does not have effect on non-shadow regions and recovers shadow region's information.
+
+
 #### FORMULAS ####
 
 
@@ -28,6 +36,10 @@ In the paper, drawbacks of currently available shadow removel approaches are sho
 ## 2.2. My interpretation 
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+
+In tthe paper, basic blocks of models of Na and Ninit are illusturated as such. 
+
+We did not understand what is the depth convolution. So we decided to take it as 3x3 convolution since it is used in the U-net. We decided not to use ReLU which comes after 3x3 convolution layer which is used in U-net since as it is shown in the illustration, Leaky ReLU is used after depth convolution. Secondly, it is mentioned that Na and Ninit involves 4 scales and have channels from the first to fouth scale 32,64,128,256 respectively. We assumed that after 4th scale, there are 512 channels. 
 
 # 3. Experiments and results
 
