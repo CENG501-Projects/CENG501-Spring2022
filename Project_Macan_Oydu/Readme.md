@@ -40,9 +40,7 @@ For the loss function, MSE is used.
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
 
-In the paper, basic blocks of models of Na and Ninit are illusturated as such. 
-
-We did not understand what is the depth convolution. So we decided to take it as 3x3 convolution since it is used in the U-net. We decided not to use ReLU which comes after 3x3 convolution layer which is used in U-net since as it is shown in the illustration, Leaky ReLU is used after depth convolution. Secondly, it is mentioned that Na and Ninit involves 4 scales and have channels from the 1st to 4th scale 32,64,128,256 respectively. We assumed that after 4th scale, there are 512 channels. 
+As explained in the paper, scales of the original UNet are replaced with depth convolution blocks given in the figure 4 of the paper. Since expansion coefficients of depth convolutions are not given in the paper, we took expansion coefficients as 4 and 6 (same as in ResNet and Mobilenetv2 respectively) in "NetworkA" and "NetworkInit" respectively. Size of these convolutions are taken as 3x3 same as in ResNet and Mobilenetv2. Also, it is mentioned that "NetworkA" and "NetworkInit" involves 4 scales and have channels from the 1st to 4th scale 32,64,128,256 respectively. We assumed that after 4th scale, there are 512 channels. 
 
 # 3. Experiments and results
 
