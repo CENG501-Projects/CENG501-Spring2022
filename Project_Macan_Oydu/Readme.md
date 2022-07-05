@@ -21,7 +21,7 @@ In the paper, drawbacks of currently available shadow removel approaches are sho
 
 @TODO: Explain the original method.
 
-Shadow removing model constructed by using masking information and proposed illumination transfomation mapping. By introducing constraints on this mapping, shadow regions' information is recovered and information of nan-shadow regions are preserved. Then, by bayesian recursion, where image with shadow is prior and no shadow image is posterior, variational model is constructed. İllutration of overall model is provided in the paper as down below.
+Shadow removing model constructed by using masking information and proposed illumination transfomation mapping. By introducing constraints on this mapping, shadow regions' information is recovered and information of non-shadow regions are preserved. Then, by bayesian recursion, where image with shadow is prior and no shadow image is posterior, variational model is constructed. Illustration of the overall model is provided in the paper as down below.
 
 ![image](https://user-images.githubusercontent.com/108632459/177399131-59faaa8a-0ba9-429c-93ef-af0e550836a9.png)
 
