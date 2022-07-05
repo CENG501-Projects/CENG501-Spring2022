@@ -22,11 +22,11 @@ Shadow removing model constructed by using masking information and proposed illu
 ![image](https://user-images.githubusercontent.com/108632459/177399131-59faaa8a-0ba9-429c-93ef-af0e550836a9.png)
 
 
-There are two CNN's which are Na and Ninit. This networks have a structure of modified U-net inspired from ResNet and Mobilenet-v2. Basic blocks for both networks presented in paper as such.
+There are two subnetworks that are used in the above algorithm which are "NetworkA and "Networkinit". This networks have a structure of modified U-net inspired from ResNet and Mobilenet-v2. Basic blocks for both networks presented in paper as the following.
 
 ![image](https://user-images.githubusercontent.com/108632459/177399425-6d4317f2-ada4-4fe8-9df4-ed69ca6e5bb7.png)
 
-Iterative algorithm for the overall model provided in the paper as down below.
+In each scale, depth convolutions with shortcuts are used. Iterative algorithm, folmulated from a Bayesian perspective, for the overall model provided in the paper as down below.
 
 ![image](https://user-images.githubusercontent.com/108632459/177399514-a443c4ba-003e-4042-8164-fe47fa4f100b.png)
 
