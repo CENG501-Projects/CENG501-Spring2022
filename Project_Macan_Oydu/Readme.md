@@ -48,6 +48,9 @@ In the paper, it is denoted that training is conducted by using a single NVIDIA 
 
 Our trained model, structure of the network and other script that are used for training and testing are provided in the "codes" file. As explained in the  paper, "ShadowRemoverNetwork" consists of 2 subnetworks which are "NetworkA" and "NetworkInit". Implementation of these networks are given in "NetworkInit.py" and "NetworkA.py" scripts. The final model is given in the "ShadowRemoverNetwork.py" script. To make our lifes easier, we constructed another subnetwork named "NetworkA_iter" given in the "NetworkA.py" script. "NetworkA_iter" is written for constructing the "for" loop in the "ShadowRemoverNetwork" in a more understandable way. "dataset.py" contains "dataset" class that is used for reading images. Training algorithm and loss function are implemented in the "train.py". One can use "test.py" to test our trained model. "errorCalculator.py" is used to calculate root mean square error and peak signal noise ratio of the test images.
 
+### Installation
+
+
 ## 3.3. Results
 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
