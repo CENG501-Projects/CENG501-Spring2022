@@ -1,4 +1,4 @@
-# @TODO: Paper title
+Efficient Model-Driven Network for Shadow Removal
 
 This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.edu.tr/~skalkan/DL/) project for reproducing a paper without an implementation. See [CENG501 (Spring 2022) Project List](https://github.com/CENG501-Projects/CENG501-Spring2022) for a complete list of all paper reproduction projects.
 
@@ -73,6 +73,6 @@ Sandler, M.; Howard, A.; Zhu, M.; Zhmoginov, A.; and Chen, L.-C. 2018. Mobilenet
 
 Onuralp Maçan - onuralpmacann@gmail.com
 
-Onur Oydu - onuroydu@gmail.com
+Onur Oydu - 
 
 @TODO: Provide your names & email addresses and any other info with which people can contact you.
