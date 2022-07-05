@@ -21,17 +21,20 @@ In the paper, drawbacks of currently available shadow removel approaches are sho
 
 @TODO: Explain the original method.
 
-Formulation provided in paper is shown down below.
+Shadow removing model constructed by using masking information and proposed illumination transfomation mapping. By introducing constraints on this mapping, shadow regions' information is recovered and information of nan-shadow regions are preserved. Then, by bayesian recursion, where image with shadow is prior and no shadow image is posterior, variational model is constructed. İllutration of overall model is provided in the paper as down below.
 
-Ins = (1+A)*Is,
-s.t. ||(1-M)*A||2 = 0
-
-where M is shadow mask where pixel values of shadow regions are 1 and other for other regions 0. A is illumination transformation map which does not have effect on non-shadow regions and recovers shadow region's information.
+![image](https://user-images.githubusercontent.com/108632459/177399131-59faaa8a-0ba9-429c-93ef-af0e550836a9.png)
 
 
-#### FORMULAS ####
+There are two CNN's which are Na and Ninit. This networks have a structure of modified U-net. Basic blocks for both networks presented in paper as such.
 
+![image](https://user-images.githubusercontent.com/108632459/177399425-6d4317f2-ada4-4fe8-9df4-ed69ca6e5bb7.png)
 
+Algotrihm provided as.
+
+![image](https://user-images.githubusercontent.com/108632459/177399514-a443c4ba-003e-4042-8164-fe47fa4f100b.png)
+
+For the loss function, MSE is used.
 
 ## 2.2. My interpretation 
 
