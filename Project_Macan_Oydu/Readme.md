@@ -64,7 +64,11 @@ In the paper, it is denoted that training is conducted by using a single NVIDIA 
 
 @TODO: Discuss the paper in relation to the results in the paper and your results.
 
-As it can be seen from the results, we obtained parallel results with ones presented in the paper. As mentioned eaerlier, we trained our model with lower resolution and it is observed that, this approach did not affect the results we obtained. However, we observed low performance while model tries to remove shadows which are located in colourful areas such as this one. 
+As it can be seen from the results, we obtained parallel results with ones presented in the paper. As mentioned eaerlier, we trained our model with lower resolution and it is observed that, this approach did not affect the results we obtained. 
+
+### INSERT RESULT HERE ####
+
+However, we observed low performance while model tries to remove shadows which are located in colourful areas such as this one. 
 
 ### INSERT RESULT HERE ####
 
