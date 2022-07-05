@@ -72,6 +72,7 @@ Sandler, M.; Howard, A.; Zhu, M.; Zhmoginov, A.; and Chen, L.-C. 2018. Mobilenet
 # Contact
 
 Onuralp Maçan - onuralpmacann@gmail.com
+
 Onur Oydu - 
 
 @TODO: Provide your names & email addresses and any other info with which people can contact you.
