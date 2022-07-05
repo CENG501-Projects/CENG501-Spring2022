@@ -50,7 +50,7 @@ We did not understand what is the depth convolution. So we decided to take it as
 
 @TODO: Describe the setup of the original paper and whether you changed any settings.
 
-In the paper, it is denoted that training is conducted by using a single NVIDIA GTX 1080Ti graphics card which has 11 GB VRAM. Since we had NVIDIA RTX 3070Ti graphics card which has only 8 GB VRAM, instead of training with images has a resoılution of 256x256 as it has been done in the paper, we trained our network with images with resolution of 128x128. Then we streched the outputs to 256x256. Apart from that, it is mentioned that model converges well after 150 epochs and we took that number as reference for our training stage. We used ISTD dataset.
+In the paper, it is denoted that training is conducted by using a single NVIDIA GTX 1080Ti graphics card which has 11 GB VRAM. Since we had NVIDIA RTX 3070Ti graphics card which has only 8 GB VRAM, instead of training with images has a resolution of 256x256 as it has been done in the paper, we trained our network with images with resolution of 128x128. Then we streched the outputs to 256x256. Apart from that, it is mentioned that model converges well after 150 epochs and we took that number as reference for our training stage. We used ISTD dataset for training the model.
 
 ## 3.2. Running the code
 
