@@ -3,7 +3,7 @@
 This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.edu.tr/~skalkan/DL/) project for reproducing a paper without an implementation. See [CENG501 (Spring 2022) Project List](https://github.com/CENG501-Projects/CENG501-Spring2022) for a complete list of all paper reproduction projects.
 
 # 1. Introduction
-Our project paper, Convolutional Neural Network Pruning with Structural Redundancy Reduction by Wang et al., was accepted to CVPR 2021. In the paper, authors propose a network prunning method, which improves the performance of CNNs with removing filters from unnecessery layers. The main contribution of the paper is the method of filter selection for prunning, where the proposed algorithm differs from and outperforms the state-of-the-art approaches [1-5]. As the dataset, the authors used CIFAR-10 and ImageNet, with the well-known networks such as ResNet or AlexNet. Although the paper is reproducible as a whole, we aim to compare different prunning approaches on CIFAR-10 only, while using ResNet as our network.
+Our project paper, Convolutional Neural Network Pruning with Structural Redundancy Reduction by Wang et al., was accepted to CVPR 2021. In the paper, authors propose a network prunning method, which improves the performance of CNNs with removing filters from unnecessery layers. The main contribution of the paper is the method of filter selection for prunning, where the proposed algorithm differs from and outperforms the state-of-the-art approaches [1-5]. As the dataset, the authors used CIFAR-10 and ImageNet, with the well-known networks such as ResNet or AlexNet. Although the paper is reproducible as a whole, we aim to compare different prunning approaches on CIFAR-10 only, while using VGG16 as our network.
 
 ## 1.1. Paper summary
 
@@ -27,7 +27,7 @@ The relationship between these five accuracies are given as p<sub>ξ'</sub> ≤ 
 
 ## 2.2. My interpretation 
 
-The paper is well-written and there are not much problems with the explanations, however the filter selection is the most simplified aspect of the paper. Although the theoretical proof provides a good reasoning, the performance improvement by simplification of this part is still not clear. As a result, we preferred to select to-be-pruned filters randomly based on the proof and the relationship p<sub>ηr</sub> ≈ p<sub>η'</sub>. Furthermore, to find the layer with the most structural redundancy we used only quotient space analysis and implemented our own connected component finding algorithm.
+The paper is well-written and there are not much problems with the explanations, however the filter selection is the most simplified aspect of the paper. Although the theoretical proof provides a good reasoning, the performance improvement by simplification of this part is still not clear. Also there is not a clear explanation of how many filters are pruned at each iteration. As a result, we preferred to select to-be-pruned filters randomly based on the proof and the relationship p<sub>ηr</sub> ≈ p<sub>η'</sub>. Furthermore, we preferred to prun a single filter at each iteration.
 
 # 3. Experiments and results
 
