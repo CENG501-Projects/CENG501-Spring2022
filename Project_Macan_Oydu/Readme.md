@@ -49,6 +49,7 @@ Our trained model, structure of the network and other script that are used for t
 
 ### Installation
 
+Required python modules can be installed with the following command.
 ````
 pip3 install -r requirements.txt
 ````
