@@ -33,7 +33,14 @@ The paper is well-written and there are not much problems with the explanations,
 
 ## 3.1. Experimental setup
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
+For our network, we preferred to use VGG16 instead of ResNet since adjusting residual connections after pruning mgiht be complicated. With VGG16, a pruning on a convolutional layer only affects that layer and a single layer following it. 
+
+As in the paper, we started by implementing a graph construction function. 
+
+- Single shot pruning
+- Gamma selection
+- Prune number
+- 
 
 ## 3.2. Running the code
 
