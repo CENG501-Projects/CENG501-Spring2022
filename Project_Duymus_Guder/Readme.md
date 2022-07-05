@@ -37,7 +37,7 @@ For our network, we preferred to use VGG16 instead of ResNet since adjusting res
 
 We started by implementing a graph construction function. Here we used flattening and normalization similar to that in the paper. For the similarity threshold γ, we manually tested a few different values and decided to use 0.02, which is in range of the values used in the paper. Using weighted average of ℓ-covering and quotient space size we found the layer with the most redundancy. We used same weights as the authors (0.65 for ℓ-covering and 0.35 for quotient space size). 
 
-After finding the layer, we used single shot pruning as mentioned in the paper. As the number of filters to prune is not specified in the paper, we came up with our own formulation at this step. We pruned number of filters equal to $2 * \sqrt{r}$, where $r$ denotes the redundancy of the layer. After each pruning step, we reconstructed the graph and calculated the redundancy only for pruned layer, since the graph construction is the most costly part. 
+After finding the layer, we used single shot pruning as mentioned in the paper. As the number of filters to prune is not specified in the paper, we came up with our own formulation at this step. We pruned number of filters equal to $2 * \sqrt{r}$, where $r$ denotes the redundancy of the layer. After each pruning step, we reconstructed the graph and calculated the redundancy only for the pruned layer, since the graph construction is the most costly part. 
 
 ## 3.2. Running the code
 
