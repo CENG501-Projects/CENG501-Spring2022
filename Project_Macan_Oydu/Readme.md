@@ -4,14 +4,10 @@ This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.
 
 # 1. Introduction
 
-@TODO: Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
-
 Shadow removol is one of the most important preprocessing application for the computer vision studies.  It brings up challanges for tracking and object detection. Recently developed shadow removel methodologies has problems of ignoring the spatially varient property of shadow images, lacking interpretability of CNN structures and not using masking information in the dataset efficiently resulting in ligthing the nonshadow dark albedo material areas. Our project paper, Efficient Model-Driven Network for Shadow Removal by Zhu et al., proposes deep network combines both model-driven and data-driven CNN-based approaches for shadow removal to overcome aforementioned problems. 
 
 
 ## 1.1. Paper summary
-
-@TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
 
 In the paper, drawbacks of currently available shadow removel approaches are shown such as taking shadow effects uniform. To overcome this problem, an illumination transformation matrix is proposed such that non-shadow pıxel values are equal to its value. By this way spatially variant property of shadow images are considered. Apart from that, by introducing model-driven neural network, inerpreability of the network is increased.  Different from using Residual Block proposed, Dynamic Mapping Residual Block is designed as a basic module for the introduced network which increases performance of the model without introducing any parameters.
 
@@ -26,11 +22,11 @@ Shadow removing model constructed by using masking information and proposed illu
 ![image](https://user-images.githubusercontent.com/108632459/177399131-59faaa8a-0ba9-429c-93ef-af0e550836a9.png)
 
 
-There are two CNN's which are Na and Ninit. This networks have a structure of modified U-net. Basic blocks for both networks presented in paper as such.
+There are two CNN's which are Na and Ninit. This networks have a structure of modified U-net inspired from ResNet and Mobilenet-v2. Basic blocks for both networks presented in paper as such.
 
 ![image](https://user-images.githubusercontent.com/108632459/177399425-6d4317f2-ada4-4fe8-9df4-ed69ca6e5bb7.png)
 
-Algotrihm provided as.
+Iterative algorithm for the overall model provided in the paper as down below.
 
 ![image](https://user-images.githubusercontent.com/108632459/177399514-a443c4ba-003e-4042-8164-fe47fa4f100b.png)
 
@@ -38,17 +34,13 @@ For the loss function, MSE is used.
 
 ## 2.2. My interpretation 
 
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
-
 As explained in the paper, scales of the original UNet are replaced with depth convolution blocks given in the figure 4 of the paper. Since expansion coefficients of the depth convolutions are not given in the paper, we took expansion coefficients as 4 and 6 (same as in ResNet and Mobilenetv2 respectively) in "NetworkA" and "NetworkInit" respectively. Size of these convolutions are taken as 3x3 same as in ResNet and Mobilenetv2. Also, it is mentioned that "NetworkA" and "NetworkInit" involves 4 scales and have channels from the 1st to 4th scale 32, 64, 28, 256 respectively. We assumed that after 4th scale, there are 512 channels. 
 
 # 3. Experiments and results
 
 ## 3.1. Experimental setup
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
-
-In the paper, it is denoted that training is conducted by using a single NVIDIA GTX 1080Ti graphics card which has 11 GB VRAM. Since we had NVIDIA RTX 3070Ti graphics card which has only 8 GB VRAM, instead of training with images has a resolution of 256x256 as it has been done in the paper, we trained our network with images with resolution of 128x128. Then we streched the outputs to 256x256. Apart from that, it is mentioned that model converges well after 150 epochs and we took that number as reference for our training stage. We used ISTD dataset for training the model.
+In the paper, it is denoted that training is conducted by using a single NVIDIA GTX 1080Ti graphics card which has 11 GB VRAM. Since we had NVIDIA RTX 3070Ti graphics card which has only 8 GB VRAM, instead of training with images has a resolution of 256x256 as it has been done in the paper, we trained our network with images with resolution of 128x128. Then we streched the outputs to 256x256. Apart from that, it is mentioned that model converges well after 150 epochs and we took that number as reference for our training stage. It is stated that maximum number of iteration is set to 4 as is it trade-off between accuracy and speed. In that respect we took that value as reference and used that value in our implementation. We used ISTD dataset for training the model.
 
 ## 3.2. Running the code
 
@@ -62,9 +54,7 @@ Our trained model, structure of the network and other script that are used for t
 
 @TODO: Discuss the paper in relation to the results in the paper and your results.
 
-As it can be seen from the results, we obtained parallel results with ones presented in the paper. As mentioned eaerlier, we trained our model with lower resolution and it is observed that, this approach did not affect the results we obtained. 
-
-### INSERT RESULT HERE ####
+It is observed that, with proposed illumination transformation mappping, shadow are removed with more realistic modelling. Obtained shadow free image results shows that this statement is true. Since we did not implement other shadow removel approaches, we cannot make any comment on relative performance of the model presented in the paper compared to other. However, as shown in the paper, ONUR YAPACAK
 
 However, we observed low performance while model tries to remove shadows which are located in colourful areas such as this one. 
 
@@ -73,8 +63,6 @@ However, we observed low performance while model tries to remove shadows which a
 This situation is not presented in the paper, so we dont know whether it is caused by our implementation or model itself.
 
 # 5. References
-
-@TODO: Provide your references here.
 
 Zhu, Y., Xiao, Z., Fang, Y., Fu, X., Xiong, Z., & Zha, Z.-J. (2022). Efficient Model-Driven Network for Shadow Removal. Proceedings of the AAAI Conference on Artificial Intelligence, 36(3), 3635-3643.
 
@@ -88,8 +76,6 @@ Sandler, M.; Howard, A.; Zhu, M.; Zhmoginov, A.; and Chen, L.-C. 2018. Mobilenet
 
 # Contact
 
-Onuralp Maçan - onuralpmacann@gmail.com
+Onuralp Maçan - onuralp.macan@metu.edu.tr
 
-Onur Oydu - onuroydu@gmail.com
-
-@TODO: Provide your names & email addresses and any other info with which people can contact you.
+Onur Oydu - onur.oydu@metu.edu.tr
