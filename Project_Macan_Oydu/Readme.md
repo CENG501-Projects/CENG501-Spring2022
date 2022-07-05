@@ -30,7 +30,6 @@ In each scale, depth convolutions with shortcuts are used. Iterative algorithm, 
 
 ![image](https://user-images.githubusercontent.com/108632459/177399514-a443c4ba-003e-4042-8164-fe47fa4f100b.png)
 
-For the loss function, MSE is used.
 
 ## 2.2. My interpretation 
 
