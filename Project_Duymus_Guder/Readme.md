@@ -27,7 +27,7 @@ The relationship between these five accuracies are given as p<sub>ξ'</sub> ≤ 
 
 ## 2.2. My interpretation 
 
-The paper is well-written and there are not much problems with the explanations, however the filter selection is the most simplified aspect of the paper. Although the theoretical proof provides a good reasoning, the performance improvement by simplification of this part is still not clear. Also there is not a clear explanation of how many filters are pruned at each iteration. As a result, we preferred to select to-be-pruned filters randomly based on the proof and the relationship p<sub>ηr</sub> ≈ p<sub>η'</sub>. Furthermore, we preferred to prune a single filter at each iteration.
+The paper is well-written and there are not much problems with the explanations, however the filter selection is the most simplified aspect of the paper. Although the theoretical proof provides a good reasoning, the performance improvement by simplification of this part is still not clear. Also there is not a clear explanation of how many filters are pruned at each iteration. As a result, we preferred to select to-be-pruned filters randomly based on the proof and the relationship p<sub>ηr</sub> ≈ p<sub>η'</sub>. For the number of to-be-pruned filters we came up with a formula that is dependant on the redundancy of the layer.
 
 # 3. Experiments and results
 
