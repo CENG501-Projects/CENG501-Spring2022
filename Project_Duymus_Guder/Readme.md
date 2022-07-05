@@ -35,12 +35,9 @@ The paper is well-written and there are not much problems with the explanations,
 
 For our network, we preferred to use VGG16 instead of ResNet since adjusting residual connections after pruning mgiht be complicated. With VGG16, a pruning on a convolutional layer only affects that layer and a single layer following it. 
 
-As in the paper, we started by implementing a graph construction function. 
+We started by implementing a graph construction function. Here we used flattening and normalization similar to that in the paper. For the similarity threshold γ, we manually tested a few different values and decided to use 0.02, which is in range of the values used in the paper. Using weighted average of ℓ-covering and quotient space size we found the layer with the most redundancy. We used same weights as the authors (0.65 for ℓ-covering and 0.35 for quotient space size). 
 
-- Single shot pruning
-- Gamma selection
-- Prune number
-- 
+After finding the layer, we used single shot pruning as mentioned in the paper. As the number of filters to prune is not specified in the paper, we came up with our own formulation at this step. We pruned number of filters equal to $2 * \sqrt{r}$, where $r$ denotes the redundancy of the layer. After each pruning step, we reconstructed the graph and calculated the redundancy only for pruned layer, since the graph construction is the most costly part. 
 
 ## 3.2. Running the code
 
@@ -55,6 +52,9 @@ As in the paper, we started by implementing a graph construction function.
 @TODO: Discuss the paper in relation to the results in the paper and your results.
 
 # 5. References
+
+Implemented Paper: Zi Wang, Li Chengcheng, and Wang Xiangyang. Convolutional neural network pruning with structural redundancy reduction. 
+Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. arXiv:2104.03438, 2021.
 
 [1] Hao Li, Asim Kadav, Igor Durdanovic, Hanan Samet, and
 Hans Peter Graf. Pruning filters for efficient convnets. arXiv
