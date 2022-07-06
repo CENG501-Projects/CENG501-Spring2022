@@ -86,7 +86,7 @@ During the project, there were some points that we could not comprehend and impl
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+You can access the main.ipynb in ths directory, simply download it and run it. However, the directories needed to be changed to your dataset.  
 
 ## 3.3. Results
 
