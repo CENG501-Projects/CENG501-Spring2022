@@ -47,6 +47,16 @@ As stated in the introduction, the essential hyperparameter setup for optimizers
 ## 3.2. Running the code
 
 @TODO: Explain your code & directory structure and how other people can run it.
+```bash
+├── README.md
+├── experiments
+│   ├── cifar10_experiments.ipynb
+│   ├── fashionmnist_experiments.ipynb
+│   ├── ijcnn1_experiments.ipynb
+│   └── w8a_experiments.ipynb
+└── results
+    └── overall_results.ipynb
+```
 
 ## 3.3. Results
 
