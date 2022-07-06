@@ -28,7 +28,7 @@ implemented in LIDAR technologies. This paper which is implemented by Qingdong H
 Ti+1 = σ(Wi(Hi+1)) = σ(Wi([Ti, G])) where Ti is the output of the previous layer (for first layer they are the points) <br/>
  After doing the iterations in the layers, we pass the newly obtained 2D point T, we use a custom loss in order to further normalize data.<br/>
  The custom loss is generated via calculating min||ti - tj||2 for each point where ti is 2D point in T after calculating min||ti - tj||2 which is called di we generate the loss for point ti which is 
- 
+ ![Alt text](images/customloss.png?raw=true "")
  First of those normalizations is called Ball query Normalization. Here we generate the smallest grid M which is of size mxm (128 in the paper ) which fit the points generated T. 
 ## 2.2. My interpretation 
 
