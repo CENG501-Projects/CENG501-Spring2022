@@ -87,7 +87,13 @@ We can easily notice the huge difference on RMSE and PNSR. This difference is oc
 
 It is observed that, with proposed illumination transformation mappping, shadow are removed with more realistic modelling. Obtained shadow free image results shows that this statement is true. Since we did not implement other shadow removel approaches, we cannot make any comment on relative performance of the model presented in the paper compared to other. However, as shown in the paper, ONUR YAPACAK
 
-However, we observed low performance while model tries to remove shadows in which shadows are located in multiple ares with very distinct colours such as this one. 
+However, we observed low performance while model tries to remove shadows in which shadows are located in multiple ares with very distinct colours such as these. 
+| Original Image (Input) - Non-Shadow Image (Output) - Ground Truth| 
+| ------------- |
+| ![480_result](https://user-images.githubusercontent.com/82730997/177568421-55e98476-e03f-4960-85a9-206d2f632a9b.jpeg) |
+| ![460_result](https://user-images.githubusercontent.com/82730997/177568564-5d275d6f-d37f-417a-9f6c-a28d67381a6f.jpeg) |
+| ![518_result](https://user-images.githubusercontent.com/82730997/177568760-d463f668-7644-4672-9e8f-30111cb89685.jpeg) |
+
 
 ### INSERT RESULT HERE ####
 
