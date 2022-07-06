@@ -48,7 +48,7 @@ Another problem which should be solved during the training is gradient mismatch 
 
 ## 3.1. Experimental setup
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
+LSTM and GRU models are used as a baseline. LSTMs, GRUs, and spiking neurons were stacked into different two-layer networks with 550 non-spiking or spiking units for each layer. Then, a fully connected layer received the final outputs and generated a probability of the most likely used words for speech recognition purpose. Inputs for neural networks were created based on Kaldi principle [4]. Feature space maximum likelihood linear regression [5] was used to convert raw audios into acoustic features. The features were calculated using 25 ms windows with a 10 ms overlap. All weight matrices excpect recurrent weight matrices which had orthogonal initialization were initialized based on Glorot’s scheme [6]. Adam used as the optimizer, and recurrent dropout used as the regularization method [7]. On all architectures, a dropout rate of 0:1 was discovered to provide the best performance. All architectures were trained for 24 epochs with a batch size of 64 and the starting learning rate was set to $10^{-3}$. The error on the development set was monitored every epoch and the learning rate was halved after 3 epochs of improvement less than 0.1. 
 
 ## 3.2. Running the code
 
@@ -56,7 +56,7 @@ Another problem which should be solved during the training is gradient mismatch 
 
 ## 3.3. Results
 
-By evaluating the results of the experiments, LSTM and GRU models are used as a baseline. LSTM architecture surpass GRU architecture by a small amount.  First approach called “the SNNs with improved dynamics v1” increases the accuracy of the prediction by 8.98% and 9.84% on TIMIT and LibriSpeech 100h datasets, respectively compared to conventional SNNs. The increase in accuracy shows the significance of learning without the problems occurred on training such as gradient mismatch and vanishing gradient. Second approach called “the SNNs with improved dynamics v2” further boosted the values reached in v1 version by 1.64% and 5.57% on TIMIT and LibriSpeech 100h datasets, respectively. So, the result is that maximizing the recognition accuracy was made possible by choosing the forget and candidate signals depending on the past synaptic current. 
+LSTM architecture surpass GRU architecture by a small amount.  First approach called “the SNNs with improved dynamics v1” increases the accuracy of the prediction by 8.98% and 9.84% on TIMIT and LibriSpeech 100h datasets, respectively compared to conventional SNNs. The increase in accuracy shows the significance of learning without the problems occurred on training such as gradient mismatch and vanishing gradient. Second approach called “the SNNs with improved dynamics v2” further boosted the values reached in v1 version by 1.64% and 5.57% on TIMIT and LibriSpeech 100h datasets, respectively. So, the result is that maximizing the recognition accuracy was made possible by choosing the forget and candidate signals depending on the past synaptic current. 
 
 When it comes to computational savings, 4.37-5.40 x fewer number of sparse outputs multiplications caused by the proposed v1 SNN compared to GRUs. However, the SNN with improved dynamics v2 led to 10.13 and 11.14 x fewer multiplication operations compared to the GRUs on TIMIT and LibriSpeech 100h datasets, respectively. The difference in recognition accuracy between SNNs and the baseline LSTMs became 1.10% and 0.36% using all the proposed architecture and training on TIMIT and LibriSpeech 100h datasets, respectively with halved parameter numbers.
 
@@ -72,6 +72,13 @@ When it comes to computational savings, 4.37-5.40 x fewer number of sparse outpu
 
 [3] Han, K. J., Prieto, R., & Ma, T. (2019, December). State-of-the-art speech recognition using multi-stream self-attention with dilated 1d convolutions. In 2019 IEEE Automatic Speech Recognition and Understanding Workshop (ASRU) (pp. 54-61). IEEE.
 
+[4] Povey, D., Ghoshal, A., Boulianne, G., Burget, L., Glembek, O., Goel, N.K., Hannemann, M., Motlícek, P., Qian, Y., Schwarz, P., Silovský, J., Stemmer, G., & Veselý, K. (2011). The Kaldi Speech Recognition Toolkit.
+
+[5] Gales, M. J. F. (1998). Maximum Likelihood Linear Transformations for HMM-Based Speech Recognition. COMPUTER SPEECH AND LANGUAGE, 12, 75–98.
+
+[6] Glorot, X., & Bengio, Y. (2010). Understanding the difficulty of training deep feedforward neural networks. AISTATS.
+
+[7] Semeniuta, S., Severyn, A., & Barth, E. (2016). Recurrent dropout without memory loss. arXiv preprint arXiv:1603.05118.
 
 # Contact
 
