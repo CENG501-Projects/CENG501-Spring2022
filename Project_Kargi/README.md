@@ -145,7 +145,6 @@ balanced_style_loss
 │
 │─── styles
 │
-│─── outputs
 │
 │─── experiments
 │    │─── adain
@@ -166,7 +165,6 @@ Below can be found explanation of the files:
 - `libs/models_linear_transfer.py` : LinearTransfer spesific functions and structures
 - `contents/` : Folder containing example content images C
 - `styles/` : Folder containing example style images S
-- `outputs/` : Folder containing example output images P
 - `experiments/adain` : Folder containing the weights for AdaIN models
 - `experiments/linear_transfer` : Folder containing the weights for LinearTransfer models
 - `experiments/sanet` : Folder containing the weights for Sanet models
@@ -186,8 +184,6 @@ Using a GoogleColab for testing is recommended.
 
 
 ## 3.3. Results
-
-Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper. 
 
 | &nbsp; | Balanced Loss | Classic Loss | Balanced Loss (Paper) | Classic Loss (Paper)
 | --- |  ----------- | -------------|-------------------------|-------------------|
