@@ -83,7 +83,9 @@ The paper used the KITTI, Waymo Open, nuScenes datasets for the training and tes
 
 KITTI 3D includes 7481 training samples and 7518 test samples. However, due to large file sizes, we have only used a part of the training samples for analysis. We used cross-entropy for loss evaluation and Adam algorithm for the optimizer. We used Colab Pro for the training and obtained the results. The properties of the training model can be seen in the table below.
 
-
+<br/>
+ ![Alt text](images/result.png?raw=true "")
+ <br/>
 ## 3.2. Running the code
 
 You can access the main.ipynb in ths directory, simply download it and run it. However, the directories needed to be changed to your dataset.  
