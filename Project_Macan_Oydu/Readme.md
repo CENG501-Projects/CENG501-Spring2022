@@ -72,8 +72,8 @@ Result images given in the figure 5 of the paper are as the following.
 The root mean squared error, peak noise signal ratio and structural similarity are calculated during testing and results are as follows.
 
 | Models        | PNSR           | RMSE  | SSIM|
-| ----------------------------------- |:-------------------:| ----------:| ----------|
-| Our model (patch size: 128x128)| 78.34080905484963 | 0.044 | 0.9773|
+| ----------------------------------- |:--------:| --------:| ----------|
+| Our model (patch size: 128x128)| 78.34 | 0.044 | 0.9773|
 | Original model (patch size: 256x256)| 29.85|5.09 | 0.9598|
 
 
