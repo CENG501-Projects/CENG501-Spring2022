@@ -83,12 +83,39 @@ The polygonal vertices obtained from the Vertex Embedding step are considered as
 
 
 ## 3.2. Running the code
+As the two parts of Multi-Task Segmentation Network  and Polygon Refinement Network are trained seperately, they would also be explained seperately.
+### 3.2.1 `Multi-task Segmentation Network`
 
+< Add info here >
 @TODO: Explain your code & directory structure and how other people can run it.
+
+### 3.2.2 `Polygon Refinement Network`
+A Google colab file is prepared which extensively explains the steps to run it, however they will be summarzied below:
+* The dataset used is downloaded from Kaggle and the model does not require any other uploads/inputs from the user.
+* The data is preprocessed and converted to a unified pandas dataframe to hold the filen details and also the annotations details.
+![del1](https://user-images.githubusercontent.com/69632507/177655663-ea14e713-22ae-4b94-b173-0b8913f1f7d7.jpg)
+* Some of the data is visualized to show the user what nature of data they are dealing with. 
+![del](https://user-images.githubusercontent.com/69632507/177655397-3b7e037b-a93f-4305-b0f6-47fb6266e104.jpg)
+* It is then illustrated how the building instance images are transformed from 300x300 to Bounding Box Dimensions to 224x224 Images
+![image](https://user-images.githubusercontent.com/69632507/177657816-154b8fd2-d5c1-4a7d-8182-624d3caf8cca.png)
+* The vertices in the 224x224 image are then exposed to noise to generate training data, with their orginal location being the ground truth location, and the displacement between these two acting as the label for the propogation model. The blue polygon is the ground truth and the red + symbols are the noisy segmentation generated to be finetuned by the Polygon Refinement Network
+![image](https://user-images.githubusercontent.com/69632507/177658122-b2cbe42a-cbfc-4565-9ad5-dabb7bb5fb63.png)
+* These red vertices are then passed through vertex embedding to be associated with their 256 features for their location. This data is now ready for the Propogation Model
+* As enough implementation details  were not provided to formulate the vertices of the polygon effectively into a graph and could not be found on external literature referenced in the paper as well on how to pass the the nodes of the graph individually into the GRU based RNN model that takes graph nodes sequentially, other propogation methods were attempted to get results.
+* Two Ideas were tested with the same target of predicting the displacement of the Vertice given the Vertice with 256 node features.
+* The first model tested was based on the idea proposed in the paper where a fully connected network was made that would take these 256 features and predict a class of the displacement among the labels of 0 to 224, this model was trained with cross entropy loss.
+  * Something that was realized during this training was that treating this problem as a clasification problem may not be the best idea as there are no details given on how the 15x15 grid was converted to class labels, the method chosen for duplication was arbitrary to map each element of the grid into a class label. But a problem that arises here is that if the actual displacement was [7,7] for example, the loss function should be in such a way that a guess of [7,6] should be penalized much less than a guess of [0,0]. This is an issue with the choice of loss function, and the problem nature suggests to treat it as a regression problem instead where if Mean Squared Error is used as the loss function, the guess of [7,6] would be penalzied much less than the guess of [0,0]. 
+* The second model was now made in such a way that the criterion was changed to Mean Squared Error from Categorical Cross Entropy and the labels were kept in the format of [A,B] instead of class labels. The output layer of the fully connected network now has 2 neurons to guess the X and Y displacement. 
+
 
 ## 3.3. Results
 
+### 3.3.1 `Multi-task Segmentation Network`
+
+< Add info here >
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+
+### 3.3.2 `Polygon Refinement Network`
 
 # 4. Conclusion
 
