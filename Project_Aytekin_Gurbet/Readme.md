@@ -12,7 +12,12 @@ As we know that train step is the one of the most crucial parts in deep learning
 
 Paper suggest a solution which minimizing the bias in active learning while not changing current Active Learning methods. In this paper, we are using pool based active learning. This means we have tow sets called D_pool and D_train. We are training our model with D_train and after train step we test model with D_pool dataset. Afterwards, according to their scores (Scores we get from q function (BALD etc.)), we select instance with least certainity value and remove move it to D_train and train our model again. 
 
-Other than algorithm, it build two risk estimators called R_Pure (Plain Unbiased Risk Estimator) and R_Lure (Levelled Unbiased Risk Estimator). We can think risk estimators as loss formulas. By using these estimators, we can get unbiased Active Learning algorithm. 
+Other than algorithm, it build two risk estimators called R_Pure (Plain Unbiased Risk Estimator) and R_Lure (Levelled Unbiased Risk Estimator). We can think risk estimators as loss formulas. By using these estimators, we can get unbiased Active Learning algorithm.
+
+This is the algorithm from paper:
+ 
+![1 1](https://user-images.githubusercontent.com/62703461/177638538-59b2c37c-b818-4968-8977-5a6c6bf326ac.png)
+
 
 # 2. The method and my interpretation
 
