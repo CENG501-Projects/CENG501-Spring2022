@@ -54,6 +54,8 @@ After normalizations, we get a new image.
   
 Now we can freely use CNN based architectures to classify and find bounding boxes, which gets us to the most complex part of the paper. Enforced Detector.
 # 2 - Enforced Detection Network
+
+
  <br/>
   ![Alt text](images/enforced.png?raw=true "")
 <br/>
