@@ -30,11 +30,13 @@ We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Ar
 
 We imported the datasets using “keras”. After the data was imported, the training and test set were combined and augmentation was applied by creating symmetrical images. After augmentation, 1/7 of the whole data was labeled as the test set and 1/6 of the rest was labeled as the validation set using "train_test_split". To train the network, the batch size is taken as 64 as stated in the article.
 
+
 | **Loss**           | **Acc**      | **ECE**        | **Acc**                         | **ECE**             |
-|------**Loss**------|--------------|----------------|---------------------------------|---------------------|
+|--------------------|--------------|----------------|---------------------------------|---------------------|
 |   CE (a=0          |              |                |                                 |                     |
 |LS (a opt. for acc.)|              |                |                                 |                     |
 |LR (a opt. for acc.)|              |                | $LR=0.005 , Decay Rate = 0.99$  |                     |
+
 
 ## 3.2. Running the code
 
