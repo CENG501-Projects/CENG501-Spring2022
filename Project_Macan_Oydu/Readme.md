@@ -85,7 +85,9 @@ We can easily notice the huge difference on RMSE and PNSR. This difference is oc
 
 @TODO: Discuss the paper in relation to the results in the paper and your results.
 
-It is observed that, with proposed illumination transformation mappping, shadow are removed with more realistic modelling. Obtained shadow free image results shows that this statement is true. Since we did not implement other shadow removel approaches, we cannot make any comment on relative performance of the model presented in the paper compared to other. However, as shown in the paper, ONUR YAPACAK
+It is observed that, with proposed illumination transformation mappping, shadow are removed with more realistic modelling. Obtained shadow free image results shows that this statement is true. Since we did not implement other shadow removel approaches, we cannot make any comment on relative performance of the model presented in the paper compared to other. However, as shown in the paper, from the following figure given in the paper we can easily see that this model performed better than other state-of-the-art shadow removal models.
+
+|![image](https://user-images.githubusercontent.com/82730997/177570294-0da17f22-d26c-433a-9fbb-b7f031962e52.png)|
 
 However, we observed low performance while model tries to remove shadows in which shadows are located in multiple ares with very distinct colours such as these. 
 | Original Image (Input) - Non-Shadow Image (Output) - Ground Truth| 
@@ -94,6 +96,7 @@ However, we observed low performance while model tries to remove shadows in whic
 | ![460_result](https://user-images.githubusercontent.com/82730997/177568564-5d275d6f-d37f-417a-9f6c-a28d67381a6f.jpeg) |
 | ![518_result](https://user-images.githubusercontent.com/82730997/177568760-d463f668-7644-4672-9e8f-30111cb89685.jpeg) |
 
+This problem may be eliminated with fine-tuning. One may try increasing the number of epochs because we noticed that loss was still contiuning to drop until the last epoch, if we had taken a larger number of epochs (170-180) we might have gotten better results. 
 
 ### INSERT RESULT HERE ####
 
