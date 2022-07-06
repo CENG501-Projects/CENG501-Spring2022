@@ -79,7 +79,10 @@ During the project, there were some points that we could not comprehend and impl
 
 ## 3.1. Experimental setup
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
+The paper used the KITTI, Waymo Open, nuScenes datasets for the training and test dataset. There are eight classes for object detection in the dataset, and we trained our network for all these classes. We used only KITTI dataset for training and testing our model. In the enforced detection network, we implemented and used the feature normalization module, which is a combination of ball query normalization and bilinear interpolation normalization as in the paper with their constants such as m, ω while taking the same value for each. They used the average precision (AP) metric to compare different evaluation methods. We used labels to compare our model with the proposed model.
+
+KITTI 3D includes 7481 training samples and 7518 test samples. However, due to large file sizes, we have only used a part of the training samples for analysis. We used cross-entropy for loss evaluation and Adam algorithm for the optimizer. We used Colab Pro for the training and obtained the results. The properties of the training model can be seen in the table below.
+
 
 ## 3.2. Running the code
 
