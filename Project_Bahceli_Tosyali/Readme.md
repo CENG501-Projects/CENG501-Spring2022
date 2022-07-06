@@ -75,6 +75,7 @@ During the project, there were some points that we could not comprehend and impl
 
 ·         The paper has a layer called ‘backbone’ for the enforced detection network. However, it is not clear how it is implemented or the source of this backbone.
 
+.          The difference between the implementations can be seen by comparing these two images gathered after normalization. 
 # 3. Experiments and results
 
 ## 3.1. Experimental setup
