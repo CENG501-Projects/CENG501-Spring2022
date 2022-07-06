@@ -17,15 +17,23 @@ To demonstrate the vanishing gradient problem of a layer in SNN, the authors der
 ## 2.1. The original method
 
 To overcome the vanishing gradient problem two modifications are proposed in the paper. As in GRUs and LSTMs, one modification called “the SNNs with improved dynamics v1” is to selectively update the state of the neurons based on the equations below:
-F[n]=σ(X[n] W_fi )
-C[n]=ReLU(X[n] W_ci )
-I[n]=F[n]  ⊙I[n-1]+(1-F[n])⊙C[n]
+
+$$F[n]=σ(X[n] W_{fi} )$$
+
+$$C[n]=ReLU(X[n] W_{ci} ) $$
+
+$$I[n]=F[n]⊙I[n-1]+(1-F[n])⊙C[n]$$
+
 where ⊙ operator corresponds to element-wise multiplication, W_fi and W_ci correspond to weight matrices for input messages to determine forget and candidate signal, respectively. Because changes in synaptic currents are made based on inputs at every time-step independent of the current synaptic current values, this strategy would eliminate the advantage of having sparse inputs. 
 
 Another approach called “the SNNs with improved dynamics v2” is to use Y[n] which is a sparse and provides an approximation of I[n] as in following equations to update the synaptic current equation:
-[n]=σ(X[n] W_fi+Y[n-1]W_fr )
-C[n]=ReLU(X[n] W_ci+Y[n-1]W_cr )
-I[n]=F[n]  ⊙I[n-1]+(1-F[n])⊙C[n]
+
+$$F[n]=σ(X[n] W_{fi}+Y[n-1]W_{fr} )$$
+
+$$C[n]=ReLU(X[n] W_{ci}+Y[n-1]W_{cr} )$$
+
+$$I[n]=F[n]  ⊙I[n-1]+(1-F[n])⊙C[n]$$
+
 where ⊙ operator again corresponds to element-wise multiplication, W_fr and W_cr correspond to weight matrices for previous outputs to determine forget and candidate signal, respectively.
 
 The authors also found that employing a constant threshold does not work effectively for various learning problems since the maximum range of the membrane potentials varies for distinct datasets. They use an exponential moving average (EMA) to monitor the membrane potential statistic. And estimate the membrane potential during the training to reach an appropriate threshold which is simplified as a linear function of membrane potential.
