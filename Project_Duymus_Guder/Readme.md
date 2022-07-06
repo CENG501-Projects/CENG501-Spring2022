@@ -33,7 +33,7 @@ The paper is well-written and there are not much problems with the explanations,
 
 ## 3.1. Experimental setup
 
-For our network, we preferred to use VGG16 instead of ResNet since adjusting residual connections after pruning mgiht be complicated. With VGG16, a pruning on a convolutional layer only affects that layer and a single layer following it. 
+For our network, we preferred to use VGG16 instead of ResNet since adjusting residual connections after pruning might be complicated. With VGG16, a pruning on a convolutional layer only affects that layer and a single layer following it. We also formatted the VGG network for CIFAR-10 dataset, so the classifier part output a 10-dimensional vector rather than a 1000-dimensional one.
 
 We started by implementing a graph construction function. Here we used flattening and normalization similar to that in the paper. For the similarity threshold γ, we manually tested a few different values and decided to use 0.02, which is in range of the values used in the paper. Using weighted average of ℓ-covering and quotient space size we found the layer with the most redundancy. We used same weights as the authors (0.65 for ℓ-covering and 0.35 for quotient space size). 
 
