@@ -66,7 +66,7 @@ From our trained model, we got the following results on ISTD dataset.
 | ![18_result](https://user-images.githubusercontent.com/82730997/177533626-b6f0f0b7-e142-4fed-b45b-63a2a70a0d61.jpeg)|
 | ![6_result](https://user-images.githubusercontent.com/82730997/177533691-a55416a5-c2ca-4c98-96cc-bb79648c9987.jpeg) |
 
-Result images given in the paper are as the following.
+Result images given in the figure 5 of the paper are as the following.
 ![image](https://user-images.githubusercontent.com/82730997/177547868-cf47de6a-f0da-4e8d-ba5f-b68452be5309.png)
 
 
