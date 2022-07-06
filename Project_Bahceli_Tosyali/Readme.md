@@ -39,7 +39,18 @@ Ti+1 = σ(Wi(Hi+1)) = σ(Wi([Ti, G])) where Ti is the output of the previous lay
   ![Alt text](images/customloss2.png?raw=true "")
 <br/>
  
- First of those normalizations is called Ball query Normalization. Here we generate the smallest grid M which is of size mxm (128 in the paper ) which fit the points generated T. 
+ After calculating the loss we need to normalize the data, the paper suggest two different normalization tehniques. 
+ <br/>
+  ![Alt text](images/normalization.png?raw=true "")
+<br/>
+ 
+ First of those normalizations is called Ball query Normalization. Here we generate the smallest grid M which is of size mxm (128 in the paper ) which fit the points generated T. After generating grid, we search around every point with a radius r and move the selected point to a corner of the grid  via weighted voting with the distances of other points between the radius.
+<br/>
+Second normalization is the Linear Interpolation normalization, we again get the grid and move every points with respect to the weights of the other points, but the difference here is that we use k nearest neighbours instead of sarching around a radius. The radius is recommended as 5 in this paper. 
+<br/>
+After normalizations, we get a new image. 
+<br/>
+  ![Alt text](images/resultimage.png?raw=true "")
 ## 2.2. My interpretation 
 
 During the project, there were some points that we could not comprehend and implement in our work.
