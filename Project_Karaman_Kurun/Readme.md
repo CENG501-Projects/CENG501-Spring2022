@@ -67,12 +67,12 @@ We couln't generate the results which brings no comparison between our results a
 
 You can cite paper with:
 ```bibtex
-@inproceedings{gao2021hifaface,  <br/>
-  title={High-Fidelity and Arbitrary Face Editing},  <br/>
-  author={Gao, Yue and Wei, Fangyun and Bao, Jianmin and Gu,  <br/>
-          Shuyang and Chen, Dong and Wen, Fang and Lian, Zhouhui},  <br/>
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},  <br/>
-  year={2021}  <br/>
+@inproceedings{gao2021hifaface,  
+  title={High-Fidelity and Arbitrary Face Editing}, 
+  author={Gao, Yue and Wei, Fangyun and Bao, Jianmin and Gu,  
+          Shuyang and Chen, Dong and Wen, Fang and Lian, Zhouhui}, 
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition}, 
+  year={2021}  
 }
 ```
 # Contact
