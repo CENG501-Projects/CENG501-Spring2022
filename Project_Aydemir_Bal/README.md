@@ -97,7 +97,7 @@ We provided the code for only CIFAR-10, however it can be easily extended to pro
 - They used a SGD optimizer with a constant learning rate = 0.1, momentum = 0.9, Nesterov = False, weight decay = 5e-4, batch size = 512, epochs = 2000, lambda1 (entropy coefficient) = 1 and lambda2 (FCLoss coefficient) = 10. We followed their setup except lambda1, which is the entropy coefficient.
 
 ## 3.2. Running the code
-We trained our model with Python X, PyTorch 1.10 and Cuda version 10.2 on a single P100 GPU.
+We trained our model with Python 3.6, PyTorch 1.10 and Cuda version 10.2 on a single P100 GPU.
 To start a training with the hyper-parameters in the paper, given:
 - `$DATA_PATH`, path to desired location to download (or located) dataset
 - `$LOG_PATH`, path to desired location to locate log file of training
