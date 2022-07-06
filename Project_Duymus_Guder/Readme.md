@@ -17,9 +17,9 @@ Initially, authors start by representing each convolutional layer as a graph so 
 
 The redundancy value of a layer is then computed by utilizing quotient space size, and 1-covering-number of the graph. Since computinng the ℓ-covering-number is NP-Hard, authors estimated 1-covering-number to achieve reasonable computation complexities. A weighted average of _estimated_ 1-covering-number and quotient space size is used, where the weights are also parameters but the authors observed no drastic impact of values, and eventually used 0.65 and 0.35 in the favor of 1-covering-number _estimation_.
 
-_High ℓ-covering-number and large quotient space size indicates less redundancy, i.e. intuitively, the filters in the layer can be considered as linearly independent_
+_High ℓ-covering-number and large quotient space size indicates less redundancy, i.e. intuitively, the filters in the layer can be considered as linearly independent._
 
-With the identification of the most structurally redundant layer, the next step is to find the filters to be pruned. Here, different metrics can be used, yet the authors use a simple method of pruning the filters with smaller absolute weights. The reasoning is provided as a theoretical proof in the paper. In this proof, five different prunings schemes and resulting accuracies are compared. In a setting with two layers where η is a much more redundant layer than ξ;
+With the identification of the most structurally redundant layer, the next step is to find the filters to be pruned. Here, different metrics can be used, yet the authors used a simple method to prune the filters with smaller absolute weights. The reasoning is provided as a theoretical proof in the paper. In this proof, five different prunings schemes and resulting accuracies are compared. In a setting with two layers where η is a much more redundant layer than ξ;
 
 - p<sub>o</sub> denotes the accuracy with no pruning
 - p<sub>ηr</sub> denotes the accuracy with a random pruning from layer η
@@ -31,13 +31,19 @@ The relationship between these five accuracies are given as p<sub>ξ'</sub> ≤ 
 
 ## 2.2. My interpretation 
 
-The paper is well-written and there are not much problems with the explanations, however the filter selection is the most simplified aspect of the paper. Although the theoretical proof provides a good reasoning, the performance improvement by simplification of this part is still not clear. Also there is not a clear explanation of how many filters are pruned at each iteration. As a result, we preferred to decide the number of to-be-pruned filters based on the redundancy of the layer.
+The paper is well-written and there are not much problems with the explanations, however the filter selection is the most simplified aspect of the paper **apart from the missing Appendix**. Although the theoretical proof provides a good reasoning, the performance improvement by simplification of this part is still not clear. Also, there is no clear explanation of how many filters to prune at each iteration. Accordingly, we've decided to calculate the number of to-be-pruned filters based on the redundancy of a layer.
 
 # 3. Experiments and results
-
 ## 3.1. Experimental setup
 
-For our network, we preferred to use VGG16 instead of ResNet since adjusting residual connections after pruning might be complicated. With VGG16, a pruning on a convolutional layer only affects that layer and a single layer following it. We also formatted the VGG network for CIFAR-10 dataset, so the classifier part output a 10-dimensional vector rather than a 1000-dimensional one.
+For our network, we preferred to use VGG16 instead of ResNet since adjusting residual connections after pruning might be complicated. With VGG16, a pruning on a convolutional layer only affects that layer and a single layer following it.
+
+Since the [VGG16 model](https://pytorch.org/vision/main/models/generated/torchvision.models.vgg16.html) that Torch provides is pre-trained and uses an MLP head suitable for ImageNet dataset, we've decided to implement our own VGG16 that is suitable for CIFAR-10. We've then trained the network on CIFAR-10 for 50 epochs with:
+- CrossEntropy loss
+- SGD with momentum (=0.9)
+- Batch size of 256, and learning rate of 1e-2
+
+**Although we didn't have enough resources/time to tune the network to the optimum, it provided 77.7% accuracy on the test set, which is a reasonable baseline performance to compare, without any pruning.**
 
 We started by implementing a graph construction function. Here we used flattening and normalization similar to that in the paper. For the similarity threshold γ, we manually tested a few different values and decided to use 0.02, which is in range of the values used in the paper. Using weighted average of ℓ-covering and quotient space size we found the layer with the most redundancy. We used same weights as the authors (0.65 for ℓ-covering and 0.35 for quotient space size). 
 
