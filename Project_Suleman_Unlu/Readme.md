@@ -20,6 +20,7 @@ The original method consists of two parts which is a `Multi-task Segmentation Ne
 < Add info here >
 
 ### 2.1.2 `Polygon Refinement Network`
+
 The Polygon Refinement Network Consists of two major parts. The first major part is the **Resnet Backbone & Vertex Embedding** which acts as the feature extractor for each vertix. The second major part is the **Propogation Model & Coordinate Transforming & Refined Polygon Vertices** model which is actually just one Gated Graph Neural Network.
 
 #### **Resnet Backbone & Vertex Embedding**
@@ -58,7 +59,28 @@ The polygonal vertices obtained from the Vertex Embedding step are considered as
 
 ## 3.1. Experimental setup
 
+### 3.1.1 `Multi-task Segmentation Network`
+
+< Add info here >
 @TODO: Describe the setup of the original paper and whether you changed any settings.
+
+### 3.1.2 `Polygon Refinement Network`
+
+* As the dataset of the paper,OpenAI Mapping Challenge Dataset, was available on Kaggle, it was utilized through Kaggle directly to the Google Colab File.
+* The Polygon Refinement Netwok is trained independtly of the Multi-task Segmentation Network, artificial training data was generated for the Polygon Refinement Network through the Dataset directly.
+  * From the dataset, the first 500 instances of building segments are iterated over, which lead to 3985 vertex predictions.
+  * As this is the ground truth data, artificial test data is created from this by adding random noise to the predicted vertex. 
+  * It was also noted that the bounding box data of certain building segments were erroneous, where the ground truth segmentation and ground truth bounding box did not have any overlapping area. To solve this, bounding box information was generated from the segementation data , as would be done in inference phase, through the minimum and maximum of all the vertices of the polygon in x and y axis. From these min and max values, a tolerance is added to get the bounding box. 
+  * This tolerance is added above to the bounding box to enlarge it, as further now in the cropepd building segment from the original picture, noise will be added to deviate the vertices from the true points. As the prediction of the vertex displacement is to be done in the range of [-7,7], this is also taken as the range of the noise added.
+  * When the noise is added, the noisy polygon vertex located in the 112x112 feature map with 256 features is chosen as the data to analyse, and the noise added in the format of [A,B] , where A and B are values between +7 and -7, is trated as the truth label of this new data.
+* As cross entropy is used as the loss, and the task is treated as a classfication problem, the label data is to be reformated from the [A,B], where A and B are values between +7 and -7, to multiclass labels and as this is a 15x15 grid, it converts to 255 individual labels from range 0 to 224.
+  * This mapping function from [A,B] format to a label is performed through: $$Label=[(A+7)*15] + (B+7)$$.
+  * Through this, the top left element,[-7,-7], of the 15x15 grid is formulated as 0, the bottom right element ,[7,7], is the last element with label 224, and the centre of the 15x15 grid which account for [0,0] displacement is labaled 112.
+  * This mapping function also works to convert the label back to displacement which is the purpose of the Coordinate Transforming Model.
+* The vertex and image originate in the format of a 300x300 image. After the bounding box is determined through the segmentation from the Multiclass Segmentation Network, The bouding box is cropped out and the vertex coordinates are transformed from the original 300x300 frame to this new arbitrary bounding box shape. Further this cropped image is now rescaled to 224x224 to be suitable as an input with resnet, and now the vertex coordinates are transformed with the ratio of: $$X_{new} = {X_{old}*224 \over X_{length} }$$ $$Y_{new} = {Y_{old}*224 \over Y_{length} }$$ These vertices are then halved to be applicable to the final feature map of 112x112
+* These vertices , now transformed to the 112x112 shape, are then used to extract node-level 256 features for each vertex from the feature map.
+* These nodes could then be used as inputs to the propogation model.
+
 
 ## 3.2. Running the code
 
