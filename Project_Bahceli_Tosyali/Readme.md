@@ -10,14 +10,14 @@ implemented in LIDAR technologies. This paper which is implemented by Qingdong H
 
 ## 1.1. Paper summary
 
- This paper is actually combination of 3 separate  different neural networks and some smoothing between each of them. Pipeline is further explained below
- 1 - Extract the training data
- 2 - Generate a feature extractor ( which can be also be another neural network , or a more well known extractor )
- 3 - First Neural Network in the paper, which is the feature embedder. After generating the feature extractor, concatenate the feature extractor  with the points 
- in order to add some extra dimensionality. 
- 4 - Design two different losses for smoothing 
- 5 - After smoothing use an Enforced Detection Network (a complex CNN architecture ) to get 4 different images
- 6 - Use one last neural network to classify those images and generate bounding boxes
+ This paper is actually combination of 3 separate  different neural networks and some smoothing between each of them. Pipeline is further explained below<br/>
+ 1 - Extract the training data<br/>
+ 2 - Generate a feature extractor ( which can be also be another neural network , or a more well known extractor )<br/>
+ 3 - First Neural Network in the paper, which is the feature embedder. After generating the feature extractor, concatenate the feature extractor  with the points <br/>
+ in order to add some extra dimensionality. <br/>
+ 4 - Design two different losses for smoothing <br/>
+ 5 - After smoothing use an Enforced Detection Network (a complex CNN architecture ) to get 4 different images<br/>
+ 6 - Use one last neural network to classify those images and generate bounding boxes<br/>
 # 2. The method and my interpretation
 
 ## 2.1. The original method
