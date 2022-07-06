@@ -59,11 +59,14 @@ pip3 install -r requirements.txt
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
 From our trained model, we got the following results on ISTD dataset.
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
+| Original Image - Non-Shadow Image - Ground Truth| 
+| ------------- |
 | ![25_result](https://user-images.githubusercontent.com/82730997/177533243-f72e768e-08d2-45e8-8518-ea1da2064a4b.jpeg)|
-|  |
-|  |
+| ![12_result](https://user-images.githubusercontent.com/82730997/177533491-1c1653bb-3a9b-42b0-9621-ce1270f67246.jpeg)|
+| ![15_result](https://user-images.githubusercontent.com/82730997/177533544-0d3e100b-e70b-4e9f-8036-2953335729d0.jpeg)|
+| ![18_result](https://user-images.githubusercontent.com/82730997/177533626-b6f0f0b7-e142-4fed-b45b-63a2a70a0d61.jpeg)|
+| ![6_result](https://user-images.githubusercontent.com/82730997/177533691-a55416a5-c2ca-4c98-96cc-bb79648c9987.jpeg) |
+
 # 4. Conclusion
 
 @TODO: Discuss the paper in relation to the results in the paper and your results.
