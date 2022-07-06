@@ -76,6 +76,10 @@ When it comes to computational savings, 4.37-5.40 x fewer number of sparse outpu
 
 @TODO: Discuss the paper in relation to the results in the paper and your results.
 
+
+
+Due to their event-driven computation and built-in repetition that aids in information retention over time, SNNs have been proposed as a potential option for low-power machine intelligence. However, due to a poor task selection and the vanishing gradient problem, practical applications of SNNs have not been successfully shown. In this paper, SNNs having developed inherent recurrence dynamics which can learn long sequences effectively was proposed with 2 x reduction in number of the trainable parameters compared to the LSTMs. It was shown that the proposed SNN model on the TIMIT and LibriSpeech 100h dataset, narrowed the difference between the speech recognition capabilities of LSTMs and GRUs to 1.10% and 0.36%, respectively. Also, it results in 10.13–11.14 x savings in multiplication operations over conventional GRUs.
+
 # 5. References
 
 [1] Ponghiran, W., & Roy, K. (2022, June). Spiking Neural Networks with Improved Inherent Recurrence Dynamics for Sequential Learning. In Proceedings of the AAAI Conference on Artificial Intelligence (Vol. 36, No. 7, pp. 8001-8008).
@@ -95,5 +99,6 @@ When it comes to computational savings, 4.37-5.40 x fewer number of sparse outpu
 # Contact
 
 Gulfem Akpinar (gulfem.akpinar@metu.edu.tr)
+
 Muratcan Ayik (muratcan.ayik@metu.edu.tr)
 
