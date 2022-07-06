@@ -70,6 +70,7 @@ As stated in the introduction, the essential hyperparameter setup for optimizers
 
 - Nouman. (2022, January). Writing Lenet5 from scratch in Pytorch. Paperspace Blog. Retrieved June 26, 2022, from https://blog.paperspace.com/writing-lenet5-from-scratch-in-python/ 
 - Tran, T. H., Nguyen, L. M., & Tran-Dinh, Q. (2020). SMG: A Shuffling Gradient-Based Method with Momentum. arXiv preprint arXiv:2011.11884.
+- Yu, J. (2018). LeNet-300-100 [https://github.com/jiecaoyu/scalpel-1/]
 
 
 # Contact
