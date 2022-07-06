@@ -115,6 +115,23 @@ You can also use, Jupyter Notebook to use your own hardware instead of the assig
 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
 
+In the paper, there exists no numerical results. Instead, they present their results using graphs obtained from the average of 10 runs. Thus, we used the same method to compare our results. We used both train loss and the norm of grad squares obtained from the history of training, same as in the paper.
+
+The first experiment compares SMG itself by using different learning rate schedulers. They use 4 distinct learning schedulers namely, `constant`, `exponential`, `diminishing` and `cosine`. We used the same formula for schedulers they used in the paper. You can see the plotting of the acquired `train loss` results presented in the paper and our results below:
+
+![imgonline-com-ua-twotoone-PRA65LYd0cnGOWKr](https://user-images.githubusercontent.com/44034966/177620586-e5ca1da2-8d50-4f13-892c-e7f3e82576aa.jpg)
+<p align="center"> Figure 1. Train Loss of SMG with Different Learning Schedulers (Paper Results) </p>
+
+<img width="1383" alt="image" src="https://user-images.githubusercontent.com/44034966/177621433-10d5683d-c95f-4ebb-ad22-aab60fa19569.png">
+<p align="center"> Figure 2. Train Loss of SMG with Different Learning Schedulers (Our Results) </p>
+
+You can see the plotting of the acquired `norm square of gradients` results presented in the paper and our results below:
+
+
+
+
+
+
 # 4. Conclusion
 
 @TODO: Discuss the paper in relation to the results in the paper and your results.
@@ -130,4 +147,4 @@ w8a and ijcnn1 classification datasets are downloaded from https://www.csie.ntu.
 
 # Contact
 
-For any further questions and suggestions, you can contact us at omer.kose@metu.edu.tr / yigit.varli@metu.edu.tr
+For any further questions and suggestions, you can contact us at omer.kose@metu.edu.tr and yigit.varli@metu.edu.tr
