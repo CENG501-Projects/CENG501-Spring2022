@@ -32,7 +32,15 @@ Ti+1 = σ(Wi(Hi+1)) = σ(Wi([Ti, G])) where Ti is the output of the previous lay
  First of those normalizations is called Ball query Normalization. Here we generate the smallest grid M which is of size mxm (128 in the paper ) which fit the points generated T. 
 ## 2.2. My interpretation 
 
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+During the project, there were some points that we could not comprehend and implement in our work.
+
+·         The first one is the feature extractor. In the paper, the feature extractor module is not described in detail. Writers used their own module, which is not available on the internet. Therefore, we first searched for appropriate feature extractors. Then we found extractors such as principal component analysis (PCA) and support vector machines (SVM). We implement PCA for our feature extractor in our project to create different types of input features.
+
+·         The second problem we encountered is detector and classifier and non-maximum suppression (NMS) with merging and scoring layers in the paper. The reason is that there is insufficient explanation and citations about these layers. Therefore, we implemented and customized a pre-trained neural network resnet34 as our detector and classifier. With the help of this, we could get predictions as bounding boxes and labels. After that, we implemented a layer for the NMS part to merge the final layers.
+
+·         Besides these, since data size is enormous and requires massive computing power, we used only a part of the training data for our model to get the results.
+
+·         The paper has a layer called ‘backbone’ for the enforced detection network. However, it is not clear how it is implemented or the source of this backbone.
 
 # 3. Experiments and results
 
