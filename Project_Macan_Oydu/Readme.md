@@ -85,7 +85,7 @@ We can easily notice the huge difference on RMSE and PNSR. This difference is oc
 
 It is observed that, with proposed illumination transformation mappping, shadow are removed with more realistic modelling. Obtained shadow free image results shows that this statement is true. Since we did not implement other shadow removel approaches, we cannot make any comment on relative performance of the model presented in the paper compared to other. However, as shown in the paper, from the following figure given in the paper we can easily see that this model performed better than other state-of-the-art shadow removal models.
 
-|![image](https://user-images.githubusercontent.com/82730997/177570294-0da17f22-d26c-433a-9fbb-b7f031962e52.png)|
+![image](https://user-images.githubusercontent.com/82730997/177570294-0da17f22-d26c-433a-9fbb-b7f031962e52.png)
 
 However, we observed low performance while model tries to remove shadows in which shadows are located in multiple ares with very distinct colours such as these. 
 | Original Image (Input) - Non-Shadow Image (Output) - Ground Truth| 
@@ -97,7 +97,7 @@ However, we observed low performance while model tries to remove shadows in whic
 This situation is not presented in the paper, so we dont know whether it is caused by our implementation or model itself. This problem may be eliminated with fine-tuning if it not caused due to implementation of the model. One may try increasing the number of epochs because we noticed that loss was still contiuning to drop until the last epoch, if we had taken a larger number of epochs (170-180) we might have gotten better results. 
 
 According to our experiences while testing the model, the most important drawback of this model is it takes rougly a second to get an output from the model (hardware 
-is Intel i7 6700HQ with 24GB DDR4 RAM) . Therefore, one may need powerful hardware to run this model on real time camera streams to get high FPS rate.
+is Intel i7 6700HQ with 24GB DDR4 RAM). Therefore, one may need powerful hardware to run this model on real time camera streams to get high FPS rate.
 
 # 5. References
 
