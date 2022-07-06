@@ -1,17 +1,23 @@
-# SCIR-Net: Structured Color Image Representation Based 3D Object Detection
-# Network from Point Clouds
+# SCIR-Net: Structured Color Image Representation Based 3D Object Detection Network from Point Clouds
 
 
 This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.edu.tr/~skalkan/DL/) project for reproducing a paper without an implementation. See [CENG501 (Spring 2022) Project List](https://github.com/CENG501-Projects/CENG501-Spring2022) for a complete list of all paper reproduction projects.
 
 # 1. Introduction
 
-@TODO: Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
+ Altough object detection for 2D images is highly examined and there are numerous state of the art tecniques,there aren't any useful object detection techniques
+implemented in LIDAR technologies. This paper which is implemented by Qingdong He , Hao Zeng1, Yi Zeng and Yijun Liu and which is published in AAAI22 introduces a new method with neural networks in order to achieve satisfying results in the domain of LIDAR technologies. 
 
 ## 1.1. Paper summary
 
-@TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
-
+ This paper is actually combination of 3 separate  different neural networks and some smoothing between each of them. Pipeline is further explained below
+ 1 - Extract the training data
+ 2 - Generate a feature extractor ( which can be also be another neural network , or a more well known extractor )
+ 3 - First Neural Network in the paper, which is the feature embedder. After generating the feature extractor, concatenate the feature extractor  with the points 
+ in order to add some extra dimensionality. 
+ 4 - Design two different losses for smoothing 
+ 5 - After smoothing use an Enforced Detection Network (a complex CNN architecture ) to get 4 different images
+ 6 - Use one last neural network to classify those images and generate bounding boxes
 # 2. The method and my interpretation
 
 ## 2.1. The original method
