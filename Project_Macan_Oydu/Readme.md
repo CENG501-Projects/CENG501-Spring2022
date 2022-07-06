@@ -56,7 +56,7 @@ pip3 install -r requirements.txt
 
 From our trained model, we got the following results on ISTD dataset.
 
-| Original Image - Non-Shadow Image - Ground Truth| 
+| Original Image | Non-Shadow Image | Ground Truth| 
 | ------------- |
 |![171_result](https://user-images.githubusercontent.com/82730997/177566424-65867079-02a7-4b94-9722-151bf00c341c.jpeg)|
 |![378_result](https://user-images.githubusercontent.com/82730997/177566712-7b4eb117-ecd3-4f2f-aa27-6e21ee49ccb2.jpeg)|
