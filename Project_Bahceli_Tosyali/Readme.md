@@ -23,17 +23,21 @@ implemented in LIDAR technologies. This paper which is implemented by Qingdong H
 ## 2.1. The original method
 # 1 - Feature Embedding Generation
  The paper starts via giving intuition for why do we need feature extractor for point clouds. The reason is to basically differentiate the trining data from other training datas, two points from two different training samples may have the same x,y,z,r coordinates, but it is hard to have same covariance with two different point clouds. After the explanation paper gives us a list of current point cloud extractor which are all designed with multi layer perceptrons. After feature extraction part, paper states that we need to concatanate the feature descriptor values with each of the current points. After concatenation happened we get a matrix of ( N  x (F+4)) where N is the number of points and F is the dimensions of the feature extractor which is 1024 in the paper. Now we can feed this input to our first neural network.  
+ 
    
  The network consist of Three layers, in each layer except first we concatenate the latest output we have with originial points. Hidden layer and the output is always of the same which is 2 * N, since the objective is to project the points to 2D coordinate system.   <br/>
 Ti+1 = σ(Wi(Hi+1)) = σ(Wi([Ti, G])) where Ti is the output of the previous layer (for first layer they are the points) <br/>
  After doing the iterations in the layers, we pass the newly obtained 2D point T, we use a custom loss in order to further normalize data.<br/>
  The custom loss is generated via calculating min||ti - tj||2 for each point where ti is 2D point in T after calculating min||ti - tj||2 which is called di we generate the loss for point ti which is 
+ <br/>
  ![Alt text](images/customloss.png?raw=true "")
+ <br/>
  
  
  And the the total loss is 
+<br/>
   ![Alt text](images/customloss2.png?raw=true "")
-
+<br/>
  
  First of those normalizations is called Ball query Normalization. Here we generate the smallest grid M which is of size mxm (128 in the paper ) which fit the points generated T. 
 ## 2.2. My interpretation 
