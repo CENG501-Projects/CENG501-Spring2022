@@ -113,8 +113,6 @@ You can also use, Jupyter Notebook to use your own hardware instead of the assig
 
 ## 3.3. Results
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
-
 In the paper, there exists no numerical results. Instead, they present their results using graphs obtained from the average of 10 runs. Thus, we used the same method to compare our results. We used both train loss and the norm of grad squares obtained from the history of training, same as in the paper.
 
 **Experiment 1:**
@@ -156,22 +154,30 @@ You can see the plotting of the acquired `the squared norm of gradient` results 
 <img width="1373" alt="image" src="https://user-images.githubusercontent.com/44034966/177627827-a7f9927f-4971-4ed7-91ea-196a995b7c2e.png">
 <p align="center"> Figure 8. The squared norm of gradient produced by SMG, SSMG, SGD, SGD-M, and ADAM (Our Results) </p>
 
+We have very similar results on the datasets CIFAR-10 and Fashion-MNIST compared to the paper. There are some small changes in graphs. On the contrary, we were not able to catch the numbers of w8a and ijcnn1 classification datasets like we did in CIFAR-10 and Fashion-MNIST. However, we were able to catch the trends.
 
-In general, even though we could not get the same numbers, we were able to catch the same trend with the results that are obtained in the paper. This is due to following reasons:
-- They reported the results as average of 10 runs with different random seeds.
-- They were able to do exhaustive grid search to find hyperparameters that performs best according to their definition.
-- Normalization of datasets differ with respect to each other.
-- There might be architectural differences in the networks.
 
 # 4. Conclusion
 
-@TODO: Discuss the paper in relation to the results in the paper and your results.
+In general, even though we could not get the same numbers, we were able to catch the same trend with the results that are obtained in the paper. This is due to following reasons:
+- They reported the results as average of 10 runs with different random seeds.
+- Each run gives them different starting point for the model. 
+- They were able to do exhaustive grid search to find hyperparameters that performs best according to their definition.
+- We used different hyperparameters.
+- Normalization of datasets differs with respect to each other.
+- There might be architectural differences in the networks.
+
+We were successful on the side of CIFAR-10 and Fashion-MNIST where we trained them on widely used models LeNet5 and Lenet-300-100. Since the implementation details are explicitly stated for these, there are some small differences in the graphs. Main reasons are difference in normalization and choices of hyperparameters. We were probably able to choose the ones that performs similar to authors. 
+
+Although the graphs of train loss are similar at first sight for w8a and ijcnn1, there are some big numerical differences. Since these classification datasets are scaled to ranges [-1,1] or [0,1], we do not think normalization makes the big difference here. Since the network for nonconvex logistic regression is not stated clearly, we had to decide the architecture ourselves. There might be distinct decisions on the activation functions and other architectural details on the side of authors. 
+
+We think that our implementation of the proposed SMG (Shuffling Gradient Momentum) method is as successful as it is compared to the results shared in the paper.
 
 # 5. References
 
 - Nouman. (2022, January). Writing Lenet5 from scratch in Pytorch. Paperspace Blog. Retrieved June 26, 2022, from https://blog.paperspace.com/writing-lenet5-from-scratch-in-python/ 
 - Tran, T. H., Nguyen, L. M., & Tran-Dinh, Q. (2020). SMG: A Shuffling Gradient-Based Method with Momentum. arXiv preprint arXiv:2011.11884.
-- Yu, J. (2018). LeNet-300-100 [https://github.com/jiecaoyu/scalpel-1/]
+- Yu, J. (2018). LeNet-300-100 https://github.com/jiecaoyu/scalpel-1/
 
 w8a and ijcnn1 classification datasets are downloaded from https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html
 
