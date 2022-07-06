@@ -54,8 +54,9 @@ After normalizations, we get a new image.
   
 Now we can freely use CNN based architectures to classify and find bounding boxes, which gets us to the most complex part of the paper. Enforced Detector.
 # 2 - Enforced Detection Network
-<br/>
+ <br/>
   ![Alt text](images/enforced.png?raw=true "")
+<br/>
  
 <br/>
 Here we have a complex neural network which aims to downsample and upsample with continous convolutions in order to generate 4 different images. Every convolution aside from downsampling and upsampling is done with 3x3 convolution followed by 1x1 convolution. The image from the beginning is supposed to be 128x128 since m is 128, 
