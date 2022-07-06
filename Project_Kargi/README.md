@@ -128,11 +128,12 @@ balanced_style_loss
 │   sanet_main.py 
 │   adain_main.py
 │
-│─── experiments
+│─── train
 │    │─── linear_transfer_train.ipynb
 │    └─── sanet_train.ipynb
 │    └─── adain_train.ipynb
 │─── images
+│
 │
 │─── libs
 │    │─── functions.py
@@ -145,14 +146,19 @@ balanced_style_loss
 │─── styles
 │
 │─── outputs
+│
+│─── experiments
+│    │─── adain
+│    └─── linear_transfer
+│    └─── sanet
 ```
 Below can be found explanation of the files:
 - `linear_transfer_main.py` : Testing environment of the LinearTransfer method
 - `sanet_main.py` : Testing environment of the SaNET method
 - `adain_main.py` : Testing environment of the AdaIN method
-- `experiments/linear_transfer_train.ipynb` : Training environment of the LinearTransfer method 
-- `experiments/sanet_train.ipynb` : Training environment of the SaNET method
-- `experiments/adain_train.ipynb` : Training environment of the AdaIN method 
+- `train/linear_transfer_train.ipynb` : Training environment of the LinearTransfer method 
+- `train/sanet_train.ipynb` : Training environment of the SaNET method
+- `train/adain_train.ipynb` : Training environment of the AdaIN method 
 - `images/` : Folder for holding the images in the README.md file
 - `libs/functions.py` : Generel utilation functions that is used throughout all models
 - `libs/models_adain.py` : AdaIN spesific functions and structures
@@ -161,9 +167,19 @@ Below can be found explanation of the files:
 - `contents/` : Folder containing example content images C
 - `styles/` : Folder containing example style images S
 - `outputs/` : Folder containing example output images P
+- `experiments/adain` : Folder containing the weights for AdaIN models
+- `experiments/linear_transfer` : Folder containing the weights for LinearTransfer models
+- `experiments/sanet` : Folder containing the weights for Sanet models
 
 
-Explain your code & directory structure and how other people can run it.
+To train the models, please refer to the original implementation of the AST models. [[5]](#5) [[6]](#6) [[7]](#7)
+
+Follow these steps to run the main scripts used for testing the models.
+1) Download the models weight and place it under the experiments folder
+2) Provide the path to the model weights in the main script
+3) Run the script with desired iteration number
+
+
 
 ## 3.3. Results
 
@@ -225,10 +241,19 @@ As also explained in the section above, due to the time constraint, we have skip
 Nevertheless, we see our project as a success in terms of showing what the authors have proposed.
 
 # 5. References
-<a id="1">[1]</a> 
-https://arxiv.org/abs/1703.06868
-Provide your references here.
+<a id="1">[1]</a>  Cheng, Jiaxin, et al. Style-Aware Normalized Loss for Improving Arbitrary Style Transfer. arXiv:2104.10064, arXiv, 18 April 2021. arXiv.org, http://arxiv.org/abs/2104.10064.
 
+<a id="2">[2]</a>  Huang, Xun,Serge Belongie. Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization. arXiv:1703.06868, arXiv, 30 July 2017. arXiv.org, http://arxiv.org/abs/1703.06868.
+
+<a id="3">[3]</a>  Li, Liu, et al. Style-Aware Normalized Loss for Improving Arbitrary Style Transfer.18 April 2021. https://openaccess.thecvf.com/content_ICCV_2017/papers/Huang_Arbitrary_Style_Transfer_ICCV_2017_paper.pdf.
+
+<a id="4">[4]</a> Park, Dae Young, and Kwang Hee Lee. Arbitrary Style Transfer with Style-Attentional Networks. 5, arXiv:1812.02342, arXiv, 23 May 2019. arXiv.org, http://arxiv.org/abs/1812.02342.
+
+<a id="5">[5]</a> [Implementation of AdaIN network.](https://github.com/naoto0804/pytorch-AdaIN)
+
+<a id="6">[6]</a> [Implementation of LinearStyle network.](https://github.com/sunshineatnoon/LinearStyleTransfer)
+
+<a id="7">[7]</a> [Implementation of SANET network](https://github.com/GlebSBrykin/SANET)
 
 
 # Contact
