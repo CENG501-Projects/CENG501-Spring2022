@@ -57,7 +57,7 @@ Now we can freely use CNN based architectures to classify and find bounding boxe
 
 s
  <br/>
-  ![Alt text](images/enforced.png ?raw=true "")
+  ![Alt text](images/customloss2.png ?raw=true "")
 <br/>
  
 <br/>
