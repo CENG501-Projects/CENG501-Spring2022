@@ -21,8 +21,8 @@ implemented in LIDAR technologies. This paper which is implemented by Qingdong H
 # 2. The method and my interpretation
 
 ## 2.1. The original method
-
-@TODO: Explain the original method.
+# Feature Embedding Generation
+ The paper starts via giving intuition for why do we need feature extractor for point clouds. The reason is to basically differentiate the trining data from other training datas, two points from two different training samples may have the same x,y,z,r coordinates, but it is hard to have same covariance with two different point clouds. After the explanation paper gives us a list of current point cloud extractor which are all designed with multi layer perceptrons. After feature extraction part, paper states that we need to concatanate the feature descriptor values with each of the current points. After concatenation happened we get a matrix of ( N  x (F+4)) where N is the number of points and F is the dimensions of the feature extractor which is 1024 in the paper 
 
 ## 2.2. My interpretation 
 
