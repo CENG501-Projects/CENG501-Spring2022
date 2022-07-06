@@ -10,7 +10,7 @@ In their paper ["Style-Aware Normalized Loss for Improving Arbitrary Style Trans
 The primary goal of this implementation is to train the well-known architectures SANet, LineerTransfer, ADAIn, and GoogleMagenta with a newly defined AST style loss function and demonstrate that this style-aware normalized loss function outperforms the default AST style loss function in every network. We also wish to replicate the authors' results to ensure that the style-aware normalized - or balanced - AST style loss functions behavior is more logical than the default AST style loss function.
 
 ## 1.1. Paper summary
-The authors point out that current AST models face the problem of imbalanced style transferability (IST), in which the stylization intensity of the outputs varies greatly across different styles, and many stylized images suffer from under-stylization, in which only the dominant color is stylized, and over-stylization, in which the content is barely visible. To address this issue, they suggest a balanced AST style loss function that employs Gram-matrix like the default AST style loss function. On the other hand, the proposed method employs a normalizing term that is the theoretical upper bound for the classical AST layerwise style loss - or supremum - to weight estimated style losses. Authors test their proposal on 4 different networks - SANEt[[4]](#4),, LineerTransfer[[5]](#5),, ADAIn [[2]](#2), and GoogleMagenta[[3]](#3),.
+The authors point out that current AST models face the problem of imbalanced style transferability (IST), in which the stylization intensity of the outputs varies greatly across different styles, and many stylized images suffer from under-stylization, in which only the dominant color is stylized, and over-stylization, in which the content is barely visible. To address this issue, they suggest a balanced AST style loss function that employs Gram-matrix like the default AST style loss function. On the other hand, the proposed method employs a normalizing term that is the theoretical upper bound for the classical AST layerwise style loss - or supremum - to weight estimated style losses. Authors test their proposal on 4 different networks - SANEt[[4]](#4), LineerTransfer[[5]](#5), ADAIn [[2]](#2), and GoogleMagenta[[3]](#3).
 
 ![](https://github.com/Neroxn/ceng501-final-project/blob/main/images/1.png?raw=true)
 
@@ -174,10 +174,11 @@ Below can be found explanation of the files:
 
 To train the models, please refer to the original implementation of the AST models. [[6]](#6) [[7]](#7) [[8]](#8)
 
-Follow these steps to run the main scripts used for testing the models.
+Follow these steps to run the main scripts used for analyzing the models.
 1) Download the models weight and place it under the experiments folder (or clone the repository since weights are already under the experiment folder)
 2) Provide the path to the model weights in the main script
-3) Run the script with desired iteration number
+3) Provide path to the content and style folder. 
+4) Run the script with desired iteration number
 
 
 
