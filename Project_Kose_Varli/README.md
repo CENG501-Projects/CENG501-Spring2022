@@ -117,20 +117,51 @@ You can also use, Jupyter Notebook to use your own hardware instead of the assig
 
 In the paper, there exists no numerical results. Instead, they present their results using graphs obtained from the average of 10 runs. Thus, we used the same method to compare our results. We used both train loss and the norm of grad squares obtained from the history of training, same as in the paper.
 
+**Experiment 1:**
+
 The first experiment compares SMG itself by using different learning rate schedulers. They use 4 distinct learning schedulers namely, `constant`, `exponential`, `diminishing` and `cosine`. We used the same formula for schedulers they used in the paper. You can see the plotting of the acquired `train loss` results presented in the paper and our results below:
 
 ![imgonline-com-ua-twotoone-PRA65LYd0cnGOWKr](https://user-images.githubusercontent.com/44034966/177620586-e5ca1da2-8d50-4f13-892c-e7f3e82576aa.jpg)
-<p align="center"> Figure 1. Train Loss of SMG with Different Learning Schedulers (Paper Results) </p>
+<p align="center"> Figure 1. The train loss produced by SMG using four different learning rate schedulers (Paper Results) </p>
 
 <img width="1383" alt="image" src="https://user-images.githubusercontent.com/44034966/177621433-10d5683d-c95f-4ebb-ad22-aab60fa19569.png">
-<p align="center"> Figure 2. Train Loss of SMG with Different Learning Schedulers (Our Results) </p>
-
-You can see the plotting of the acquired `norm square of gradients` results presented in the paper and our results below:
+<p align="center"> Figure 2. The train loss produced by SMG using four different learning rate schedulers (Our Results) </p>
 
 
+You can see the plotting of the acquired `the squared norm of gradient` results presented in the paper and our results below:
+
+<img width="1386" alt="image" src="https://user-images.githubusercontent.com/44034966/177624213-c8ec116b-3179-4158-8728-07d7f413b77d.png">
+<p align="center"> Figure 3. The squared norm of gradient produced by SMG under four different learning rate schedulers (Paper Results) </p>
+
+<img width="1382" alt="image" src="https://user-images.githubusercontent.com/44034966/177624730-f602a006-8f36-4efb-9021-d610d5589d4d.png">
+<p align="center"> Figure 4. The squared norm of gradient produced by SMG under four different learning rate schedulers (Our Results) </p>
 
 
+**Experiment 2:**
 
+The second experiment compares SMG with other optimizers namely, `ADAM`, `SGD`, `SGD-M`, `SSMG (Single Shuffling Gradient Momentum)`. This experiment is conducted with constant learning scheduler as stated in the paper. We used optimizers directly through PyTorch. You can see the plotting of the obtained `train loss` results presented in the paper and our results below:
+
+<img width="1374" alt="image" src="https://user-images.githubusercontent.com/44034966/177627290-7a778d66-7fc4-4e9b-a529-1747f5203a61.png">
+<p align="center"> Figure 5. The train loss produced by SMG, SSMG, SGD, SGD-M, and ADAM (Paper Results) </p>
+
+<img width="1375" alt="image" src="https://user-images.githubusercontent.com/44034966/177627520-8e1919a2-909f-4ee6-a6b3-054228e09185.png">
+<p align="center"> Figure 6. The train loss produced by SMG, SSMG, SGD, SGD-M, and ADAM (Our Results) </p>
+
+
+You can see the plotting of the acquired `the squared norm of gradient` results presented in the paper and our results below:
+
+<img width="1373" alt="image" src="https://user-images.githubusercontent.com/44034966/177627662-cb720147-8f66-4486-b04f-8ffd8ad66565.png">
+<p align="center"> Figure 7. The squared norm of gradient produced by SMG, SSMG, SGD, SGD-M, and ADAM (Paper Results) </p>
+
+<img width="1373" alt="image" src="https://user-images.githubusercontent.com/44034966/177627827-a7f9927f-4971-4ed7-91ea-196a995b7c2e.png">
+<p align="center"> Figure 8. The squared norm of gradient produced by SMG, SSMG, SGD, SGD-M, and ADAM (Our Results) </p>
+
+
+In general, even though we could not get the same numbers, we were able to catch the same trend with the results that are obtained in the paper. This is due to following reasons:
+- They reported the results as average of 10 runs with different random seeds.
+- They were able to do exhaustive grid search to find hyperparameters that performs best according to their definition.
+- Normalization of datasets differ with respect to each other.
+- There might be architectural differences in the networks.
 
 # 4. Conclusion
 
