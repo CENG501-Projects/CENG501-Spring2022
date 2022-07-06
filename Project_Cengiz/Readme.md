@@ -5,7 +5,7 @@ This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.
 # 1. Introduction
 
 <div style="text-align: justify"> 
-This is an unofficial implementation of the paper "Frequency Consistent Adaptation for Real World Super Resolution" from the AAAI-21. The primary goal is to generate high resolution (HR) and low resolution (LR) pairs in such a way that they have the same frequency density response. This ensures the generated images not to be too blurry (over-smoothed) or over-sharpened. The primary aim of this repository is to generate LR-HR pairs which have the same frequency density response.
+This is an unofficial implementation of the paper "Frequency Consistent Adaptation for Real World Super Resolution" from the AAAI-21. The primary goal is to generate high resolution (HR) and low resolution (LR) pairs in such a way that they have the same frequency density response. This ensures the generated images not to be too blurry (over-smoothed) or over-sharpened. In this paper, a smart downsampling strategy that learns a blur kernel to maintain the same frequency density response is proposed.
 </div>
 
 ## 1.1. Paper summary
@@ -131,7 +131,7 @@ Frequency density of images in any given folders can be compared using the "freq
 ## 3.3. Results
 
 <div style="text-align: justify"> 
-I have implemented a notebook file to measure the frequency density response of different setups. This provided a sanity check to see whether the assumption in Figure 1. was consistent with my implementation or not. Frequency density responses of inputs with scales 3.5 and 1.2 can be seen in Figure 4. and Figure 5. respectively. While the scale 3.5 fits into authors' assumption, scale 1.2 behaves differently. Therefore, loss calculations in the FDC might be wrong. Training and validation losses can be seen in Figure 6. While the training loss seems okay, the network performed very poorly on the validation set, FDC loss of the validation set only increased. The model was insufficient to generalize. Loss functions looks like an overfit. However, the model performed badly on the training set, too.
+I have implemented a notebook file to measure the frequency density response of different setups. This provided a sanity check to see whether the assumption in Figure 1. was consistent with my implementation or not. Frequency density responses of inputs with scales 3.5 and 1.2 can be seen in Figure 4. and Figure 5. respectively. While the scale 3.5 fits into authors' assumption, scale 1.2 behaves differently. Therefore, loss calculations in the FDC might be wrong. Training and validation losses can be seen in Figure 6. While the training loss seems okay, the network performed very poorly on the validation set, FDC loss of the validation set only increased. The model was insufficient to generalize. Loss functions looks like an overfit. However, the model performed badly on the training set, too. Input, and output images of the trained model can be seen in Figure 7. and Figure 8. respectively.
 
 </div>
 
@@ -147,6 +147,13 @@ Figure 5. Frequency density response of the training set, scaled with 3.5, and 1
 
 Figure 6. Losses and parameters of train and validation sets during training.
 
+<img src="./figs/0_in.png" width="512">
+
+Figure 7. The input image with size 512x512.
+
+<img src="./figs/0.png" width="128">
+
+Figure 8. The output image with size 128x128.
 
 # 4. Conclusion
 
