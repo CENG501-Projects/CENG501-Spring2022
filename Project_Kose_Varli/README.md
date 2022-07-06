@@ -48,6 +48,28 @@ Their main approach to conduct experiments is that they repeatedly run experimen
 
 As we discussed in the section 2.2, we were lack of computational power to do grid search for hyperparameter tuning and running each experiment for 10 different random seeds. Instead, we random seeded the model and did a logical grid search by hand to choose the best one that shows a similar trend in paper and run that setup one time. Also, to provide some reproducibility of our result, we changed some torch.backend settings not to choose best algorithm for currently used hardware.
 
+We conducted 2 experiments on each dataset:
+- Experiment 1: Run SMG with different learning rate schedulers and see how it performs
+- Experiment 2: Run `ADAM, SGD, SGD-M, SSMG(Single Shuffling Gradient Momentum)` with constant learning rate scheduler and compare them with SMG
+
+The hyperparameter $\beta$ was proposed as 0.5 in the paper, thus we used as it is. Besides, all learning schedulers were given as formulas in appendix. We directly implemented them without any interpretation.
+
+For the experiment 1, we used the hyperparameters below:
+| **Dataset**   | **Constant** | **Diminishing**        | **Exponential**               | **Cosine**          |
+|---------------|--------------|------------------------|-------------------------------|---------------------|
+| Fashion-MNIST | $LR=0.1$       | $LR=0.5 , \lambda=8$   | $LR=0.5 , Decay Rate = 0.99$    | $LR=0.2 , T = 200$    |
+| CIFAR-10      | $LR=0.1$       | $LR=0.5 , \lambda=8$   | $LR=0.5 , Decay Rate = 0.99$    | $LR=0.1 , T = 200$    |
+| ijcnn1        | $LR=0.001$     | $LR=0.001 , \lambda=8$ | $LR=0.005 , Decay Rate = 0.99$  | $LR=0.005 , T = 200$  |
+| w8a           | $LR=0.001$     | $LR=0.01 , \lambda=8$  | $LR=0.005 , Decay Rate = 0.99$  | $LR=0.005 , T = 200$  |
+
+For the experiment 2, we used the hyperparameters below:
+| **Optimizer** | Fashion-MNIST                            | CIFAR-10                                 | ijcnn1                                   | w8a                                       |
+|---------------|------------------------------------------|------------------------------------------|------------------------------------------|-------------------------------------------|
+| ADAM          | $LR=0.001 , \beta_{1}=0.9 , \beta_{2}=0.999$ | $LR=0.001 , \beta_{1}=0.9 , \beta_{2}=0.999$ | $LR=0.001 , \beta_1=0.9 , \beta_2=0.999$ | $LR=0.0001 , \beta_1=0.9 , \beta_2=0.999$ |
+| SGD           | $LR=0.1$                                   | $LR=0.04$                                  | $LR=0.001$                                 | $LR=0.001$                                  |
+| SGD-M         | $LR=0.1 , \beta=0.5$                     | $LR=0.02 , \beta=0.5$                    | $LR=0.001 , \beta=0.5$                   | $LR=0.001 , \beta=0.5$                    |
+| SSMG          | $LR=0.2, \beta=0.5$                      | $LR=0.1 , \beta=0.5$                     | $LR=0.001 , \beta=0.5$                   | $LR=0.001 , \beta=0.5$                    |
+
 ## 3.2. Running the code
 
 Our directory tree of Github can be seen as:
