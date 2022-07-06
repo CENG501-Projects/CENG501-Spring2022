@@ -60,30 +60,31 @@ In addition, due to the computational limitations, we trained the model with a s
 
 In the end, we obtained the results as given in Figures 2-5. For some images, our deshadowing network successfully removes the shadow with minimal artifacts as seen in Figures 3 and 4. For some cases, the shadows ghosts are still visible as listed in Figure 5. In general, we obtain results as given in Figure 2.1 and 2.2. The networks are often successful at removing shadows from the consistent environment patterns, such as the flat surface in column two of Figure 2.1 or the tiles in the second column of Figure 2.2. Although it doesn’t change for most of the images, for some cases such as the last two columns of Figure 2.2, training with unpaired data  produces better results.
 
-![results 2022-07-06 11:43:32 359622](https://user-images.githubusercontent.com/77360680/177615373-cec08aef-5729-4cc3-a68c-43f26a693962.png)
+![1](https://user-images.githubusercontent.com/77360680/177642533-8dcb000f-c6f2-4442-8d66-ca331578a3d6.png)
 
 **Figure 2.1:** (Top) Original shadow images, (Middle) Original shadow-free images, (Bottom) Generated shadow-free images
 
-![results 2022-07-06 15:33:57 871341](https://user-images.githubusercontent.com/77360680/177615230-c4ab349c-81f8-4e34-a5c0-7a53907fd46c.png)
+![2](https://user-images.githubusercontent.com/77360680/177643441-4ae9f8d3-2dde-470d-8298-c3df1e985204.png)
 
 **Figure 2.2:** (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
 
-![results 2022-07-06 15:33:01 791320](https://user-images.githubusercontent.com/77360680/177615117-74683669-a68e-49b5-8aef-8c11b5baaf75.png)
+
+![3](https://user-images.githubusercontent.com/77360680/177643479-ad7d98e9-ee8a-4f05-8872-9c0fc40c20be.png)
 
 **Figure 3:** Selected successful cases (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
 
-![results 2022-07-06 15:32:25 952211](https://user-images.githubusercontent.com/77360680/177615044-66da15e0-84ce-44e6-9347-47cf695b7c10.png)
+![4](https://user-images.githubusercontent.com/77360680/177643551-2cd78ae6-af5d-4d0d-9d2f-57c7545e9d66.png)
 
 **Figure 4:** Selected successful cases (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
 
-![results 2022-07-06 15:28:41 625278](https://user-images.githubusercontent.com/77360680/177614997-4c0cbd59-1f19-4922-bbc4-e29b2bb56818.png)
+![5](https://user-images.githubusercontent.com/77360680/177643608-d71dfe54-0a5b-40ee-80b8-ddff9a1dd2ad.png)
 
 **Figure 5:** Selected failure cases (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
 
 
 # 4. Conclusion
 
-In conclusion, the results of the original paper seem to be reproducible with enough computing power. The differences in loss functions affects the network performance and the experiments illustrated the importance of the various loss functions utilized in the original paper. Selecting suitable loss functions for the networks allowed the generators to generate images that are close to original ones even in the early stages of training, and they were able to learn to bleach the shadow mask area while preserving the semantic details.
+In conclusion, the results of the original paper seem to be reproducible with enough computing power. We observed that the unpaired training works better than paired setting in some cases, which is in parallel with the original paper's results. The differences in loss functions affects the network performance and the experiments illustrated the importance of the various loss functions utilized in the original paper. Selecting suitable loss functions for the networks allowed the generators to generate images that are close to original ones even in the early stages of training, and they were able to learn to bleach the shadow mask area while preserving the semantic details.
 
 The original paper gives almost enough information to rebuild the entire architecture; although training of the models requires adequate computing power as the RAM provided by Google Colab wasn’t enough for training with the whole dataset after a few epochs. In the end, the architecture proposed in this paper is capable of training with both paired and unpaired datasets and with reproducible results. 
 
