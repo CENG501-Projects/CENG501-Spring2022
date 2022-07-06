@@ -76,7 +76,7 @@ The root mean squared error, peak noise signal ratio and structural similarity a
 | Our model (patch size: 128x128)| 78.34 | 0.044 | 0.9773|
 | Original model (patch size: 256x256)| 29.85|5.09 | 0.9598|
 
-We can easily notice the huge difference on RMSE and PNSR. This difference is occured due to different patch sizes which is the only difference betwen our trained model and original model. It makes more sense to compare the original model with another model which is trained with images having patch size of 128x128. 
+We can easily notice the huge difference on RMSE and PNSR. This difference is occured due to different patch sizes which is the only difference betwen our trained model and original model. It makes more sense to compare the original model with another model which is trained with images having patch size of 256x256. 
 
 # 4. Conclusion
 
