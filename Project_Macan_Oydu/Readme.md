@@ -96,8 +96,7 @@ However, we observed low performance while model tries to remove shadows in whic
 
 This situation is not presented in the paper, so we dont know whether it is caused by our implementation or model itself. This problem may be eliminated with fine-tuning if it not caused due to implementation of the model. One may try increasing the number of epochs because we noticed that loss was still contiuning to drop until the last epoch, if we had taken a larger number of epochs (170-180) we might have gotten better results. 
 
-According to our experiences while testing the model, the most important drawback of this model is it takes rougly a second to get an output from the model (hardware 
-is Intel i7 6700HQ with 24GB DDR4 RAM). Therefore, one may need powerful hardware to run this model on real time camera streams to get high FPS rate.
+According to our experiences while testing the model, the most important drawback of this model is it takes rougly a second to get an output from the model (hardware used during testing is Intel i7 6700HQ with 24GB DDR4 RAM). Therefore, one may need powerful hardware to run this model on real time camera streams to get high FPS rate.
 
 # 5. References
 
