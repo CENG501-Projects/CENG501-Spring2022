@@ -98,7 +98,8 @@ You can access the main.ipynb in ths directory, simply download it and run it. H
 
 ## 3.3. Results
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+After training and evaluating the results of our implementation of an end-to-end optimized network with Adam optimizer, we have reached quite a satisfactory accuracy with around 50% accuracy for the KITTI dataset, as seen in the table below.
+
 
 # 4. Conclusion
 Although we implemented the paper, there are some mjaor problems that prevents us from using the full potential of the netwrok. The most important being that our gpu ram is not enough for the whole point cloud, since it is approximately takes up 384 GB of data with hidden weights. Therefore we disbanded a huge chunk of the data, via randomly sampling the points in point cloud. Although we though that this will hurt as very hard in terms of accuracy in class prediction, we still got nearly %50 of the classes correctly, but bounding boxes affected heavily because of the data that is dumped ,therefore we did not use bounding boxes as a metric.  
