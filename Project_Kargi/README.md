@@ -176,9 +176,12 @@ To train the models, please refer to the original implementation of the AST mode
 
 Follow these steps to run the main scripts used for analyzing the models.
 1) Download the models weight and place it under the experiments folder (or clone the repository since weights are already under the experiment folder)
-2) Provide the path to the model weights in the main script
-3) Provide path to the content and style folder. 
-4) Run the script with desired iteration number
+2) Download MS-COCO [[9]](#9) Test set for content images and PainterByNumber [[10]](#10) Test set for style images
+3) Provide the path to the model weights in the main script
+4) Provide path to the content and style folder. 
+5) Run the main python scripts with desired iteration number
+
+Using a GoogleColab for testing is recommended. 
 
 
 
@@ -258,6 +261,8 @@ Nevertheless, we see our project as a success in terms of showing what the autho
 
 <a id="8">[8]</a> [Implementation of SANET network](https://github.com/GlebSBrykin/SANET)
 
+<a id="9">[9]</a> Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr Doll´ar, and C Lawrence Zitnick. Microsoft coco: Common objects in context. In European Conference on Computer Vision, pages 740–755. Springer, 2014.
 
+<a id="10">[10]</a> K Nichol. Painter by numbers, 2016.
 # Contact
 Bora KARGI - kargibora@gmail.com
