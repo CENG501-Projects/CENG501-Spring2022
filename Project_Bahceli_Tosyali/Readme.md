@@ -101,7 +101,6 @@ You can access the main.ipynb in ths directory, simply download it and run it. H
 After training and evaluating the results of our implementation of an end-to-end optimized network with Adam optimizer, we have reached quite a satisfactory accuracy with around 50% accuracy for the KITTI dataset, as seen in the table below.
 <br/>
  ![Alt text](images/result_.png?raw=true "")
- (1)
  <br/>
  
 Since even with low amount of training data and epochs the training time of this complex network is enormous we had only one real attempt for training the network.
