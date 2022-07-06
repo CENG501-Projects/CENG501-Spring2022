@@ -42,7 +42,11 @@ As stated in the introduction, the essential hyperparameter setup for optimizers
 
 ## 3.1. Experimental setup
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
+They conduct numerical experiments on four different datasets and 3 networks. Convolutional LeNet-5 is used to train CIFAR-10 dataset with 50,000 samples, classic LeNet-300-100 model is used to train Fashion-MNIST with 60,000 images and w8a (49,749 samples), ijcnn1 (91,701 samples) classification datasets are trained on a network that implements nonconvex logistic regression. As we discussed in the previous sections, the architecture of nonconvex logistic regression model is not defined precisely. Thus, we have used a single layer fully connected network with activation function tanh to conduct the experiments on these datasets.
+
+Their main approach to conduct experiments is that they repeatedly run experiments for 10 random seeds and report the average results. Also, the essential hyperparameter setup for optimizers is given as a search grid. They select the parameters that performs best for the datasets. There is no clear definition of what they mean by best performing and according to our understanding that they select the best performing model by hand from the plots. 
+
+As we discussed in the section 2.2, we were lack of computational power to do grid search for hyperparameter tuning and running each experiment for 10 different random seeds. Instead, we random seeded the model and did a logical grid search by hand to choose the best one that shows a similar trend in paper and run that setup one time. Also, to provide some reproducibility of our result, we changed some torch.backend settings not to choose best algorithm for currently used hardware.
 
 ## 3.2. Running the code
 
@@ -71,6 +75,8 @@ As stated in the introduction, the essential hyperparameter setup for optimizers
 - Nouman. (2022, January). Writing Lenet5 from scratch in Pytorch. Paperspace Blog. Retrieved June 26, 2022, from https://blog.paperspace.com/writing-lenet5-from-scratch-in-python/ 
 - Tran, T. H., Nguyen, L. M., & Tran-Dinh, Q. (2020). SMG: A Shuffling Gradient-Based Method with Momentum. arXiv preprint arXiv:2011.11884.
 - Yu, J. (2018). LeNet-300-100 [https://github.com/jiecaoyu/scalpel-1/]
+
+w8a and ijcnn1 classification datasets are downloaded from https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html
 
 
 # Contact
