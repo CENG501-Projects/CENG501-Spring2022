@@ -27,8 +27,7 @@ The paper introduces two graph neural networks with a joint loss which is used t
 @TODO: Describe the setup of the original paper and whether you changed any settings.
 
 ## 3.2. Running the code
-
-@TODO: Explain your code & directory structure and how other people can run it.
+To run our code you just open the "DualGraph.ipynb" file with google colab and run the successive sections. In the first section we import the pytor-geometric as we deal with graph neural network. The feed forward section for the graphical convolution layer come just after the first part. After that noise adder section that is used for creating noisy labels is implemented. Afterwards Dual graph algorithm is implemented. Lastly, the main code is implemented. After running all section you can run the main code to obtain the results.
 
 ## 3.3. Results
 
