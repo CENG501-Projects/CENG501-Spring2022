@@ -42,7 +42,18 @@ Our results are close to those reported in the paper. However, we have used diff
 
 # 5. References
 
-@TODO: Provide your references here.
+Bing Xu, Naiyan Wang, Tianqi Chen, and Mu Li.
+Empirical evaluation of rectified activations in convolutional network. arXiv preprint arXiv:1505.00853,
+2015. 4, 5
+
+Nagarajan Natarajan, Inderjit S Dhillon, Pradeep K
+Ravikumar, and Ambuj Tewari. Learning with noisy
+labels. In Advances in Neural Information Processing
+Systems (NIPS), volume 26, 2013. 2
+
+Giorgio Patrini, Alessandro Rozza, Aditya Krishna Menon, Richard Nock, and Lizhen Qu. Making deep neural networks robust to label noise: A loss
+correction approach. In IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pages
+1944–1952, 2017. 2, 5, 6, 7, 8
 
 # Contact
 
