@@ -54,7 +54,7 @@ pip3 install -r requirements.txt
 
 ## 3.3. Results
 
-From our trained model, we got the following results on ISTD dataset.
+From our trained model, we got the following results on ISTD dataset. You can download our model from [here](https://drive.google.com/file/d/1NJrSjc1TUmbscoRgVYBdFX7yaaX7fSfs/view?usp=sharing)
 
 | Original Image (Input) - Non-Shadow Image (Output) - Ground Truth| 
 | ------------- |
