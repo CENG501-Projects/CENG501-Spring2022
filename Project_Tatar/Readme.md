@@ -203,7 +203,8 @@ Due to reasons listed at Section 2, I could not complete the project.I am able t
 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
 
-Random sampling strategy :Test Accuracy is 83.%
+Random sampling strategy :Test Accuracy is 83.%(CIFAR 10)
+Random Sampling Strategy : Test Accuracy is 96.6(MNIST)
 
 # 4. Conclusion
 
