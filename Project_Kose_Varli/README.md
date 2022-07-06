@@ -50,7 +50,7 @@ As we discussed in the section 2.2, we were lack of computational power to do gr
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+Our directory tree of Github can be seen as:
 ```bash
 ├── README.md
 ├── experiments
@@ -61,6 +61,33 @@ As we discussed in the section 2.2, we were lack of computational power to do gr
 └── results
     └── overall_results.ipynb
 ```
+We conducted our work in different ipynb files for each dataset due to lack of computational power. 
+Explanations of directories can be found below:
+
+- `Experiments` directory includes seperate iypnb files for the experiments that we conducted for each dataset. 
+- `Results` directory includes a single ipynb file that plots overall results for the conducted experiments.
+
+Each of the files in experiments includes our implementation of SMG (Shuffling Momentum Gradient) and SSMG(Single Shuffling Momentum Gradient) algorithms for training. We supported our implementation with comments to ease understandibility of the codes. 
+
+It can be directly accesible through `Open in Colab` button that can be found top of each ipynb files.
+
+<img width="206" alt="image" src="https://user-images.githubusercontent.com/44034966/177547754-3ef783af-c0f1-4777-8eab-7682707f2f82.png">
+
+If you want to reproduce our results, you need to run each experiment file first and then run `overall_results.ipynb` to see the results.
+Since we used Colab, we saved our results to Google Drive. If you want to save it to Google Drive, please create the following directory structure to your Google Drive. If you do not want, please change the corresponding paths.
+```bash
+└── SMGExperiments
+    ├── Cifar10-Other-Optimizers
+    ├── Fashion-Other-Optimizers
+    ├── ijcnn1-Other-Optimizers
+    ├── w8a-Other-Optimizers
+    ├── SMG-Cifar10-History
+    ├── SMG-Fashion-History
+    ├── SMG-ijcnn1-History
+    └── SMG-w8a-History
+```
+
+You can also use, Jupyter Notebook to use your own hardware instead of the assigned CPU/GPU in Colab.
 
 ## 3.3. Results
 
