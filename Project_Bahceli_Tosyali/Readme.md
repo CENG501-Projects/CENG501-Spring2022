@@ -51,6 +51,18 @@ Second normalization is the Linear Interpolation normalization, we again get the
 After normalizations, we get a new image. 
 <br/>
   ![Alt text](images/resultimage.png?raw=true "")
+  
+Now we can freely use CNN based architectures to classify and find bounding boxes, which gets us to the most complex part of the paper. Enforced Detector.
+# 2 - Enforced Detection Network
+<br/>
+  ![Alt text](images/enforced.png?raw=true "")
+ 
+<br/>
+Here we have a complex neural network which aims to downsample and upsample with continous convolutions in order to generate 4 different images. Every convolution aside from downsampling and upsampling is done with 3x3 convolution followed by 1x1 convolution. The image from the beginning is supposed to be 128x128 since m is 128, 
+and with the each layer the edges of the image is halved therefore we generate one image with 64x64 resolution one image with 32x32 resolution and one image with 16x16 resolution. Although it is implied the level 0 ( upper row ) is  also convoluted into a lesser resolution paper does not give explicit formula for that.
+<br/>
+After getting four images we conclude the labeling and bounding boxed via another neural network which is for classifiaction and regression at the same time. And the outputs of the final neural networks are the results
+
 ## 2.2. My interpretation 
 
 During the project, there were some points that we could not comprehend and implement in our work.
