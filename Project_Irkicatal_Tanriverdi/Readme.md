@@ -58,4 +58,5 @@ correction approach. In IEEE Conference on Computer Vision and Pattern Recogniti
 # Contact
 
 Kadir TANRIVERDI(kadir.tanriverdi@metu.edu.tr)
+
 Osman Nuri IRKICATAL(nuri.irkicatal@metu.edu.tr)
