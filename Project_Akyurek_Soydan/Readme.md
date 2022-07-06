@@ -43,13 +43,17 @@ The original paper provides information about the optimizer they used with initi
 
 In addition, although we implemented the loss functions for the networks, we didn’t include VGG16 based losses to the training. There were two losses depending on VGG16’s feature vectors: style and content loss. Style loss for original shadow and shadow-free image pair was on the order of billions which exploded the total loss of the generators. Content loss on the other hand, was suitable; however, extracting VGG16 feature vectors for every step loaded the available RAM too quickly and slowed down the training as we preprocess the results before feeding to VGG16 model. Therefore, we didn’t include these two losses in the experiment, instead we included identity loss functions used in CycleGANs.
 
-In short, our experimental setup follows the flow described in the original paper. The paired and unpaired settings are available for the training and testing. The discriminator input is changed to 3 channels and some of the loss functions we used differ from the original setting. The networks we implemented, together with the non-linearities and skip connections, are provided at Figures 6 and 7 in the Appendix.
+In short, our experimental setup follows the flow described in the original paper. The paired and unpaired settings are available for the training and testing. The discriminator input is changed to 3 channels and some of the loss functions we used differ from the original setting. The networks we implemented, together with the non-linearities and skip connections, are provided at Figures 7.1 and 7.2 in the Appendix.
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+The datasets [ISTD](https://drive.google.com/file/d/1I0qw-65KBA6np8vIZzO6oeiOvcDBttAY/view) and [USR](https://drive.google.com/file/d/1PPAX0W4eyfn1cUrb2aBefnbrmhB1htoJ/view) should be downloaded into a dataset folder named “./datasets/” under the working directory, as “./datasets/ISTD/” and “./datasets/USR/”. 
 
-Download the datasets [ISTD](https://drive.google.com/file/d/1I0qw-65KBA6np8vIZzO6oeiOvcDBttAY/view) and [USR](https://drive.google.com/file/d/1PPAX0W4eyfn1cUrb2aBefnbrmhB1htoJ/view), put them into the “./datasets/” folder as “./datasets/ISTD/” and “./datasets/USR/”. 
+"main.py" is responsible for training the models, see the path variables in the file and adjust them according to your environment. 
+
+For testing purposes, the folder settings are provided in "test" folder. Download the pretrained models: [paired](https://drive.google.com/drive/folders/1EIN752CzIXI_ADpxpmzSnDhquF9h28Zt?usp=sharing) and [unpaired](https://drive.google.com/drive/folders/1qoNzxviQIKRJXtGWMmi3Z-5lO7VMxEeL?usp=sharing). Put them into the locations "./output/pretrained_models/pair/" and "./output/pretrained_models/unpair/" respectively. 
+
+To run the .ipynb file, see [Jupyter Notebook](https://jupyter.org/install). Follow the instructions in the "cycleGAN.ipynb" and run the cells one by one. The notebook also installs the dependencies of the project.
 
 
 ## 3.3. Results
@@ -58,7 +62,7 @@ In our experiments, we didn’t include the VGG16 model for the loss functions w
 
 In addition, due to the computational limitations, we trained the model with a smaller dataset size, small batch size and less epochs than the original paper. When we took a batch size of 1 to use SGD, we encountered with mode collapse due to dominating gradients of a single image type. 
 
-In the end, we obtained the results as given in Figures 2-5. For some images, our deshadowing network successfully removes the shadow with minimal artifacts as seen in Figures 3 and 4. For some cases, the shadows ghosts are still visible as listed in Figure 5. In general, we obtain results as given in Figure 2.1 and 2.2. The networks are often successful at removing shadows from the consistent environment patterns, such as the flat surface in column two of Figure 2.1 or the tiles in the second column of Figure 2.2. Although it doesn’t change for most of the images, for some cases such as the last two columns of Figure 2.2, training with unpaired data  produces better results.
+In the end, we obtained the results as given in Figures 2-5. For some images, our deshadowing network successfully removes the shadow with minimal artifacts as seen in Figures 3 and 4. For some cases, the shadows ghosts are still visible as listed in Figure 5. In general, we obtain results as given in Figure 2.1 and 2.2. The networks are often successful at removing shadows from the consistent environment patterns, such as the flat surface in column two of Figure 2.1 or the tiles in the second column of Figure 2.2. Although it doesn’t change for most of the images, for some cases such as the last two columns of Figure 2.2, training with unpaired data  produces better results. Samples from the original paper are also provided in Figure 6.
 
 ![1](https://user-images.githubusercontent.com/77360680/177642533-8dcb000f-c6f2-4442-8d66-ca331578a3d6.png)
 
@@ -80,6 +84,10 @@ In the end, we obtained the results as given in Figures 2-5. For some images, ou
 ![5](https://user-images.githubusercontent.com/77360680/177643608-d71dfe54-0a5b-40ee-80b8-ddff9a1dd2ad.png)
 
 **Figure 5:** Selected failure cases (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
+
+![paper_results](https://user-images.githubusercontent.com/77360680/177645352-8a7d7580-3967-4cde-863a-87ae9dcf7fb5.png)
+
+**Figure 6:** Original paper results with paired and unpaired trainings
 
 
 # 4. Conclusion
@@ -107,8 +115,8 @@ Bartu Akyürek bartu.akyurek@metu.edu.tr
 
 ![gen_s_model_plot_copy](https://user-images.githubusercontent.com/77360680/177639618-3dabe3a3-6c66-43fe-9e7e-82ba5973d342.png)
 
-**Figure 6:** Generator implementation
+**Figure 7.1:** Generator implementation
 
 ![disc_s_model_plot_copy](https://user-images.githubusercontent.com/77360680/177640162-074fd847-abc2-411c-8219-775abf162063.png)
 
-**Figure 7:** Discriminator implementation
+**Figure 7.2:** Discriminator implementation
