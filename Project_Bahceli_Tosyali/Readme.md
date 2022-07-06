@@ -102,4 +102,5 @@ During the project, there were some points that we could not comprehend and impl
 
 # Contact
 
-@TODO: Provide your names & email addresses and any other info with which people can contact you.
+Batuhan Tosyali email : tosyalibatuhan@gmail.com 
+Furkan Bahceli email : frknbhcl@gmail.com
