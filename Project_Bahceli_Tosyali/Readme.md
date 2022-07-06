@@ -93,8 +93,7 @@ You can access the main.ipynb in ths directory, simply download it and run it. H
 Although we implemented the paper, there are some mjaor problems that prevents us from using the full potential of the netwrok. The most important being that our gpu ram is not enough for the whole point cloud, since it is approximately takes up 384 GB of data with hidden weights. Therefore we disbanded a huge chunk of the data, via randomly sampling the points in point cloud. Although we though that this will hurt as very hard in terms of accuracy in class prediction, we still got nearly %50 of the classes correctly, but bounding boxes affected heavily because of the data that is dumped ,therefore we did not use bounding boxes as a metric.  
 # 5. References
 
-@TODO: Provide your references here.
-
+He et al., "SCIR-Net: Structured Color Image Representation Based 3D Object Detection Network from Point Clouds" AAAI22
 # Contact
 
 Batuhan Tosyali email : tosyalibatuhan@gmail.com 
