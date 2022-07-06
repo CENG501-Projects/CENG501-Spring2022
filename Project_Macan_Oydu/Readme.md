@@ -57,6 +57,12 @@ pip3 install -r requirements.txt
 ## 3.3. Results
 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+From our trained model, we got the following results.
+![40_result](https://user-images.githubusercontent.com/82730997/177495466-70244dd9-358c-4258-ba41-3800b5681d56.jpeg)
+![29_result](https://user-images.githubusercontent.com/82730997/177495514-103d6a0e-ddfe-4713-ba76-2c66a959670d.jpeg)
+![42_result](https://user-images.githubusercontent.com/82730997/177495535-688e1c73-e387-45bf-bfbd-adb5f98aee1d.jpeg)
+![3_result](https://user-images.githubusercontent.com/82730997/177495570-be4a5a3f-1cea-4200-adc2-25569467a34f.jpeg)
+![4_result](https://user-images.githubusercontent.com/82730997/177495597-5761ce23-4612-46df-b150-a59e46514abb.jpeg)
 
 # 4. Conclusion
 
