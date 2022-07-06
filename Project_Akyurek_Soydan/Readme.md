@@ -43,7 +43,7 @@ The original paper provides information about the optimizer they used with initi
 
 In addition, although we implemented the loss functions for the networks, we didn’t include VGG16 based losses to the training. There were two losses depending on VGG16’s feature vectors: style and content loss. Style loss for original shadow and shadow-free image pair was on the order of billions which exploded the total loss of the generators. Content loss on the other hand, was suitable; however, extracting VGG16 feature vectors for every step loaded the available RAM too quickly and slowed down the training as we preprocess the results before feeding to VGG16 model. Therefore, we didn’t include these two losses in the experiment, instead we included identity loss functions used in CycleGANs.
 
-In short, our experimental setup follows the flow described in the original paper. The paired and unpaired settings are available for the training and testing. The discriminator input is changed to 3 channels and some of the loss functions we used differ from the original setting.
+In short, our experimental setup follows the flow described in the original paper. The paired and unpaired settings are available for the training and testing. The discriminator input is changed to 3 channels and some of the loss functions we used differ from the original setting. The networks we implemented, together with the non-linearities and skip connections, are provided at Figures 6 and 7 in the Appendix.
 
 ## 3.2. Running the code
 
@@ -101,3 +101,13 @@ The original paper gives almost enough information to rebuild the entire archite
 Yusuf Soydan yusuf.soydan@metu.edu.tr
 
 Bartu Akyürek bartu.akyurek@metu.edu.tr
+
+# Appendix
+
+![gen_s_model_plot_copy](https://user-images.githubusercontent.com/77360680/177639618-3dabe3a3-6c66-43fe-9e7e-82ba5973d342.png)
+
+**Figure 6:** Generator implementation
+
+![disc_s_model_plot_copy](https://user-images.githubusercontent.com/77360680/177640162-074fd847-abc2-411c-8219-775abf162063.png)
+
+**Figure 7:** Discriminator implementation
