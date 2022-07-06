@@ -58,6 +58,9 @@ From our trained model, we got the following results on ISTD dataset.
 
 | Original Image - Non-Shadow Image - Ground Truth| 
 | ------------- |
+|![171_result](https://user-images.githubusercontent.com/82730997/177566424-65867079-02a7-4b94-9722-151bf00c341c.jpeg)|
+|![378_result](https://user-images.githubusercontent.com/82730997/177566712-7b4eb117-ecd3-4f2f-aa27-6e21ee49ccb2.jpeg)|
+|![496_result](https://user-images.githubusercontent.com/82730997/177566880-9eb400d6-c578-4f60-b7d7-5affac94ff96.jpeg)|
 | ![25_result](https://user-images.githubusercontent.com/82730997/177533243-f72e768e-08d2-45e8-8518-ea1da2064a4b.jpeg)|
 | ![12_result](https://user-images.githubusercontent.com/82730997/177533491-1c1653bb-3a9b-42b0-9621-ce1270f67246.jpeg)|
 | ![15_result](https://user-images.githubusercontent.com/82730997/177533544-0d3e100b-e70b-4e9f-8036-2953335729d0.jpeg)|
