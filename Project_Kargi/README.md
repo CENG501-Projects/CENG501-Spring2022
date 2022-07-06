@@ -5,12 +5,12 @@ This readme file is an outcome of the [CENG501 (Spring 2022)](http://kovan.ceng.
 # 1. Introduction
 The fundamental purpose of neural style transfer (NST) is to combine two images - a content image and a style image - so that the output looks like the "content" image painted according to the "style" image. Arbitrary style transfer (AST) tries to synthesize a content image with the style of another image to create a third image that has never been seen before - hence it may be considered as the NST task where the model is an infinite-style model instead of a single-style one since we generate diverse outputs even for the same pair of inputs. 
 
-In their paper ["Style-Aware Normalized Loss for Improving Arbitrary Style Transfer"](https://arxiv.org/pdf/2104.10064.pdf) Cheng et al. suggest an alternative loss function defined for the AST task that tries to solve some of the issues that the AST task's default loss function raises. It is published in one of the top conferences CVPR2021. 
+In their paper ["Style-Aware Normalized Loss for Improving Arbitrary Style Transfer"](https://arxiv.org/pdf/2104.10064.pdf)[[1]](#1) Cheng et al. suggest an alternative loss function defined for the AST task that tries to solve some of the issues that the AST task's default loss function raises. It is published in one of the top conferences CVPR2021. 
 
 The primary goal of this implementation is to train the well-known architectures SANet, LineerTransfer, ADAIn, and GoogleMagenta with a newly defined AST style loss function and demonstrate that this style-aware normalized loss function outperforms the default AST style loss function in every network. We also wish to replicate the authors' results to ensure that the style-aware normalized - or balanced - AST style loss functions behavior is more logical than the default AST style loss function.
 
 ## 1.1. Paper summary
-The authors point out that current AST models face the problem of imbalanced style transferability (IST), in which the stylization intensity of the outputs varies greatly across different styles, and many stylized images suffer from under-stylization, in which only the dominant color is stylized, and over-stylization, in which the content is barely visible. To address this issue, they suggest a balanced AST style loss function that employs Gram-matrix like the default AST style loss function. On the other hand, the proposed method employs a normalizing term that is the theoretical upper bound for the classical AST layerwise style loss - or supremum - to weight estimated style losses. Authors test their proposal on 4 different networks - SANEt, LineerTransfer, ADAIn [[1]](#1), and GoogleMagenta.
+The authors point out that current AST models face the problem of imbalanced style transferability (IST), in which the stylization intensity of the outputs varies greatly across different styles, and many stylized images suffer from under-stylization, in which only the dominant color is stylized, and over-stylization, in which the content is barely visible. To address this issue, they suggest a balanced AST style loss function that employs Gram-matrix like the default AST style loss function. On the other hand, the proposed method employs a normalizing term that is the theoretical upper bound for the classical AST layerwise style loss - or supremum - to weight estimated style losses. Authors test their proposal on 4 different networks - SANEt[[4]](#4),, LineerTransfer[[5]](#5),, ADAIn [[2]](#2), and GoogleMagenta[[3]](#3),.
 
 ![](https://github.com/Neroxn/ceng501-final-project/blob/main/images/1.png?raw=true)
 
@@ -172,10 +172,10 @@ Below can be found explanation of the files:
 - `experiments/sanet` : Folder containing the weights for Sanet models
 
 
-To train the models, please refer to the original implementation of the AST models. [[5]](#5) [[6]](#6) [[7]](#7)
+To train the models, please refer to the original implementation of the AST models. [[6]](#6) [[7]](#7) [[8]](#8)
 
 Follow these steps to run the main scripts used for testing the models.
-1) Download the models weight and place it under the experiments folder
+1) Download the models weight and place it under the experiments folder (or clone the repository since weights are already under the experiment folder)
 2) Provide the path to the model weights in the main script
 3) Run the script with desired iteration number
 
@@ -245,15 +245,17 @@ Nevertheless, we see our project as a success in terms of showing what the autho
 
 <a id="2">[2]</a>  Huang, Xun,Serge Belongie. Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization. arXiv:1703.06868, arXiv, 30 July 2017. arXiv.org, http://arxiv.org/abs/1703.06868.
 
-<a id="3">[3]</a>  Li, Liu, et al. Style-Aware Normalized Loss for Improving Arbitrary Style Transfer.18 April 2021. https://openaccess.thecvf.com/content_ICCV_2017/papers/Huang_Arbitrary_Style_Transfer_ICCV_2017_paper.pdf.
+<a id = "3">[3]</a> Golnaz Ghiasi, Honglak Lee, Manjunath Kudlur, Vincent Dumoulin, and Jonathon Shlens. Exploring the structure of a real-time, arbitrary neural artistic stylization network. In British Machine Vision Conference, 2017
 
 <a id="4">[4]</a> Park, Dae Young, and Kwang Hee Lee. Arbitrary Style Transfer with Style-Attentional Networks. 5, arXiv:1812.02342, arXiv, 23 May 2019. arXiv.org, http://arxiv.org/abs/1812.02342.
 
-<a id="5">[5]</a> [Implementation of AdaIN network.](https://github.com/naoto0804/pytorch-AdaIN)
+<a id="5">[5]</a>  Xueting Li, Sifei Liu, Jan Kautz, and Ming-Hsuan Yang. Learning linear transformations for fast image and video style transfer. In IEEE conference on Computer Vision and Pattern Recognition, 2019.
 
-<a id="6">[6]</a> [Implementation of LinearStyle network.](https://github.com/sunshineatnoon/LinearStyleTransfer)
+<a id="6">[6]</a> [Implementation of AdaIN network.](https://github.com/naoto0804/pytorch-AdaIN)
 
-<a id="7">[7]</a> [Implementation of SANET network](https://github.com/GlebSBrykin/SANET)
+<a id="7">[7]</a> [Implementation of LinearStyle network.](https://github.com/sunshineatnoon/LinearStyleTransfer)
+
+<a id="8">[8]</a> [Implementation of SANET network](https://github.com/GlebSBrykin/SANET)
 
 
 # Contact
