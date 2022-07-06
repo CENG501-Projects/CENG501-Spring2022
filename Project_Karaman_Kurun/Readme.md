@@ -56,15 +56,17 @@ We couln't generate the results which brings no comparison between our results a
 ![WhatsApp Image 2022-07-06 at 21 01 33](https://user-images.githubusercontent.com/60968544/177644510-150d4955-26b4-475d-a94a-2e1edfbe2f62.jpeg)
 
 
-
 # 5. References
+- [High-Fidelity and Arbitrary Face Editing](https://arxiv.org/abs/2103.15814v1)
+- [Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization](https://arxiv.org/abs/1703.06868v2)
+- [AttGAN: Facial Attribute Editing by Only Changing What You Want](https://arxiv.org/abs/1711.10678)
+- [Pytorch - an open source machine learning framework](https://pytorch.org)  <br/>
+- [FFHQ](https://paperswithcode.com/dataset/ffhq)  <br/>
+- [CelebAHQ](https://paperswithcode.com/dataset/celeba-hq)  <br/>
+- [PyWavelets](https://github.com/PyWavelets/pywt)  <br/>
 
-[Google Colab](https://colab.research.google.com/)  <br/>
-[FFHQ](https://paperswithcode.com/dataset/ffhq)  <br/>
-[CelebAHQ](https://paperswithcode.com/dataset/celeba-hq)  <br/>
-[PyWavelets](https://github.com/PyWavelets/pywt)  <br/>
-
-
+You can cite paper with:
+```bibtex
 @inproceedings{gao2021hifaface,  <br/>
   title={High-Fidelity and Arbitrary Face Editing},  <br/>
   author={Gao, Yue and Wei, Fangyun and Bao, Jianmin and Gu,  <br/>
@@ -72,7 +74,7 @@ We couln't generate the results which brings no comparison between our results a
   booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},  <br/>
   year={2021}  <br/>
 }
-
+```
 # Contact
 Belemir Kürün - [kurun.belemir@metu.edu.tr](kurun.belemir@metu.edu.tr)  <br/>
 Arda Karaman - [arda.karaman@metu.edu.tr](arda.karaman@metu.edu.tr)  <br/>
