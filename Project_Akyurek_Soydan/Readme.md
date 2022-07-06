@@ -83,7 +83,7 @@ In the end, we obtained the results as given in Figures 2-5. For some images, ou
 
 ![5](https://user-images.githubusercontent.com/77360680/177643608-d71dfe54-0a5b-40ee-80b8-ddff9a1dd2ad.png)
 
-**Figure 5:** Selected failure cases (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
+**Figure 5:** Cases where improve is needed (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
 
 ![paper_results](https://user-images.githubusercontent.com/77360680/177645352-8a7d7580-3967-4cde-863a-87ae9dcf7fb5.png)
 
