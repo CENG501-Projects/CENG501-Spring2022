@@ -96,11 +96,10 @@ However, we observed low performance while model tries to remove shadows in whic
 | ![460_result](https://user-images.githubusercontent.com/82730997/177568564-5d275d6f-d37f-417a-9f6c-a28d67381a6f.jpeg) |
 | ![518_result](https://user-images.githubusercontent.com/82730997/177568760-d463f668-7644-4672-9e8f-30111cb89685.jpeg) |
 
-This problem may be eliminated with fine-tuning. One may try increasing the number of epochs because we noticed that loss was still contiuning to drop until the last epoch, if we had taken a larger number of epochs (170-180) we might have gotten better results. 
+This situation is not presented in the paper, so we dont know whether it is caused by our implementation or model itself. This problem may be eliminated with fine-tuning if it not caused due to implementation of the model. One may try increasing the number of epochs because we noticed that loss was still contiuning to drop until the last epoch, if we had taken a larger number of epochs (170-180) we might have gotten better results. 
 
 ### INSERT RESULT HERE ####
 
-This situation is not presented in the paper, so we dont know whether it is caused by our implementation or model itself.
 
 # 5. References
 
