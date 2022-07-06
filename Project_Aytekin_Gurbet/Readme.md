@@ -27,14 +27,16 @@ Although the paper states that there are some studies that consider statistical 
 
 As we mentioned above, pool-based active learning distorts the original distribution of the data, as it only adds the most informative sample to the training set in each iteration, and therefore introduces a bias. To eliminate this bias, the paper proposes two unbiased risk estimators that calculate a weighted expectation value on each actively collected data sample. The formulation of the first of these, R_PURE, is as in Figure 1.
 
-@TODO: RESIM EKLE
+![](image_final1.png)
+
 Figure 1: The formulation of R_PURE.
 
 In the above formula, N indicates the total number of instances of the dataset, while M indicates the number of actively sampled instances. q(..) symbolizes the probability mass function, which shows the probability of each instance being the next chosen one and is different from 0 for each instance.
 
 While R_PURE is an unbiased risk estimator, it depends the position of the actively sampled instance. For example, in a uniformly distributed dataset, an early sampled instance has higher weight than the later sampled instance. R_LURE solves this problem so that the estimated risk depends only on whether the instance is sampled or not. The formula of R_LURE is as in Figure 2.
 
-@TODO: RESIM EKLE
+![](image_final2.png)
+
 Figure 2: The formulation of R_LURE.
 
 
