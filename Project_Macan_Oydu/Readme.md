@@ -24,7 +24,7 @@ Shadow removing model constructed by using masking information and proposed illu
 
 There are two subnetworks that are used in the above algorithm which are "NetworkA and "Networkinit". This networks have a structure of modified U-net inspired from ResNet and Mobilenet-v2. Basic blocks for both networks presented in paper as the following.
 
-![image](https://user-images.githubusercontent.com/108632459/177399425-6d4317f2-ada4-4fe8-9df4-ed69ca6e5bb7.png)
+![image](https://user-images.githubusercontent.com/82730997/177494801-005ce976-a987-4008-8199-a2cb59ac17b5.png)
 
 In each scale, depth convolutions with shortcuts are used. Iterative algorithm, folmulated from a Bayesian perspective, for the overall model provided in the paper as down below.
 
