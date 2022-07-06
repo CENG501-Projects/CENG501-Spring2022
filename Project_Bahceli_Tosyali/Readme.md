@@ -61,7 +61,7 @@ and with the each layer the edges of the image is halved therefore we generate o
 <br/>
 After getting four images we conclude the labeling and bounding boxed via another neural network which is for classifiaction and regression at the same time. And the outputs of the final neural networks are the results
  <br/>
-  ![Alt text](images/normalization.png?raw=true "")
+  ![Alt text](images/enforced.png?raw=true "")
 <br/>
 ## 2.2. My interpretation 
 
