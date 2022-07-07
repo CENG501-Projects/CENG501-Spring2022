@@ -49,7 +49,7 @@ Since the [VGG16 model](https://pytorch.org/vision/main/models/generated/torchvi
 
 We've implemented all the graph-related functions [here](https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Duymus_Guder/graph.py), including graph construction, computation of quotient space size, and estimation of 1-covering-number.
 
-For the similarity threshold γ, we manually tested a few different values and decided to use 0.023, which is in range of the values used in the paper. We used same weights as the authors (0.65 for _estimated_ 1-covering-number and 0.35 for quotient space size). Redundancy score implementation is [here](https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Duymus_Guder/model.py). The model is [here](https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Duymus_Guder/model.py).
+For the similarity threshold γ, we manually tested a few different values and decided to use 0.023, which is in range of the values used in the paper. We used same weights as the authors (0.65 for _estimated_ 1-covering-number and 0.35 for quotient space size). Redundancy score implementation is [here](https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Duymus_Guder/model.py). The model is [here](https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Duymus_Guder/model.py). The pruning code is [here](https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Duymus_Guder/prune.py) (note that it only works on VGG16).
 
 After finding the most redundant layer, we used single-shot pruning as mentioned in the paper. Since the number of filters-to-be-pruned is not specified in the paper, we came up with our own formulation at this step. We've pruned $2 * \sqrt{r}$ filters, where $r$ denotes the redundancy of the layer. After each pruning step, we reconstructed the graph and calculated the redundancy only for the pruned layer, since the graph construction is the most costly part.
 
@@ -83,7 +83,7 @@ Our results represent performances on CIFAR-10 test set **without any fine-tunin
 7. Further pruning 43 filters from 26<sup>th</sup> layer: **77.27% accuracy**
 8. Further pruning 43 filters from 24<sup>th</sup> layer: **77.13% accuracy**
 9. Further pruning 43 filters from 21<sup>th</sup> layer: **77.11% accuracy**
-10. Further pruning 45 filters from 19<sup>th</sup> layer: **77.08% accuracy**
+10. Further pruning 43 filters from 19<sup>th</sup> layer: **77.08% accuracy**
 
 Pruning of filters are performed accumulatively, e.g. step 3 is applied on top of step 2 and step 1.
 
