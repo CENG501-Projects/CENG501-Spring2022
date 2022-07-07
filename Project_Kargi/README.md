@@ -81,6 +81,49 @@ Secondly, the term $N^l$ in the Figure 2.6 is defined as a "that is equal to the
 
 Another issue that paper has can be seen in the Figure 2.3, the classic style losses are nearly $10^9$. Such high style loss can be problematic for many problems so in practice and other litearatures, this term is usually normalized by dividing Gram matrix that is produced for an input by it's dimension. For this reason, instead of using unnormalized version of default AST style loss, we have normalized it for better stability. However since some of the analyzes requires the unnormalized versions, such analyzes is done with the test dataset. 
 
+In the end, the balanced style loss we have implemented for all models given in the code below.
+```py
+def weighted_mse_loss(input,target,weights = None):
+  assert input.size() == target.size()
+  size = input.size()
+  if weights == None:
+    weights = torch.ones(size = size[0])
+    
+  if len(size) == 3: # gram matrix is B,C,C
+    se = ((input.view(size[0],-1) - target.view(size[0],-1))**2)
+    return (se.mean(dim = 1)*weights).mean()
+    
+def gram_matrix(x, normalize=True):
+    '''
+    Generate gram matrices of the representations of content and style images.
+    '''
+    (b, ch, h, w) = x.size()
+    features = x.view(b, ch, w * h)
+    features_t = features.transpose(1, 2)
+    gram = features.bmm(features_t)
+    if normalize:
+        gram /= ch * h * w
+    return gram
+
+def calc_ast_style_loss_normalized(self, input, target): # this replaces the style loss for all AST models in the training
+        G1 = gram_matrix(input, False)
+        G2 = gram_matrix(target, False).detach() # we dont need the gradient of the target
+
+        size = input.size()
+        assert(len(size) == 4)
+
+        g1_norm = torch.linalg.norm(G1,dim = (1,2))
+        g2_norm = torch.linalg.norm(G2,dim = (1,2))
+
+        size = G1.size()
+        Nl = size[1] * size[2] # Or C x C = C^2
+        normalize_term =  (torch.square(g1_norm) + torch.square(g2_norm))/Nl  #
+
+        weights = (1/normalize_term)
+        #weights = weights.view(size[0],1,1)
+        return weighted_mse_loss(G1,G2,weights)
+```
+
 # 3. Experiments and results
 
 ## 3.1. Experimental setup
