@@ -28,9 +28,8 @@ A parametric evaluation is conducted in order to evaluate the accuracy of the pr
 ## 3.1. Experimental setup
 
 MNIST, FMNIST, CIFAR10, and CIFAR100 datasets are used in this study. MNIST and FMNIST datasets are used for 2-layer dense architecture, and the rest is used for VGG16, ResNet56(v2) and DenseNet-BC(100-12).
-We imported the datasets using “Keras” and 1/6 of the training set was labeled as the validation set using "train_test_split". The batch size is taken as 64 as stated in the article. We used Pytorch's Cross Entropy loss and implemented the Label Smoothing and Label Relaxation losses. 
-
-We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Architectures for VGG16 and ResNet56(v2) were also prepared and presented, however, the results could not be presented due to lack of time and computational power.
+We imported the datasets using “Keras” and 1/6 of the training set was labeled as the validation set using "train_test_split". Then, we performed preprocessing by subtracting the mean from the inputs. The batch size is taken as 64 as stated in the article. We used Pytorch's Cross Entropy loss and implemented the Label Smoothing and Label Relaxation losses. 
+We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Moreover, architecture for VGG16 is also prepared and presented, however, the results could not be presented due to lack of time and computational power.
 
 ## 3.2. Running the code
 
