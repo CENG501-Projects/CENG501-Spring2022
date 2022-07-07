@@ -98,7 +98,15 @@ Since it is difficult to evaluate the results with the help of a metric, I visua
 
 # 5. References
 
-@TODO: Provide your references here.
+[1]Chang, A. X., Funkhouser, T., Guibas, L., Hanrahan, P., Huang, Q., Li, Z., … Yu, F. (2015). ShapeNet: An Information-Rich 3D Model Repository. ArXiv. Retrieved from https://www.semanticscholar.org/paper/ShapeNet%3A-An-Information-Rich-3D-Model-Repository-Chang-Funkhouser/9b686d76914befea66377ec79c1f9258d70ea7e3
+
+[2]Choy, C. B., Xu, D., Gwak, J., Chen, K., & Savarese, S. (2016). 3D-R2N2: A Unified Approach for Single and Multi-view 3D Object Reconstruction. ArXiv:1604.00449 [Cs]. Retrieved from https://arxiv.org/abs/1604.00449
+
+[3]Miller, A., Fisch, A., Dodge, J., Karimi, A.-H., Bordes, A., & Weston, J. (2016). Key-Value Memory Networks for Directly Reading Documents. ArXiv:1606.03126 [Cs]. Retrieved from https://arxiv.org/abs/1606.03126
+
+[4]Weston, J., Chopra, S., & Bordes, A. (2015). Memory Networks. ArXiv:1410.3916 [Cs, Stat]. Retrieved from https://arxiv.org/abs/1410.3916
+
+[5]Yang, S., Xu, M., Xie, H., Perry, S., & Xia, J. (2021). Single-View 3D Object Reconstruction from Shape Priors in Memory. ArXiv:2003.03711 [Cs]. Retrieved from https://arxiv.org/abs/2003.03711
 
 # Contact
 
