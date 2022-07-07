@@ -30,7 +30,7 @@ We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Ar
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+@TODO: Explain your code & directory structure and how other people can runit.
 
 ## 3.3. Results
 
