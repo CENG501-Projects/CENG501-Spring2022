@@ -152,5 +152,4 @@ Out of the desired model to duplicate above :
 Joint Semantic-Geometric Learning for Polygonal Building Segmentation (Li et al. 2021)
 
 # Contact
-
-Giray Unlu unlu.giray@metu.edu.tr
+For any further questions and suggestions, you can contact us at unlu.giray@metu.edu.tr Giray Unlu and xxx@metu.edu.tr xxx.
