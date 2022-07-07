@@ -8,13 +8,15 @@ In this report, the implementation of the study "From Label Smoothing to Label R
 
 ## 1.1. Paper summary
 
-@TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
+In this paper, they proposed label relaxation (LR) as an alternative to the conventional label smoothing (LS). The proposed method, label relaxation is evaluated mainly by comparing it with the label smoothing. In addition, cross entrophy (CE), confidence penalizing (CP), and focal loss (FL) are also used to calculate accuracy and error in order to evaluate the proposed method. Various datasets and learning architectures were also used within the scope of the study.
+
+![image](https://user-images.githubusercontent.com/108774445/177691070-486790f0-e36c-491a-bc58-90b5a8d7ebf5.png)
 
 # 2. The method and our interpretation
 
 ## 2.1. The original method
 
-@TODO: Explain the original method.
+A parametric evaluation is conducted in order to evaluate the accuracy of the proposed method. Various datasets and learning architectures were used within the scope of the study. Different loss functions such as cross entrophy (CE), label smoothing (LS), confidence penalizing (CP), and focal loss (FL) are used for the evaluation.
 
 ## 2.2. Our interpretation 
 
