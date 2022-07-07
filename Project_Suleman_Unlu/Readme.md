@@ -86,7 +86,7 @@ For some architectural and technical reasons, we couldn’t build a fully connec
 As the two parts of Multi-Task Segmentation Network  and Polygon Refinement Network are trained seperately, they would also be explained seperately.
 ### 3.2.1 `Multi-task Segmentation Network`
 
-Since mentioned above, a complete segmentation network could not be achieved
+As mentioned above, a complete segmentation network could not be achieved
 
 ### 3.2.2 `Polygon Refinement Network`
 A Google colab file is prepared which extensively explains the steps to run it, however they will be summarzied below:
