@@ -8,7 +8,7 @@ In this report, the implementation of the study "From Label Smoothing to Label R
 
 ## 1.1. Paper summary
 
-In this paper, they proposed label relaxation (LR) as an alternative to the conventional label smoothing (LS). The proposed method, label relaxation is evaluated mainly by comparing it with the label smoothing. In addition, cross entrophy (CE), confidence penalizing (CP), and focal loss (FL) are also used to calculate accuracy and error in order to evaluate the proposed method. Various datasets and learning architectures were also used within the scope of the study.
+In this paper, they proposed a new loss function, label relaxation (LR) as an alternative to the conventional label smoothing (LS). They tried to prove the accuracy of the method they presented by comparing it with the previous methods. The proposed method, label relaxation is mainly compared with the label smoothing. In addition, cross entrophy (CE), confidence penalizing (CP), and focal loss (FL) are also used in order to evaluate the proposed method. Various datasets and learning architectures were also used within the scope of the study.
 
 ![image](https://user-images.githubusercontent.com/108774445/177691233-4ebdbea1-a33c-4f26-a68e-3e4dfcc015c3.png)
 
@@ -38,7 +38,7 @@ We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Ar
 
 ## 3.3. Results
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+The results of the implementation and original results are presented in the following tables. Table 1 and Table 2 are optimized for accuracy whereas Table 3 and Table 4 are optimized for ECE.
 
 Table 1: Implemented Results on MNIST and Fashion-MNIST (Opt. for acc.)
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
@@ -74,8 +74,7 @@ Table 4: Original Results on MNIST and Fashion-MNIST (Opt. for ECE)
 
 # 4. Conclusion
 
-In this study, values close to the original results were obtained.
-However, all analyzes could not be performed due to the lack of time and the long duration of the analyzes.
+In this study, values close to the original results were obtained. Since the difference is in the acceptable range, it can be said that the method has been applied successfully. However, all analyzes could not be performed due to the lack of time and the long duration of the analyzes.
 
 # 5. References
 
