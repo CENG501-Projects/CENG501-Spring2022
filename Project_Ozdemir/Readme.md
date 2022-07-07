@@ -21,11 +21,11 @@ In the traditional GNN models, the messages aggregated from the neighbors do not
 
 Additionally, during the aggregation of the messages, all messages are treated equally. The authors suggest that the messages should have different propagation weights, as different messages might have different influences on the neighbors.
 
-To solve these two problems, the authors propose a method named DIMP (Diverse and Interactive Message Passing). In DIMP, nodes create different messages for different target nodes. That means rather than having a message for each node; we have a different message for each edge in the network. For each source user u and target user v, the message is created for the k^{th} layer by dividing the element-wise multiplication of h^{k-1}_v and h^{k-1}_u by the inner product of h^{k-1}_v and h^{k-1}_u, where h^{k-1}_v and h^{k-1}_u denotes the hidden representations of node v and u obtained in the (k-1)^{th} layer. These messages are aggregated using vectorial summation.
+To solve these two problems, the authors propose a method named DIMP (Diverse and Interactive Message Passing). In DIMP, nodes create different messages for different target nodes. That means rather than having a message for each node; we have a different message for each edge in the network. For each source user u and target user v, the message is created for the k^{th} layer by dividing the element-wise multiplication of h^{k-1}_v and h^{k-1}_u by the inner product of h^{k-1}_v and h^{k-1}_u, where h^{k-1}_v and h^{k-1}_u denote the hidden representations of node v and u obtained in the (k-1)^{th} layer. These messages are aggregated using vectorial summation.
 
 DIMP is an unsupervised model, and the authors use the infomax-based objective function. Basically, there exists a discriminator layer inside the model, which takes the hidden representations of the nodes calculated in the k^th layer and the s parameter, which represents the overall graph. s parameter is calculated by averaging the representations of all nodes in the graph. Additionally, the authors also provide the hidden representations of the negative samples to the Discriminator. The outputs of the Discriminator for these two types of nodes are used in the loss function, which is Binary Cross-Entropy Loss.
 
-The model overperforms the existing GNN models on node classification, node clustering, and graph classification tasks. Additionally, the authors explain the theoretical background of their approach.
+The model outperforms the existing GNN models on node classification, node clustering, and graph classification tasks. Additionally, the authors explain the theoretical background of their approach.
 
 
 
@@ -38,7 +38,7 @@ The model overperforms the existing GNN models on node classification, node clus
 
 The original method uses DIMP Layer and a Discriminator Layer in the model.
 
-- In k^{th} DIMP Layer, to obtain the hidden representation of the node v, for each neighbor u of node v, the message is calculated by dividing the element-wise multiplication of h^{k-1}_v and h^{k-1}_u by the inner product of h^{k-1}_v and h^{k-1}_u, where h^{k-1}_v and h^{k-1}_u denotes the hidden representations of node v and u obtained in the (k-1)^{th} layer. The authors do not mention the hidden layer sizes or whether they used the same hidden layer size for every DIMP Layer.
+- In k^{th} DIMP Layer, to obtain the hidden representation of the node v, for each neighbor u of node v, the message is calculated by dividing the element-wise multiplication of h^{k-1}_v and h^{k-1}_u by the inner product of h^{k-1}_v and h^{k-1}_u, where h^{k-1}_v and h^{k-1}_u denote the hidden representations of node v and u obtained in the (k-1)^{th} layer. The authors do not mention the hidden layer sizes or whether they used the same hidden layer size for every DIMP Layer.
 
 - In Discriminator, the authors use the Bilinear layer to calculate the outputs. This step was straightforward as they used the same approach given in the (Veličković et al., 2019).
 
@@ -123,7 +123,7 @@ The project directory contains the Python files described below;
 
 -  **train.py**: contains the train function which is used to train the DIMP model.
 
--  **test.py**: contains the test function to evaluate the performance of the model.
+-  **test.py**: contains the test functions to evaluate the performance of the model.
 
 -  **run.py**: the main file to train and test the DIMP model.
 
@@ -137,7 +137,7 @@ Additionally, the directory contains the folders described below;
 
 -  **/data**: to store the data using the export_data function.
 
--  **figures**: to store the loss history figures using the visualize_loss function.
+-  **/figures**: to store the loss history figures using the visualize_loss function.
 
   
 
@@ -157,11 +157,11 @@ The parameters whose value can be adjusted by the users are given below;
 
 |Parameter|Type|Default value|Description|
 |--|--|--|--|
-|--dname|str|'Cora'| Dataset name (e.g., Cora, CiteSeer, PubMed)|
+|--dname|str|Cora| Dataset name (e.g., Cora, CiteSeer, PubMed)|
 |--seed|int|1234| Random seed|
 |--epochs|int|20|Number of epochs|
 |--lr|float|0.001|Learning rate|
-|--weight_decay'|float|0.01| Weight decay |
+|--weight_decay|float|0.01| Weight decay |
 |--hidden_dim|int|256|Dimension of the hidden units|
 |--num_layer|int|4|Number of layers
 |--C|int|10|SVM regularization parameter|
@@ -290,7 +290,7 @@ Interestingly, I obtained better results when I chose the number of epochs as 10
 |My implementation|0.020|0.036
 
   
-In either case, although I was able to increase the classification accuracy by adjusting several hyperparameters, I was not able to improve the clustering scores, which are quite bad. During the tuning, I also observed that when I increased the size of the generated embeddings (hidden dimension), the performance of the model on node clustering even became worse. I believe that it is also related to the curse of dimensionality. When I increased the dimension, KMeans could not find meaningful similarities between the embeddings to the cluster then.
+In either case, although I was able to increase the classification accuracy by adjusting several hyperparameters, I was not able to improve the clustering scores, which are quite bad. During the tuning, I also observed that when I increased the size of the generated embeddings (hidden dimension), the performance of the model on node clustering became even worse. I believe that it is also related to the curse of dimensionality. When I increased the dimension, KMeans could not find meaningful similarities between the embeddings to cluster them.
 
 # 5. References
 
