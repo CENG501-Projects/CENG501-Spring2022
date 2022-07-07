@@ -23,7 +23,7 @@ To prove the accuracy of the mentioned loss, a comparison with other loss functi
 
 ## 2.1. The original method
 
-A parametric evaluation is conducted in order to evaluate the accuracy of the proposed method. Various datasets and learning architectures were used within the scope of the study. Different loss functions such as cross entrophy (CE), label smoothing (LS), confidence penalizing (CP), and focal loss (FL) are used for the evaluation.
+The original method is mainly based on classification problem in which the trainer optimizes the best probabilistic distribution represented by a parameter (alpha), which is usually considered fixed in label smoothing. Therefore, it is included finetuned besides other hyperparameters such as learning rate, regularization, and weight decay, which are determined based on both cross-validation accuracy and error.    
 
 ## 2.2. Our interpretation 
 
