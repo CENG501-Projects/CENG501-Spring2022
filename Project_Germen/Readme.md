@@ -117,11 +117,11 @@ It isn't clear which one the authors refer to as the bound:
 In the implementation, the former was used.
 
 <p align="center">
-<img src="https://bit.ly/3utM6eD" align="center" border="0" alt="a =  std  \times \sqrt{3} " width="110" height="22" /> (Eq. 11)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn11.png?raw=true" align="center" border="0" alt="a =  std  \times \sqrt{3} " width="110" height="22" /> (Eq. 11)
 </p>
 
 <p align="center">
-<img src="https://bit.ly/3yprxRC" align="center" border="0" alt="\pazocal{U}( - a ,  a)" width="74" height="18" /> (Eq. 12)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn12.png?raw=true" align="center" border="0" alt="\pazocal{U}( - a ,  a)" width="74" height="18" /> (Eq. 12)
 </p>
 
 This difference may not be seen as a "part" of the model/method due to being written in the experiment section. However, due to the nature of the SMs, the wrong initialization can decrease converging speed and even make it stagnant, and vice versa. 
