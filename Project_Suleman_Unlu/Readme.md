@@ -105,7 +105,7 @@ A Google colab file is prepared which extensively explains the steps to run it, 
 * Two Ideas were tested with the same target of predicting the displacement of the Vertice given the Vertice with 256 node features.
 * The first model tested was based on the idea proposed in the paper where a fully connected network was made that would take these 256 features and predict a class of the displacement among the labels of 0 to 224, this model was trained with cross entropy loss.
   * Something that was realized during this training was that treating this problem as a clasification problem may not be the best idea as there are no details given on how the 15x15 grid was converted to class labels, the method chosen for duplication was arbitrary to map each element of the grid into a class label. But a problem that arises here is that if the actual displacement was [7,7] for example, the loss function should be in such a way that a guess of [7,6] should be penalized much less than a guess of [0,0]. This is an issue with the choice of loss function, and the problem nature suggests to treat it as a regression problem instead where if Mean Squared Error is used as the loss function, the guess of [7,6] would be penalzied much less than the guess of [0,0]. 
-* The second model was now made in such a way that the criterion was changed to Mean Squared Error from Categorical Cross Entropy and the labels were kept in the format of [A,B] instead of class labels. The output layer of the fully connected network now has 2 neurons to guess the X and Y displacement. 
+* The second model was now made in such a way that the criterion was changed to Mean Squared Error from Categorical Cross Entropy and the labels were kept in the format of [A,B] instead of class labels. The output layer of the fully connected network now has 2 neurons to predict the X and Y displacement. 
 
 
 ## 3.3. Results
@@ -116,6 +116,16 @@ A Google colab file is prepared which extensively explains the steps to run it, 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
 
 ### 3.3.2 `Polygon Refinement Network`
+* As a building segment is passed through the encoder to get a 112x112x256 feature map, some of the feature layers of this feature map are illustarted below:
+* The input image to the encoder is: 
+  * ![image](https://user-images.githubusercontent.com/69632507/177661083-d5a55044-fc6c-4686-8620-4d448f33c1bb.png)
+* Six randomly selected feature layers of the feature map
+  * ![image](https://user-images.githubusercontent.com/69632507/177661218-eebf0c70-0509-4487-b5b4-33ebf4905468.png)
+* Regarding the result of the First Propogation Model which was trained as a classfication model with Categorical Class Entropy with 225 different classes, the model quickly went to overfitting and memorizing the training data and no learning was happening on the testing data. As there are 225 classes to predict from, a random classifier would attain an accuracy of 0.44% accuracy and in this model's case, the training accuracy reached 88%, however, the testing accruacy is still fluctuating around the accuracy of a random classifier, suggesting no learning is happening and the model was interrupted early on.
+  * ![image](https://user-images.githubusercontent.com/69632507/177661928-e9d7ae03-6d5d-4728-aac8-fa7a47819fce.png)
+* Regarding the result of the Second Propogation Model which was trained as a regression model with Mean Squared Error, it was expected to perform better than the first model as there was more room to learn with the possibility of predicting displacements closer and closer to the ground truth. However, despite several iterations and efforts, the model was not learning as shown in the image illustarted below.
+  * ![image](https://user-images.githubusercontent.com/69632507/177662271-8c4ac60f-5608-49da-9b16-192d369ec874.png)
+
 
 # 4. Conclusion
 
