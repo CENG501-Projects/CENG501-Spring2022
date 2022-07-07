@@ -7,7 +7,7 @@ The paper “Single-View 3D Object Reconstruction from Shape Priors in Memory”
 ## 1.1. Paper summary
 
 Networks that generally construct 3D objects from images cannot produce high-quality objects due to noisy backgrounds and occlusions. The network used in this paper, called Mem3D, has made progress in this field thanks to its architecture and rendered (R2N2) dataset.
-Mem3D, like other networks, makes images more compact with the help of shape encoder. Shape decoder is used in the creation of 3D objects. Thanks to its memory network, Mem3D extracts shape priors and uses these priors in the construction of the object. This memory network provides a great advantage in constructing the object, especially in images with excessive occlusion.
+Mem3D, like other networks, makes images more compact with the help of image encoder. Shape decoder is used in the creation of 3D objects. Thanks to its memory network, Mem3D extracts shape priors and uses these priors in the construction of the object. This memory network provides a great advantage in constructing the object, especially in images with excessive occlusion.
 Mem3D is trained with the R2N2 dataset. This dataset contains only rendered images. This trained model has also been tested with the Pix3D dataset containing real images.
 
 # 2. The method and my interpretation
@@ -42,27 +42,51 @@ $$ V = \left[ V_n |S_k(F, K_{n_i}) > \beta \right] $$
 
 The 3D shapes that the image feature is most similar to and saved in the memory network are sent to the LSTM Encoder. Here, we can say that it is length-variant data because the number of inputs depends on the number of similar objects. After all similar shapes are sent to LSTM, only one shape prior vector is output. Many-to-one LSTM architecture includes 1 hidden layer with 2048 neuron, so the length of the shape prior vector is 2048.
 
+### Notes
+
+An important point is that shape priors depend on image features. The data sent to the shape decoder in the last step is a combination of image features and shape priors. Shape is reconstructed from this data.
+
 ### 2.1.4 Shape decoder
 
 It contains 5 transposed 3D convolutional layers. The first four layers have a kernel size of 4, a stride size of 2, and a padding of 1. All four of these layers contain the batch normalization layer and ReLu. Only the last layer has sigmoid activation layer. The number of channels of the Convolution layers are 512, 128, 32, 8 and 1, respectively.
 
 ## 2.2. My interpretation 
 
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+In my own implementation, I tried to keep the structure pretty much the same. However, I can say that there is a lot of information that is not provided in the paper. The most difficult issue in this implementation process was the dataset problem. Although the R2N2 dataset, released in 2015, is a Shapenet dataset, it has not been maintained for a long time. For this reason, old dataset functions do not work. To solve this problem, I had to write the dataset functions myself.
+
+### 2.2.1. Image Encoder
+
+Image encoder architecture is implemented as stated in the same paper.
+
+### 2.2.2. Memory network and LSTM shape encoder
+
+These architectures were created to create a memory between image features and shape priors. However, I could not implement it because there is insufficient information about the training process in the paper and it cannot be used directly in pytorch. While the tensor coming out of the image encoder is (256x4x4) in size, the memory values must be (32x32x32) in size. The use of a value of this size by the next LSTM makes the network unsolvable. In addition to these, a fully-connected network is used instead of a memory network to prove the concept of using image features and shape priors together in the network. Image encoder data is flattened and supplied to the fully-connected network. Shape priors, which are fully-connected layer output, are combined with image features and sent to the shape decoder.
+
+### 2.2.3. Shape Decoder
+
+It is used for reconstruction of objects. It is implemented as the same as in the paper.
 
 # 3. Experiments and results
 
 ## 3.1. Experimental setup
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
+The experiments in the paper are done with Shapenet R2N2 and Pix3D datasets. The R2N2 dataset used especially for training is approximately 15 GB. These datasets can be downloaded using the links provided below.
+
+No information is shared about the hardware the model is trained on. However, important information about the implementation was shared. The training batch size is specified as 32. We know that the network is trained end-to-end with the help of Adam optimizer. Voxels must be expressed in binary form in order to be displayed. The threshold value for displaying voxels is 0.85.
+
+The "intersection over union" evaluation metric was used to compare Mem3D with its competitors. This metric simply controls how many voxels we classify.
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+It might say that the most important issue for running the code is datasets. My own implementation of datasets is in X. Here, there is a need for a document where the paths of the items are shared for the dataset. You can find the necessary python notebook to provide this file in the repository. This notebook simply navigates through the dataset folders and writes the paths to a document and saves them.
+
+I am sharing pyton notebooks with necessary information and results for my implementation to be seen and understood easily. You can easily follow the process and see my results.
 
 ## 3.3. Results
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+Mem3D is an end-to-end trained system. The reduction in loss throughout the entire training is shared as a result.
+
+
 
 # 4. Conclusion
 
