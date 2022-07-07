@@ -40,15 +40,15 @@ We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Ar
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
 |--------------------|-------------|--------------|-----------------|-----------------|
 |     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
-|     CE (α=0)       |             |              |                 |                 |
+|     CE (α=0)       |   0.972     |    0.023     |                 |                 |
 |LS (α opt. for acc.)|             |              |      0.920      |      0.011      |
 |LR (α opt. for acc.)|             |              |                 |                 |
 
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
 |--------------------|-------------|--------------|-----------------|-----------------|
 |     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
-|  CE (α=0, T opt.)  |             |              |                 |                 |
-|LS (α opt. for ECE) |             |              |      0.92       |     0.008       |
+|  CE (α=0, T opt.)  |   0.960     |    0.068     |                 |                 |
+|LS (α opt. for ECE) |             |              |                 |                 |
 |LR (α opt. for ECE) |             |              |                 |                 |
 
 
