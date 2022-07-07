@@ -45,7 +45,7 @@ In the uploaded file, a comprehensive google-colab script containing all the use
 
 ## 3.3. Results
 
-The results of the implementation and original results are presented in the following tables. Table 1 and Table 2 are optimized for accuracy whereas Table 3 and Table 4 are optimized for ECE.
+The results of the implementation and the original results are presented in the following tables. Table 1 and Table 2 are optimized for accuracy, whereas Table 3 and Table 4 are optimized for ECE.
 
 
 Table 1: Implemented Results on MNIST and Fashion-MNIST (Opt. for acc.)
@@ -85,7 +85,7 @@ Table 4: Original Results on MNIST and Fashion-MNIST (Opt. for ECE)
 
 # 4. Conclusion
 
-In this study, values close to the original results were obtained. Since the difference is in the acceptable range, it can be said that the method has been applied successfully. However, all analyzes could not be performed due to the lack of time and the long duration of the analyzes.
+In this report, values close to the original results were obtained. Since the difference is in the acceptable range, it can be said that the method has been applied successfully. However, all analyzes could not be performed due to the lack of time and the long duration of the analyzes.
 
 # 5. References
 
