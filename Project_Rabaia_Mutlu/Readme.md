@@ -4,8 +4,6 @@ This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.
 
 # 1. Introduction
 
-This study is an implementation of the paper "From Label Smoothing to Label Relaxation" from AAAI 2021. The authors are Julian Lienen and Eyke Hüllermeier. An alternative loss function called "Label Relaxation" is proposed as an alternative to the "Label Smoothing". The proposed function is tested on several networks using different datasets. Our goal is to create our own algorithm and reproduce the presented results.
-
 In this report, the implementation of the study "From Label Smoothing to Label Relaxation, AAAI 2021" is presented. In the study, a new loss function called "Label Relaxation" is proposed as an alternative to the conventional "Label Smoothing", where it is performed on several networks using different datasets. Our goal is to create our own algorithm and reproduce the presented results.   
 
 ## 1.1. Paper summary
