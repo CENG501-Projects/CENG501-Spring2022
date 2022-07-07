@@ -87,10 +87,14 @@ I am sharing pyton notebooks with necessary information and results for my imple
 Mem3D is an end-to-end trained system. The reduction in loss throughout the entire training is shared as a result.
 
 
+In addition, the purpose of Mem3D is to reconstruct objects with a single image. To demonstrate this, I visualize the input image, the ground truth, and the output of my model.
+
 
 # 4. Conclusion
 
-@TODO: Discuss the paper in relation to the results in the paper and your results.
+The paper does not include information such as the minimum loss value reached by the model and the duration of the training. It makes sense that my implementation was worse in the evaluation metric because the model architecture was not fully implemented. However, we can say that the model is still trainable after the changes I made for the prof-of-concept. Because the loss value is constantly decreasing.
+
+Since it is difficult to evaluate the results with the help of a metric, I visualized the results of my model and ground truths. We can see more concretely how the model we trained can reconstruct an object from a single image. It can be said that the results are good despite this short training period.
 
 # 5. References
 
@@ -98,4 +102,4 @@ Mem3D is an end-to-end trained system. The reduction in loss throughout the enti
 
 # Contact
 
-@TODO: Provide your names & email addresses and any other info with which people can contact you.
+Mehmet Sahin, mesahin@metu.edu.tr,  METU-ROMER & METU-Mechanical Engineering Department
