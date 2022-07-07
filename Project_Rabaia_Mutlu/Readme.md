@@ -10,13 +10,13 @@ This study is an implementation of the paper "From Label Smoothing to Label Rela
 
 @TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
 
-# 2. The method and my interpretation
+# 2. The method and our interpretation
 
 ## 2.1. The original method
 
 @TODO: Explain the original method.
 
-## 2.2. My interpretation 
+## 2.2. Our interpretation 
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
 
