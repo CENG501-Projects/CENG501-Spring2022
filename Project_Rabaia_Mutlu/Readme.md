@@ -80,6 +80,7 @@ In this study, values close to the original results were obtained. Since the dif
 
 - Guo, C.; Pleiss, G.; Sun, Y.; and Weinberger, K. Q. 2017. On calibration of modern neural networks. In Proceedings of the 34th International Conference on Machine Learning, ICML 2017, Sydney, NSW, Australia, August 6-11, 2017, volume 70 of Proceedings of Machine Learning Research, 1321–1330. PMLR.
 
+- Lienen, J.; Hüllermeier, E. 2021. From Label Smoothing to Label Relaxation. Proceedings of the AAAI Conference on Artificial Intelligence, 35(10), 8583-8591. Retrieved from https://ojs.aaai.org/index.php/AAAI/article/view/17041
 
 # Contact
 
