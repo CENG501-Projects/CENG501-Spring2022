@@ -6,7 +6,7 @@ This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.
 
 This study is an implementation of the paper "From Label Smoothing to Label Relaxation" from AAAI 2021. The authors are Julian Lienen and Eyke Hüllermeier. An alternative loss function called "Label Relaxation" is proposed as an alternative to the "Label Smoothing". The proposed function is tested on several networks using different datasets. Our goal is to create our own algorithm and reproduce the presented results.
 
-In this report, the implementation of the study "From Label Smoothing to Label Relaxation, AAAI 2021" is presented. In the study, 
+In this report, the implementation of the study "From Label Smoothing to Label Relaxation, AAAI 2021" is presented. In the study, a new loss function called "Label Relaxation" is proposed as an alternative to the conventional "Label Smoothing", where it is performed on several networks using different datasets. Our goal is to create our own algorithm and reproduce the presented results.   
 
 ## 1.1. Paper summary
 
@@ -45,7 +45,7 @@ Table 1: Implemented Results on MNIST and Fashion-MNIST (Opt. for acc.)
 |     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
 |     CE (α=0)       |   0.972     |    0.023     |      0.875      |      0.094      |
 |LS (α opt. for acc.)|   0.960     |    0.218     |      0.920      |      0.011      |
-|LR (α opt. for acc.)|   0.972     |    0.017     |                 |                 |
+|LR (α opt. for acc.)|   0.972     |    0.017     |      0.901      |      0.029      |
 
 Table 2: Original Results on MNIST and Fashion-MNIST (Opt. for acc.)
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
@@ -61,7 +61,7 @@ Table 3: Implemented Results on MNIST and Fashion-MNIST (Opt. for ECE)
 |     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
 |  CE (α=0, T opt.)  |   0.960     |    0.068     |      0.894      |      0.095      |
 |LS (α opt. for ECE) |   0.982     |    0.017     |      0.920      |      0.008      |
-|LR (α opt. for ECE) |   0.976     |    0.006     |                 |                 |
+|LR (α opt. for ECE) |   0.976     |    0.006     |      0.887      |      0.111      |
 
 Table 4: Original Results on MNIST and Fashion-MNIST (Opt. for ECE)
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
