@@ -43,11 +43,13 @@ Since the [VGG16 model](https://pytorch.org/vision/main/models/generated/torchvi
 - SGD with momentum (=0.9)
 - Batch size of 256, and learning rate of 1e-2
 
-**Although we didn't have enough resources/time to tune the network to the optimum, it provided 77.7% accuracy on the test set, which is a reasonable baseline performance to compare, without any pruning.**
+#### Note: The sole purpose of training the network without any pruning is to compare the performance after pruning it. We further want to clarify that we didn't have enough resources/time to tune the network to the optimum. With this settings, it provided 77.7% accuracy on the test set, which we took as a baseline performance result without any pruning.
 
-We started by implementing a graph construction function. Here we used flattening and normalization similar to that in the paper. For the similarity threshold γ, we manually tested a few different values and decided to use 0.02, which is in range of the values used in the paper. Using weighted average of ℓ-covering and quotient space size we found the layer with the most redundancy. We used same weights as the authors (0.65 for ℓ-covering and 0.35 for quotient space size). 
+We started by implementing a graph construction function. Here we used flattening and normalization similar to that in the paper. For the similarity threshold γ, we manually tested a few different values and decided to use 0.023, which is in range of the values used in the paper. We used same weights as the authors (0.65 for _estimated_ 1-covering-number and 0.35 for quotient space size).
 
-After finding the layer, we used single shot pruning as mentioned in the paper. As the number of filters to prune is not specified in the paper, we came up with our own formulation at this step. We pruned number of filters equal to $2 * \sqrt{r}$, where $r$ denotes the redundancy of the layer. After each pruning step, we reconstructed the graph and calculated the redundancy only for the pruned layer, since the graph construction is the most costly part. 
+After finding the most redundant layer, we used single-shot pruning as mentioned in the paper. Since the number of filters-to-be-pruned is not specified in the paper, we came up with our own formulation at this step. We've pruned $2 * \sqrt{r}$ filters, where $r$ denotes the redundancy of the layer. After each pruning step, we reconstructed the graph and calculated the redundancy only for the pruned layer, since the graph construction is the most costly part.
+
+We've applied this pruning iteration 10-times, and had performance results after each pruning.
 
 ## 3.2. Running the code
 
