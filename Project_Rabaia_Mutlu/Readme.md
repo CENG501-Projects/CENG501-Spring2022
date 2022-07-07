@@ -4,7 +4,7 @@ This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.
 
 # 1. Introduction
 
-This study is an implementation of the paper "From Label Smoothing to Label Relaxation" from AAAI 2021. The authors are Julian Lienen and Eyke Hüllermeier. An alternative loss function called "label relaxation" is proposed as an alternative to the "label smoothing". The proposed function is tested on several networks using different datasets. Our goal is to create our own algorithm and reproduce the presented results.
+This study is an implementation of the paper "From Label Smoothing to Label Relaxation" from AAAI 2021. The authors are Julian Lienen and Eyke Hüllermeier. An alternative loss function called "Label Relaxation" is proposed as an alternative to the "Label Smoothing". The proposed function is tested on several networks using different datasets. Our goal is to create our own algorithm and reproduce the presented results.
 
 ## 1.1. Paper summary
 
@@ -28,15 +28,7 @@ MNIST, FMNIST, CIFAR10, and CIFAR100 datasets are used in this study. MNIST and 
 
 We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Architectures for VGG16 and ResNet56(v2) were also prepared and presented, however, the results could not be presented due to lack of time and computational power.
 
-We imported the datasets using “keras”. After the data was imported, the training and test set were combined and augmentation was applied by creating symmetrical images. After augmentation, 1/7 of the whole data was labeled as the test set and 1/6 of the rest was labeled as the validation set using "train_test_split". To train the network, the batch size is taken as 64 as stated in the article.
-
-|                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
-|--------------------|-------------|--------------|-----------------|-----------------|
-|     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
-|     CE (a=0)       |             |              |                 |                 |
-|LS (a opt. for acc.)|             |              |                 |                 |
-|LR (a opt. for acc.)|             |              |     0.912       |                 |
-
+We imported the datasets using “Keras”. After the data was imported, the training and test set were combined and augmentation was applied by creating symmetrical images. After augmentation, 1/7 of the whole data was labeled as the test set and 1/6 of the rest was labeled as the validation set using "train_test_split". To train the network, the batch size is taken as 64 as stated in the article.
 
 ## 3.2. Running the code
 
@@ -46,6 +38,21 @@ We imported the datasets using “keras”. After the data was imported, the tra
 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
 
+|                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
+|--------------------|-------------|--------------|-----------------|-----------------|
+|     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
+|     CE (α=0)       |             |              |                 |                 |
+|LS (α opt. for acc.)|             |              |                 |                 |
+|LR (α opt. for acc.)|             |              |     0.912       |                 |
+
+|                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
+|--------------------|-------------|--------------|-----------------|-----------------|
+|     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
+|  CE (α=0, T opt.)  |             |              |                 |                 |
+|LS (α opt. for acc.)|             |              |                 |                 |
+|LR (α opt. for acc.)|             |              |     0.912       |                 |
+
+
 # 4. Conclusion
 
 In this study, values close to the original results were obtained.
@@ -53,10 +60,10 @@ However, all analyzes could not be performed due to the lack of time and the lon
 
 # 5. References
 
-Guo, C.; Pleiss, G.; Sun, Y.; and Weinberger, K. Q. 2017. On calibration of modern neural networks. In Proceedings of the 34th International Conference on Machine Learning, ICML 2017, Sydney, NSW, Australia, August 6-11, 2017, volume 70 of Proceedings of Machine Learning Research, 1321–1330. PMLR.
+- Guo, C.; Pleiss, G.; Sun, Y.; and Weinberger, K. Q. 2017. On calibration of modern neural networks. In Proceedings of the 34th International Conference on Machine Learning, ICML 2017, Sydney, NSW, Australia, August 6-11, 2017, volume 70 of Proceedings of Machine Learning Research, 1321–1330. PMLR.
 
 
 # Contact
 
-Sezer Mutlu: szrmutlu@gmail.com
-Tareq Rabaia: tareqrabai3a@gmail.com
+- Sezer Mutlu: szrmutlu@gmail.com
+- Tareq Rabaia: tareqrabai3a@gmail.com
