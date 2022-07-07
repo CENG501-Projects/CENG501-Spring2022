@@ -28,14 +28,14 @@ parser.add_argument(
 parser.add_argument(
     "--lr",
     type = float,
-    default = 0.1,
+    default = 0.2,
     help = "Learning rate"
 )
 
 parser.add_argument(
     "--epochs",
     type=int,
-    default = 120,
+    default = 200,
     help = "Number of epochs"
 )
 
