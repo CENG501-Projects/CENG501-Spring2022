@@ -49,8 +49,8 @@ We imported the datasets using “Keras”. After the data was imported, the tra
 |--------------------|-------------|--------------|-----------------|-----------------|
 |     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
 |  CE (α=0, T opt.)  |             |              |                 |                 |
-|LS (α opt. for acc.)|             |              |                 |                 |
-|LR (α opt. for acc.)|             |              |     0.912       |                 |
+|LS (α opt. for ECE) |             |              |                 |                 |
+|LR (α opt. for ECE) |             |              |     0.912       |                 |
 
 
 # 4. Conclusion
