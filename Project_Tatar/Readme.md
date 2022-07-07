@@ -1,15 +1,15 @@
-# @TODO: Paper title:Deterministic Mini-batch Sequencing for Training Deep Neural Networks Subhankar Banerjee, Shayok Chakraborty.
+# Paper title:Deterministic Mini-batch Sequencing for Training Deep Neural Networks Subhankar Banerjee, Shayok Chakraborty.
 
 This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.edu.tr/~skalkan/DL/) project for reproducing a paper without an implementation. See [CENG501 (Spring 2022) Project List](https://github.com/CENG501-Projects/CENG501-Spring2022) for a complete list of all paper reproduction projects.
 
 # 1. Introduction
 
-@TODO: Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
+ Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
 Article,Deterministic Mini-batch Sequencing for Training Deep Neural Networks Subhankar Banerjee, Shayok Chakraborty,published 35th AAAI conference on Atificial Intelligence at 2021. The main goal of this project is to implement proposed alghoritm ,selecting and sequencing mini batches for training neural network. After implementing propesed alghoritm, obtained results will be compared with results obtained from SGD(Stoachastic Gradient Descent),DPP(Determinantal point process) and Submodular methods. 
 
 ## 1.1. Paper summary
 
-@TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
+ Summarize the paper, the method & its contributions in relation with the existing literature.
 Summarize the paper, the method & its contributions in relation with the existing literature.
 
 Generalization performance of the model is firmly related to mini batches which are used for computing gradients and updating parameters of the model during the backpropogation alghoritm(Gradient Descent). This leads to motivate to researcher devoloping intelligent sampling techniques rather than stoachastic ones. In this paper, authors propose an algorithm to generate a deterministic sequence of mini-batches to train a deep neural network. Their alghoritm based on idea which is selecting mini batch such that the data distrubution represented by this selected mini batch and the already selected one, is closest to the distrubution of the unselected training samples. MMD(Maximum Mean Disperancy) metric is used for measuring the closness of these distrubutions.Mini batch selection method can be formulated as an optimization problem with minimizing MMD metrics between the distrubutions. MMD is a statistical metric to compute the difference in marginal probablity between two distrubutions,which is calculated as the difference between the emprical means of the two distrubutions after mapping onto a Reproducing Kernel Hilbert Space. 
@@ -26,7 +26,7 @@ Contributions in existing literature can be listed as follows:
 
 ## 2.1. The original method
 
-@TODO: Explain the original method.
+Explain the original method.
 
 Explain the original method.
 
@@ -108,7 +108,7 @@ Require Training Data D with N samples, already selected set of training samples
 
 ## 2.2. My interpretation 
 
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+ Explain the parts that were not clearly explained in the original paper and how you interpreted them.
 
 Explain the parts that were not clearly explained in the original paper and how you interpreted them.
 
@@ -195,34 +195,34 @@ Orginal Settings can be listed as follows :
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+ Explain your code & directory structure and how other people can run it.
 
 Due to reasons listed at Section 2, I could not complete the project.I am able to obtain Results for CIFAR 10 data set with Random sampling.
 
 ## 3.3. Results
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
 
 Random sampling strategy :Test Accuracy is 83.%(CIFAR 10)
 Random Sampling Strategy : Test Accuracy is 96.6(MNIST)
 
 # 4. Conclusion
 
-@TODO: Discuss the paper in relation to the results in the paper and your results.
+ Discuss the paper in relation to the results in the paper and your results.
 
 I could not obtain the results but article offers a very elegant way to select and sequence mini batches to train the model. Generalization performance of the network computed by the test loss and test error metrics on the CIFAR 10,MNIST and SVNH data sets. Propes alghoritm always give equal or better performance than Random Sampling. The submodular selection methods, performs better on the SVNH data set but it is not consistent across different data set.DPP methods, on the other hand, perform better ın CIFAR 10 data set but for other data set gives slower decrease in test loss and error. 
 
 
 # 5. References
 
-@TODO: Provide your references here.
+ Provide your references here.
 
 Deterministic Mini-batch Sequencing for Training Deep Neural Networks
 Subhankar Banerjee, Shayok Chakraborty
 
 # Contact
 
-@TODO: Provide your names & email addresses and any other info with which people can contact you.
+ Provide your names & email addresses and any other info with which people can contact you.
 
 Provide your names & email addresses and any other info with which people can contact you.
 email: Utatar4@gamil.com. If anybody who interested in this article and it's code implmentation, I will be very appreciated to receive any help and collabaration.
