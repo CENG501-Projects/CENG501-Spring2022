@@ -38,6 +38,14 @@ After the model is trained, the memory netwok is used only for read operations. 
 
 $$ V = \left[ V_n |S_k(F, K_{n_i}) > \beta \right] $$
 
+### 2.1.3 LSTM shape encoder
+
+The 3D shapes that the image feature is most similar to and saved in the memory network are sent to the LSTM Encoder. Here, we can say that it is length-variant data because the number of inputs depends on the number of similar objects. After all similar shapes are sent to LSTM, only one shape prior vector is output. Many-to-one LSTM architecture includes 1 hidden layer with 2048 neuron, so the length of the shape prior vector is 2048.
+
+### 2.1.4 Shape decoder
+
+It contains 5 transposed 3D convolutional layers. The first four layers have a kernel size of 4, a stride size of 2, and a padding of 1. All four of these layers contain the batch normalization layer and ReLu. Only the last layer has sigmoid activation layer. The number of channels of the Convolution layers are 512, 128, 32, 8 and 1, respectively.
+
 ## 2.2. My interpretation 
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
