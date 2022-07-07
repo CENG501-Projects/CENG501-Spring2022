@@ -37,6 +37,7 @@ We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Ar
 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
 
+Table 1: Implemented Results on MNIST and Fashion-MNIST (Opt. for acc.)
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
 |--------------------|-------------|--------------|-----------------|-----------------|
 |     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
@@ -44,13 +45,29 @@ We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Ar
 |LS (α opt. for acc.)|             |              |      0.920      |      0.011      |
 |LR (α opt. for acc.)|             |              |                 |                 |
 
+Table 2: Implemented Results on MNIST and Fashion-MNIST (Opt. for ECE)
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
 |--------------------|-------------|--------------|-----------------|-----------------|
 |     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
 |  CE (α=0, T opt.)  |   0.960     |    0.068     |                 |                 |
-|LS (α opt. for ECE) |             |              |      0.92       |      0.008      |
+|LS (α opt. for ECE) |             |              |      0.920      |      0.008      |
 |LR (α opt. for ECE) |             |              |                 |                 |
 
+Table 3: Original Results on MNIST and Fashion-MNIST (Opt. for acc.)
+|                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
+|--------------------|-------------|--------------|-----------------|-----------------|
+|     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
+|     CE (α=0)       |   0.985     |    0.010     |      0.912      |      0.129      |
+|LS (α opt. for acc.)|   0.988     |    0.106     |      0.915      |      0.155      |
+|LR (α opt. for acc.)|   0.985     |    0.007     |      0.912      |      0.059      |
+
+Table 4: Original Results on MNIST and Fashion-MNIST (Opt. for ECE)
+|                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
+|--------------------|-------------|--------------|-----------------|-----------------|
+|     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
+|  CE (α=0, T opt.)  |   0.983     |    0.003     |     0.908       |      0.030      |
+|LS (α opt. for ECE) |   0.987     |    0.014     |     0.915       |      0.016      |
+|LR (α opt. for ECE) |   0.985     |    0.003     |     0.911       |      0.015      |
 
 # 4. Conclusion
 
