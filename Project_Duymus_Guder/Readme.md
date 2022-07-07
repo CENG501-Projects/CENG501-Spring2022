@@ -91,6 +91,8 @@ Pruning of filters are performed accumulatively, e.g. step 3 is applied on top o
 
 Unfortunately the Appendix section of the paper is missing, where the authors of the paper have left most of the experiment settings, results etc. So, we cannot really compare the exact results, but the general patterns we've observed seem to match with the paper's, such as the redundant layers being later layers (See Figure 2) and that chopping off a network _generally_ yielding a performance loss.
 
+The most obvious observation is that although we've pruned more than 10% (440/4224) of the filters, the performance loss was negligible **even without fine-tuning,** proving the sucess of the proposed method.
+
 ![The algorithm](figures/MW.png)
 
 _Figure 2:_ The performance of a network upon pruning from specific layers, from [1].
