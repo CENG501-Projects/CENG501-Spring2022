@@ -25,12 +25,13 @@ This study is an implementation of the paper "From Label Smoothing to Label Rela
 ## 3.1. Experimental setup
 
 MNIST, FMNIST, CIFAR10, and CIFAR100 datasets are used in this study. MNIST and FMNIST datasets are used for 2-layer dense architecture, and the rest are used for VGG16, ResNet56(v2) and DenseNet-BC(100-12).
-We imported the datasets using “Keras” and we applied augmentation by creating symmetrical images. After augmentation, 1/7 of the whole data was labeled as the test set and 1/6 of the rest was labeled as the validation set using "train_test_split". The rest of the dataset is used for training and the batch size is taken as 64 as stated in the article.
+We imported the datasets using “Keras” and we applied augmentation by creating symmetrical images. After augmentation, 1/7 of the whole data was labeled as the test set and 1/6 of the rest was labeled as the validation set using "train_test_split". The rest of the dataset is used for training and the batch size is taken as 64 as stated in the article. We used Pytorch's Cross Entropy loss and implemented the Label Smoothing and Label Relaxation losses. 
+
 We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Architectures for VGG16 and ResNet56(v2) were also prepared and presented, however, the results could not be presented due to lack of time and computational power.
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can runit.
+@TODO: Explain your code & directory structure and how other people can run it.
 
 ## 3.3. Results
 
@@ -40,15 +41,15 @@ We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Ar
 |--------------------|-------------|--------------|-----------------|-----------------|
 |     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
 |     CE (α=0)       |             |              |                 |                 |
-|LS (α opt. for acc.)|             |              |                 |                 |
-|LR (α opt. for acc.)|             |              |     0.912       |                 |
+|LS (α opt. for acc.)|             |              |      0.920      |      0.011      |
+|LR (α opt. for acc.)|             |              |                 |                 |
 
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
 |--------------------|-------------|--------------|-----------------|-----------------|
 |     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
 |  CE (α=0, T opt.)  |             |              |                 |                 |
 |LS (α opt. for ECE) |             |              |                 |                 |
-|LR (α opt. for ECE) |             |              |     0.912       |                 |
+|LR (α opt. for ECE) |             |              |                 |                 |
 
 
 # 4. Conclusion
