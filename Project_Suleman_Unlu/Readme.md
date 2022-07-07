@@ -8,7 +8,7 @@ The paper is published at Association for the Advancement of Artificial Intellig
 
 ## 1.1. Paper summary
 
-In this paper, to go one step further, three steps are proposed to build polygonal segmentation. They are Multitask Segmentation network, vertex generation module and polygon refinement network. Basically, in the multitask segmentation network, the pretrained model build pixel-wise segmentation on buildings, then locate the corners that are convex ad concave, for the last step, the model-oriented edges. Vertex generation module use the outputs from previous network and transform them into polygon vertices. In the last module, polygon refinement network, takes outputs from vertex generation module and the image itself from dataset, and then adjusts the corner coordinates to build the polygonal segmentation
+In this paper, to go one step further, three steps are proposed to build polygonal segmentation. They are Multitask Segmentation network, vertex generation module and polygon refinement network. Basically, in the multitask segmentation network, the pretrained model build pixel-wise segmentation on buildings, then locate the corners that are convex ad concave, for the last step, the model-oriented edges. Vertex generation module use the outputs from previous network and transform them into polygon vertices. In the last module, polygon refinement network, takes outputs from vertex generation module and the image itself from dataset, and then adjusts the corner coordinates to refine the polygonal segmentation.
 
 # 2. The method and my interpretation
 
@@ -89,7 +89,7 @@ As the two parts of Multi-Task Segmentation Network  and Polygon Refinement Netw
 As mentioned above, a complete segmentation network could not be achieved
 
 ### 3.2.2 `Polygon Refinement Network`
-A Google colab file is prepared which extensively explains the steps to run it, however they will be summarzied below:
+A Google colab file,*"CENG501_Polygonal_Refinement_Network.ipynb"*, is prepared which extensively explains the steps to run it, however they will be summarzied below:
 * The dataset used is downloaded from Kaggle and the model does not require any other uploads/inputs from the user.
 * The data is preprocessed and converted to a unified pandas dataframe to hold the filen details and also the annotations details.
 ![del1](https://user-images.githubusercontent.com/69632507/177655663-ea14e713-22ae-4b94-b173-0b8913f1f7d7.jpg)
@@ -124,7 +124,7 @@ To work on professional architectures and datasets, we need to learn and experie
 * Regarding the result of the Second Propogation Model which was trained as a regression model with Mean Squared Error, it was expected to perform better than the first model as there was more room to learn with the possibility of predicting displacements closer and closer to the ground truth. However, despite several iterations and efforts, the model was not learning as shown in the image illustarted below.
   * ![image](https://user-images.githubusercontent.com/69632507/177662271-8c4ac60f-5608-49da-9b16-192d369ec874.png)
 
-### 3.3.2 `Polygon Refinement Network`
+# 4. Conclusion
 #### Discussion on Result
 ![image](https://user-images.githubusercontent.com/69632507/177663863-ec7e2f51-1a77-4075-92dc-d42f0ede55e8.png)
 Out of the desired model to duplicate above :
@@ -152,4 +152,5 @@ Out of the desired model to duplicate above :
 Joint Semantic-Geometric Learning for Polygonal Building Segmentation (Li et al. 2021)
 
 # Contact
-For any further questions and suggestions, you can contact us at unlu.giray@metu.edu.tr Giray Unlu and xxx@metu.edu.tr xxx.
+* Muhammad Suleman e227885@metu.edu.tr
+* Giray Unlu unlu.giray@metu.edu.tr
