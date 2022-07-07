@@ -7,10 +7,9 @@ Our project paper, Convolutional Neural Network Pruning with Structural Redundan
 
 ## 1.1. Paper summary
 
-Compared to the existing works on network pruning that focus on removing the least important filters, Wang et al. proposed a method that prunes filters in the layers with the most structural redundancies [1-4]. To analyze structural redundancies of convolutional layers, authors represent each layer as a graph and use 1-covering-number along with the quotient space size. A graph with a higher 1-covering-number and larger quotient space size indicates less redundancy. After identifying the most redundant layer using the constructed graphs, the filters to be pruned are selected in that layer. Although there are different filter selection strategies [2], the authors used a simple strategy by pruning the filters with smaller absolute weights [1]. This pruning method resulted in 44.1% reduction in FLOPs while losing only 0.37% top-1 accuracy on ResNet50 with ImageNet ILSVRC-2012 dataset.   
+Compared to the existing works on network pruning that focus on removing the least important filters, Wang et al. proposed a method that prunes filters in the layers with the most structural redundancies [1-4]. To analyze structural redundancies of convolutional layers, authors represent each layer as a graph and use 1-covering-number along with the quotient space size. A graph with a higher 1-covering-number and larger quotient space size indicates less redundancy. After identifying the most redundant layer using the constructed graphs, the filters to be pruned are selected in that layer. Although there are different filter selection strategies [2], the authors used a simple strategy by pruning the filters with smaller absolute weights [1]. This pruning method resulted in 44.1% reduction in FLOPs while losing only 0.37% top-1 accuracy on ResNet50 with ImageNet ILSVRC-2012 dataset.
 
 # 2. The method and my interpretation
-
 ## 2.1. The original method
 
 Initially, authors start by representing each convolutional layer as a graph so that they can find the layer with the most structural redundancy. To construct the graph, weights are flattened and normalized to change their lengths to 1, so that each filter is a unit vector. The filters _(of an individual layer)_ form the vertices of the graph and if the Euclidean distance between any two filters is smaller than a threshold γ, an edge is formed between the two vertices to represent the similarity between kernels. This algorithm forms an undirected, unweighted graph which may or may not be connected.
@@ -29,6 +28,9 @@ With the identification of the most structurally redundant layer, the next step 
 
 The relationship between these five accuracies are given as p<sub>ξ'</sub> ≤ p<sub>g</sub> ≤ p<sub>ηr</sub> ≤ p<sub>η'</sub> ≤ p<sub>o</sub>. However, with large enough n, where n denotes the filter number of η, p<sub>ηr</sub> ≈ p<sub>η'</sub> ≈ p<sub>o</sub>. Thus, the authors avoided calculating the least important filter and preferred a method that might yield a result similar to p<sub>ηr</sub> while improving the performance [1].
 
+![The algorithm](figures/algorithm.png)
+_Figure 1:_ The algorithm from Wang et al.
+
 ## 2.2. My interpretation 
 
 The paper is well-written and there are not much problems with the explanations, however the filter selection is the most simplified aspect of the paper **apart from the missing Appendix**. Although the theoretical proof provides a good reasoning, the performance improvement by simplification of this part is still not clear. Also, there is no clear explanation of how many filters to prune at each iteration. Accordingly, we've decided to calculate the number of to-be-pruned filters based on the redundancy of a layer.
@@ -45,7 +47,7 @@ Since the [VGG16 model](https://pytorch.org/vision/main/models/generated/torchvi
 
 #### Note: The sole purpose of training the network without any pruning is to compare the performance after pruning it. We further want to clarify that we didn't have enough resources/time to tune the network to the optimum. With this settings, it provided 77.7% accuracy on the test set, which we took as a baseline performance result without any pruning.
 
-We started by implementing a graph construction function. Here we used flattening and normalization similar to that in the paper. For the similarity threshold γ, we manually tested a few different values and decided to use 0.023, which is in range of the values used in the paper. We used same weights as the authors (0.65 for _estimated_ 1-covering-number and 0.35 for quotient space size).
+We've implemented a graph construction function. For the similarity threshold γ, we manually tested a few different values and decided to use 0.023, which is in range of the values used in the paper. We used same weights as the authors (0.65 for _estimated_ 1-covering-number and 0.35 for quotient space size).
 
 After finding the most redundant layer, we used single-shot pruning as mentioned in the paper. Since the number of filters-to-be-pruned is not specified in the paper, we came up with our own formulation at this step. We've pruned $2 * \sqrt{r}$ filters, where $r$ denotes the redundancy of the layer. After each pruning step, we reconstructed the graph and calculated the redundancy only for the pruned layer, since the graph construction is the most costly part.
 
@@ -85,7 +87,17 @@ Pruning of filters are performed accumulatively, e.g. step 3 is applied on top o
 
 # 4. Conclusion
 
-Unfortunately the Appendix section of the paper is missing, where the authors of the paper have left most of the experiment settings, results etc. So, we cannot really compare the exact results, but the general patterns we've observed seem to match with the paper's, such as the redundant layers being later layers [1] and that chopping off a network _generally_ yielding a performance loss.
+Unfortunately the Appendix section of the paper is missing, where the authors of the paper have left most of the experiment settings, results etc. So, we cannot really compare the exact results, but the general patterns we've observed seem to match with the paper's, such as the redundant layers being later layers (See Figure 2) and that chopping off a network _generally_ yielding a performance loss.
+
+![The algorithm](figures/MW.png)
+
+_Figure 2:_ The performance of a network upon pruning from specific layers, from [1].
+
+### Notes:
+1. We've realized that the paper uses methods from [1] which has an unofficial [code release](https://github.com/tyui592/Pruning_filters_for_efficient_convnets) from which we've utilized to some extent.
+2. VGG implementation is inspired by [this](https://www.kaggle.com/code/willzy/vgg16-with-cifar10/script).
+3. [CIFAR-10 statistics](https://github.com/CENG501-Projects/CENG501-Spring2022/blob/5839a19674ad1eb0a655583bab15b889cddd8ee0/Project_Duymus_Guder/cifar.py#L8) is found [here](https://stackoverflow.com/a/68123869).
+
 
 # 5. References
 
