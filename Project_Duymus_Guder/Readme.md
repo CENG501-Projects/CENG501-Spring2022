@@ -47,7 +47,9 @@ Since the [VGG16 model](https://pytorch.org/vision/main/models/generated/torchvi
 
 #### Note: The sole purpose of training the network without any pruning is to compare the performance after pruning it. We further want to clarify that we didn't have enough resources/time to tune the network to the optimum. With this settings, it provided 77.7% accuracy on the test set, which we took as a baseline performance result without any pruning.
 
-We've implemented a graph construction function. For the similarity threshold γ, we manually tested a few different values and decided to use 0.023, which is in range of the values used in the paper. We used same weights as the authors (0.65 for _estimated_ 1-covering-number and 0.35 for quotient space size).
+We've implemented all the graph-related functions [here](https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Duymus_Guder/graph.py), including graph construction, computation of quotient space size, and estimation of 1-covering-number.
+
+For the similarity threshold γ, we manually tested a few different values and decided to use 0.023, which is in range of the values used in the paper. We used same weights as the authors (0.65 for _estimated_ 1-covering-number and 0.35 for quotient space size). Redundancy score implementation is [here](https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Duymus_Guder/model.py). The model is [here](https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Duymus_Guder/model.py).
 
 After finding the most redundant layer, we used single-shot pruning as mentioned in the paper. Since the number of filters-to-be-pruned is not specified in the paper, we came up with our own formulation at this step. We've pruned $2 * \sqrt{r}$ filters, where $r$ denotes the redundancy of the layer. After each pruning step, we reconstructed the graph and calculated the redundancy only for the pruned layer, since the graph construction is the most costly part.
 
