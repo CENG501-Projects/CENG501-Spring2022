@@ -111,7 +111,7 @@ A Google colab file,*"CENG501_Polygonal_Refinement_Network.ipynb"*, is prepared 
 
 ### 3.3.1 `Multi-task Segmentation Network`
 
-To work on professional architectures and datasets, we need to learn and experience more in this field. 
+To work on professional architectures and datasets, we need to learn and experience more in this field. Since the model doesnt accept the dataset in different structures, we couldn not produce a segmentation map. On the other hand, the paper has very little detail about the inner layers of research, so it is hard for us to learn this field and implement the state of art from zero.
 
 ### 3.3.2 `Polygon Refinement Network`
 * As a building segment is passed through the encoder to get a 112x112x256 feature map, some of the feature layers of this feature map are illustarted below:
