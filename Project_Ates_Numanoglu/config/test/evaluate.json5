@@ -1,0 +1,22 @@
+{
+  "model": "sfsr",
+
+  "model_path": "/content/Attention-Is-All-You-Need-In-Speech-Separation-main/checkpoint/final.path.tar",
+
+  "evaluate_dataset":
+  {
+    "data_dir": "./json/tt",
+
+    "batch_size": 1,
+
+    "sample_rate": 8000,
+
+    "segment": -1,
+  },
+
+  "cal_sdr": true,
+
+
+  "use_cuda": false,
+}
+	

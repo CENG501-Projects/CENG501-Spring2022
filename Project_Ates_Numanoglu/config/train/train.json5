@@ -1,0 +1,86 @@
+{
+  "seed": 0,
+
+  "train_dataset":
+  {
+    "train_dir": "/content/Attention-Is-All-You-Need-In-Speech-Separation-main/json/tr",
+    "batch_size": 1,
+    "sample_rate": 8000,
+    "segment": -1,
+  },
+
+  "validation_dataset":
+  {
+    "validation_dir": "/content/Attention-Is-All-You-Need-In-Speech-Separation-main/json/cv",
+    "batch_size": 1,
+    "sample_rate": 8000,
+    "segment": -1,
+    "cv_max_len": 4,
+  },
+
+  "train_loader":
+  {
+   "batch_size": 1,
+   "shuffle": true,
+   "num_workers": 0,
+  },
+
+  "validation_loader":
+  {
+    "batch_size": 1,
+    "shuffle": true,
+    "num_workers": 0,
+  },
+
+  "model":
+  {
+    "type": "sfsr",
+
+    "sepformer":
+    {
+      "N": 256,
+      "C": 2,
+      "L": 16,
+      "H": 8,
+      "K": 250,
+      "Global_B": 8,
+      "Local_B": 2,
+    },
+  },
+
+  "train":
+  {
+    "use_cuda": false,
+    "epochs": 15,
+    "half_lr": true,
+    "early_stop": true,
+    "max_norm": 5,
+  },
+
+  "optimizer":
+  {
+    "type": "adamp",
+
+    "adamp":
+    {
+      "lr":15e-5,
+      "beta1":0.9,
+      "beta2":0.999,
+      "weight_decay":1e-2,
+    }
+  },
+
+  "save_load":
+  {
+    "save_folder": "/content/Attention-Is-All-You-Need-In-Speech-Separation-main/checkpoint",
+    "checkpoint": true,
+    "continue_from": "",
+    "model_path": "final.path.tar",
+  },
+
+  "logging":
+  {
+    "print_freq": 1,
+  }
+}
+
