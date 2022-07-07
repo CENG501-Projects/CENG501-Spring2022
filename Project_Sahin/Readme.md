@@ -11,7 +11,7 @@ Mem3D, like other networks, makes images more compact with the help of image enc
 Mem3D is trained with the R2N2 dataset. This dataset contains only rendered images. This trained model has also been tested with the Pix3D dataset containing real images.
 
 Mem3d_inff
-
+![Mem3D](imgs/mem3d_inf.png "Mem3D")
 
 # 2. The method and my interpretation
 
@@ -82,7 +82,7 @@ No information is shared about the hardware the model is trained on. However, im
 The "intersection over union" evaluation metric was used to compare Mem3D with its competitors. This metric simply controls how many voxels we classify.
 
 Iou_fig
-
+![Evaluation](imgs/evel_metric.png "Mem3D Evaluation")
 
 ## 3.2. Running the code
 
@@ -95,12 +95,14 @@ I am sharing pyton notebooks with necessary information and results for my imple
 Mem3D is an end-to-end trained system. The reduction in loss throughout the entire training is shared as a result.
 
 result_loss
+![Model Loss](imgs/result0.pdf "Model_Loss")
 
 In addition, the purpose of Mem3D is to reconstruct objects with a single image. To demonstrate this, I visualize the input image, the ground truth, and the output of my model.
 
 result_1
 result_2
-
+![Model Result 1](imgs/result1.pdf "Model Result 1")
+![Model Result 2](imgs/result2.pdf "Model Result 2")
 
 # 4. Conclusion
 
