@@ -25,7 +25,7 @@ We try to implement all the part explained in the paper however because of the l
 For the experimental setup as we encounter with the problems to build the dataset that is used in the paper as it is a very big dataset(Clothing1M) we change the dataset to "dblp". The learning rate(0.001) and decaying rate(1e-5) are same but epoch number is 500
 
 ## 3.2. Running the code
-To run our code you just open the "DualGraph.ipynb" file with google colab and run the successive sections. In the first section we import the pytor-geometric as we deal with graph neural network. The feed forward section for the graphical convolution layer come just after the first part. After that noise adder section that is used for creating noisy labels is implemented. Afterwards Dual graph algorithm is implemented. Lastly, the main code is implemented. After running all section you can run the main code to obtain the results.
+To run our code you just open the "DualGraph.ipynb" file with google colab and run the successive sections. In the first section we import the pytorch-geometric as we deal with graph neural network. The feed forward section for the graphical convolution layer come just after the first part. After that noise adder section that is used for creating noisy labels is implemented. Afterwards Dual graph algorithm is implemented. Lastly, the main code is implemented. After running all section you can run the main code to obtain the results.
 
 ## 3.3. Results
 The Test Accuracy: 0.8025
