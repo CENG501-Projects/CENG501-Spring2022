@@ -36,8 +36,7 @@ The polygonal vertices obtained from the Vertex Embedding step are considered as
 
 ### 2.2.1 `Multi-task Segmentation Network`
 
-< Add info here >
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+In our implementation, we used ‘segmentation models’ library to build the Res-U-net architecture, and then by using the datasets we tried to feed the model.
 
 ### 2.2.2 `Polygon Refinement Network`
 
@@ -63,8 +62,7 @@ The polygonal vertices obtained from the Vertex Embedding step are considered as
 
 ### 3.1.1 `Multi-task Segmentation Network`
 
-< Add info here >
-@TODO: Describe the setup of the original paper and whether you changed any settings.
+For some architectural and technical reasons, we couldn’t build a fully connected polygon segmentation model. Working with a difficult and complex architecture and professional dataset lead us to having difficulties on building this paper’s method from zero. Therefore, the fully connected model could not be built.
 
 ### 3.1.2 `Polygon Refinement Network`
 
@@ -88,8 +86,7 @@ The polygonal vertices obtained from the Vertex Embedding step are considered as
 As the two parts of Multi-Task Segmentation Network  and Polygon Refinement Network are trained seperately, they would also be explained seperately.
 ### 3.2.1 `Multi-task Segmentation Network`
 
-< Add info here >
-@TODO: Explain your code & directory structure and how other people can run it.
+Since mentioned above, a complete segmentation network could not be achieved
 
 ### 3.2.2 `Polygon Refinement Network`
 A Google colab file is prepared which extensively explains the steps to run it, however they will be summarzied below:
@@ -114,8 +111,7 @@ A Google colab file is prepared which extensively explains the steps to run it, 
 
 ### 3.3.1 `Multi-task Segmentation Network`
 
-< Add info here >
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+To work on professional architectures and datasets, we need to learn and experience more in this field. 
 
 ### 3.3.2 `Polygon Refinement Network`
 * As a building segment is passed through the encoder to get a 112x112x256 feature map, some of the feature layers of this feature map are illustarted below:
