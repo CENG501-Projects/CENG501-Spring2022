@@ -4,11 +4,11 @@ This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.
 
 # 1. Introduction
 
-@TODO: Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
+The paper is published at Association for the Advancement of Artificial Intelligence in 2021. The paper aims that improving the performance on generating polygonal building segmentation. Besides that, previous related methods had some specific problems such as, relying on perfect segmentation map for vectorization quality, requiring complex post preprocessing procedure and generating inaccurate vertices with a fixed quantity or wrong sequential order. 
 
 ## 1.1. Paper summary
 
-@TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
+In this paper, to go one step further, three steps are proposed to build polygonal segmentation. They are Multitask Segmentation network, vertex generation module and polygon refinement network. Basically, in the multitask segmentation network, the pretrained model build pixel-wise segmentation on buildings, then locate the corners that are convex ad concave, for the last step, the model-oriented edges. Vertex generation module use the outputs from previous network and transform them into polygon vertices. In the last module, polygon refinement network, takes outputs from vertex generation module and the image itself from dataset, and then adjusts the corner coordinates to build the polygonal segmentation
 
 # 2. The method and my interpretation
 
