@@ -45,7 +45,7 @@ In the uploaded file, a comprehensive google-colab script containing all the use
 
 ## 3.3. Results
 
-The results of the implementation and the original results are presented in the following tables. Table 1 and Table 2 are optimized for accuracy, whereas Table 3 and Table 4 are optimized for ECE.
+The results of the implementation and the original results are presented in the following tables. Table 1 and Table 2 contain results that are optimized for the accuracy, whereas Table 3 and Table 4 are optimized for ECE.
 
 
 Table 1: Implemented Results on MNIST and Fashion-MNIST (Opt. for acc.)
@@ -67,25 +67,25 @@ Table 2: Original Results on MNIST and Fashion-MNIST (Opt. for acc.)
 --------------------------------------------------
 
 Table 3: Implemented Results on MNIST and Fashion-MNIST (Opt. for ECE)
-|                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
-|--------------------|-------------|--------------|-----------------|-----------------|
-|     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
-|  CE (α=0, T opt.)  |   0.976     |    0.024     |      0.894      |      0.095      |
-|LS (α opt. for ECE) |   0.985     |    0.016     |      0.875      |      0.024      |
-|LR (α opt. for ECE) |   0.980     |    0.003     |      0.887      |      0.111      |
+|                   |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
+|-------------------|-------------|--------------|-----------------|-----------------|
+|     **Loss**      |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
+|  CE (α=0, T opt.) |   0.976     |    0.024     |      0.894      |      0.095      |
+|LS (α opt. for ECE)|   0.985     |    0.016     |      0.875      |      0.024      |
+|LR (α opt. for ECE)|   0.980     |    0.003     |      0.887      |      0.111      |
 
 
 Table 4: Original Results on MNIST and Fashion-MNIST (Opt. for ECE)
-|                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
-|--------------------|-------------|--------------|-----------------|-----------------|
-|     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
-|  CE (α=0, T opt.)  |   0.983     |    0.003     |     0.908       |      0.030      |
-|LS (α opt. for ECE) |   0.987     |    0.014     |     0.915       |      0.016      |
-|LR (α opt. for ECE) |   0.985     |    0.003     |     0.911       |      0.015      |
+|                   |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
+|-------------------|-------------|--------------|-----------------|-----------------|
+|     **Loss**      |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
+|  CE (α=0, T opt.) |   0.983     |    0.003     |     0.908       |      0.030      |
+|LS (α opt. for ECE)|   0.987     |    0.014     |     0.915       |      0.016      |
+|LR (α opt. for ECE)|   0.985     |    0.003     |     0.911       |      0.015      |
 
 # 4. Conclusion
 
-In this report, values close to the original results were obtained. Since the difference is in the acceptable range, it can be said that the method has been applied successfully. However, all analyzes could not be performed due to the lack of time and the long duration of the analyzes.
+In this report, the implementation of the abovementioned study was done using two layer dense network trained on two different datasets (MNIST and Fashion-MNIST), where various calibration techniques were employed. Consequently, two tables of the presented original results where reproduced. As it could be noticed from the above tables, the reproduced results are very close to the original ones. Especially, for MNIST dataset. Moreover, the same trend as that of the original results is observed. However, the ensued slit difference could be attributed to the fact that the original results where produced by repeating the analyses for many times whereas our results represent a single run. Indeed, different adaption of some parameters such as weight decay, regularization, and learning rate schedule might affect the results. Therefore, it can be said that the method has been applied successfully. However, all analyses could not be performed due to the lack of time and the long duration of the analyses.
 
 # 5. References
 
