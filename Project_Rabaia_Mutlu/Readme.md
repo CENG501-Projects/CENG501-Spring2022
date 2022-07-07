@@ -13,6 +13,7 @@ This paper summerizes the derivation of the explicit form of the new proposed lo
 ![image](https://user-images.githubusercontent.com/108774445/177706624-7dc35b52-3a3b-4495-8121-ec999b5912a6.png)
 
 Therfore, a closed form of the introduced loss function is proposed as:
+
 ![image](https://user-images.githubusercontent.com/108774445/177691233-4ebdbea1-a33c-4f26-a68e-3e4dfcc015c3.png)
 
 To prove the accuracy of the mentioned loss, a comparison with other loss functions such as label smoothing, cross entrophy (CE), confidence penalizing (CP), and focal loss (FL) is made. Hence, various datasets and learning architectures were also employed within the scope of the study.
