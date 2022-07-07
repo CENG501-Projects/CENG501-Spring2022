@@ -52,7 +52,7 @@ Table 2: Original Results on MNIST and Fashion-MNIST (Opt. for acc.)
 |     CE (α=0)       |   0.985     |    0.010     |      0.912      |      0.129      |
 |LS (α opt. for acc.)|   0.988     |    0.106     |      0.915      |      0.155      |
 |LR (α opt. for acc.)|   0.985     |    0.007     |      0.912      |      0.059      |
---------------------------------------------------------------------------------------
+--------------------------------------------------
 Table 3: Implemented Results on MNIST and Fashion-MNIST (Opt. for ECE)
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
 |--------------------|-------------|--------------|-----------------|-----------------|
