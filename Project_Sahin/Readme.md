@@ -95,14 +95,14 @@ I am sharing pyton notebooks with necessary information and results for my imple
 Mem3D is an end-to-end trained system. The reduction in loss throughout the entire training is shared as a result.
 
 result_loss
-![Model Loss](imgs/result0.pdf "Model_Loss")
+![Model Loss](imgs/result0 "Model_Loss")
 
 In addition, the purpose of Mem3D is to reconstruct objects with a single image. To demonstrate this, I visualize the input image, the ground truth, and the output of my model.
 
 result_1
 result_2
-![Model Result 1](imgs/result1.pdf "Model Result 1")
-![Model Result 2](imgs/result2.pdf "Model Result 2")
+![Model Result 1](imgs/result1 "Model Result 1")
+![Model Result 2](imgs/result2 "Model Result 2")
 
 # 4. Conclusion
 
