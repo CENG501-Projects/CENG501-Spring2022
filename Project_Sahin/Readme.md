@@ -106,7 +106,7 @@ Since it is difficult to evaluate the results with the help of a metric, I visua
 
 [4]Weston, J., Chopra, S., & Bordes, A. (2015). Memory Networks. ArXiv:1410.3916 [Cs, Stat]. Retrieved from https://arxiv.org/abs/1410.3916
 
-[51]Yang, S., Xu, M., Xie, H., Perry, S., & Xia, J. (2021). Single-View 3D Object Reconstruction from Shape Priors in Memory. ArXiv:2003.03711 [Cs]. Retrieved from https://arxiv.org/abs/2003.03711
+[5]Yang, S., Xu, M., Xie, H., Perry, S., & Xia, J. (2021). Single-View 3D Object Reconstruction from Shape Priors in Memory. ArXiv:2003.03711 [Cs]. Retrieved from https://arxiv.org/abs/2003.03711
 
 # Contact
 
