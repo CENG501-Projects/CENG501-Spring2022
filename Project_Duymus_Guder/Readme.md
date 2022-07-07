@@ -53,15 +53,39 @@ We've applied this pruning iteration 10-times, and had performance results after
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+To perform the training and generate a checkpoint with the experimented settings:
+
+<code>python train.py</code>
+
+To test the model on test set:
+
+<code>python test.py</code>
+
+To do the pruning iteratively and see performances on test set:
+
+<code>python prune.py</code>
 
 ## 3.3. Results
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+Our results represent performances on CIFAR-10 test set **without any fine-tuning upon pruning**:
+
+0. No pruning: **77.7% accuracy**
+1. Pruning 45 filters from 28<sup>th</sup> layer: **77.65% accuracy**
+2. Further pruning 45 filters from 26<sup>th</sup> layer: **77.62% accuracy**
+3. Further pruning 45 filters from 24<sup>th</sup> layer: **77.50% accuracy**
+4. Further pruning 45 filters from 21<sup>th</sup> layer: **77.63% accuracy**
+5. Further pruning 45 filters from 19<sup>th</sup> layer: **77.57% accuracy**
+6. Further pruning 43 filters from 28<sup>th</sup> layer: **77.46% accuracy**
+7. Further pruning 43 filters from 26<sup>th</sup> layer: **77.27% accuracy**
+8. Further pruning 43 filters from 24<sup>th</sup> layer: **77.13% accuracy**
+9. Further pruning 43 filters from 21<sup>th</sup> layer: **77.11% accuracy**
+10. Further pruning 45 filters from 19<sup>th</sup> layer: **77.08% accuracy**
+
+Pruning of filters are performed accumulatively, e.g. step 3 is applied on top of step 2 and step 1.
 
 # 4. Conclusion
 
-@TODO: Discuss the paper in relation to the results in the paper and your results.
+Unfortunately the Appendix section of the paper is missing, where the authors of the paper have left most of the experiment settings, results etc. So, we cannot really compare the exact results, but the general patterns we've observed seem to match with the paper's, such as the redundant layers being later layers [1] and that chopping off a network _generally_ yielding a performance loss.
 
 # 5. References
 
