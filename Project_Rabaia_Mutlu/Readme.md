@@ -48,7 +48,7 @@ We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Ar
 |--------------------|-------------|--------------|-----------------|-----------------|
 |     **Loss**       |  **Acc.**   |   **ECE**    |    **Acc.**     |     **ECE**     |
 |  CE (α=0, T opt.)  |             |              |                 |                 |
-|LS (α opt. for ECE) |             |              |                 |                 |
+|LS (α opt. for ECE) |             |              |      0.92       |     0.008       |
 |LR (α opt. for ECE) |             |              |                 |                 |
 
 
