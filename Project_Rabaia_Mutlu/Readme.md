@@ -10,7 +10,9 @@ In this report, the implementation of the study "From Label Smoothing to Label R
 
 In this paper, they proposed a new loss function, label relaxation (LR) as an alternative to the conventional label smoothing (LS). They tried to prove the accuracy of the method they presented by comparing it with the previous methods. The proposed method, label relaxation is mainly compared with the label smoothing. In addition, cross entrophy (CE), confidence penalizing (CP), and focal loss (FL) are also used in order to evaluate the proposed method. Various datasets and learning architectures were also used within the scope of the study.
 
+This paper summerizes the derivation of the explicit form of the new proposed loss function. It is fundamantally based on comparing probabilistic predictions of targets with a group of possible distributions. In other words, the learner is set free to select the most appropriate probabilistic distribution of the targets among of a likelihood of probabilistics unlike label smoothing (LS) which restrects the trainer to one probability as shown below (left-side: Label smoothing, right-side: Label Relaxation)  
 ![image](https://user-images.githubusercontent.com/108774445/177706624-7dc35b52-3a3b-4495-8121-ec999b5912a6.png)
+
 
 ![image](https://user-images.githubusercontent.com/108774445/177691233-4ebdbea1-a33c-4f26-a68e-3e4dfcc015c3.png)
 
