@@ -1,0 +1,107 @@
+import matplotlib.pyplot as plt # For plotting
+import numpy as np              # NumPy, for working with arrays/tensors 
+import time                     # For measuring time
+import random                   # Python's random library
+
+# PyTorch libraries:
+import torch
+import torchvision
+import torchvision.transforms as transforms
+import torch.nn as nn
+
+
+# install and import the torchinfo library
+!pip install torchinfo
+from torchinfo import summary
+
+
+%matplotlib inline
+plt.rcParams['figure.figsize'] = [12, 8]
+plt.rcParams['figure.dpi'] = 100
+
+
+transform = transforms.Compose(
+    [transforms.ToTensor(),
+     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+
+batch_size = 50
+
+trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
+                                        download=True, transform=transform)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
+                                          shuffle=True, num_workers=2)
+
+testset = torchvision.datasets.CIFAR10(root='./data', train=False,
+                                       download=True, transform=transform)
+testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
+                                         shuffle=False, num_workers=2)
+
+model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet18', pretrained=True)
+model.eval()
+
+def train(model, criterion, optimizer, epochs, dataloader, verbose=True):
+  """
+    Define the trainer function. We can use this for training any model.
+    The parameter names are self-explanatory.
+
+    Returns: the loss history.
+  """
+  loss_history = [] 
+  for epoch in range(epochs):
+    for i, data in enumerate(dataloader, 0):    
+      
+      # Our batch:
+      inputs, labels = data
+      inputs = inputs.to(device)
+      labels = labels.to(device)
+
+      # zero the gradients as PyTorch accumulates them
+      optimizer.zero_grad()
+
+      # Obtain the scores
+      outputs = model(inputs)
+
+      # Calculate loss
+      loss = criterion(outputs.to(device), labels)
+
+      # Backpropagate
+      loss.backward()
+
+      # Update the weights
+      optimizer.step()
+
+      loss_history.append(loss.item())
+      
+    scheduler.step()
+    
+    if verbose: print(f'Epoch {epoch} / {epochs}: avg. loss of last 5 iterations {np.sum(loss_history[:-6:-1])/5}')
+
+  return loss_history
+  
+  model = model
+
+summary(model)
+
+import torch.optim as optim
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9,weight_decay=0.0005)
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size =10,gamma=0.1 )
+model = model.to(device)
+epochs = 35
+loss_history = train(model, criterion, optimizer, epochs, trainloader)
+
+correct = 0
+correct_list = []
+total = 0
+model = model.to("cpu")
+with torch.no_grad():
+    for data in testloader:
+        images, labels = data
+        outputs = model(images)
+        _, predicted = torch.max(outputs.data, 1)
+        total += labels.size(0)
+        correct += (predicted == labels).sum().item()
+        correct_list.append(correct)
+
+print('Accuracy of the network on the 10000 test images: %d %%' % (
+    100 * correct / total))

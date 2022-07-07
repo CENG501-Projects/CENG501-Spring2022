@@ -43,13 +43,17 @@ The original paper provides information about the optimizer they used with initi
 
 In addition, although we implemented the loss functions for the networks, we didn’t include VGG16 based losses to the training. There were two losses depending on VGG16’s feature vectors: style and content loss. Style loss for original shadow and shadow-free image pair was on the order of billions which exploded the total loss of the generators. Content loss on the other hand, was suitable; however, extracting VGG16 feature vectors for every step loaded the available RAM too quickly and slowed down the training as we preprocess the results before feeding to VGG16 model. Therefore, we didn’t include these two losses in the experiment, instead we included identity loss functions used in CycleGANs.
 
-In short, our experimental setup follows the flow described in the original paper. The paired and unpaired settings are available for the training and testing. The discriminator input is changed to 3 channels and some of the loss functions we used differ from the original setting.
+In short, our experimental setup follows the flow described in the original paper. The paired and unpaired settings are available for the training and testing. The discriminator input is changed to 3 channels and some of the loss functions we used differ from the original setting. The networks we implemented, together with the non-linearities and skip connections, are provided at Figures 7.1 and 7.2 in the Appendix.
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+The datasets [ISTD](https://drive.google.com/file/d/1I0qw-65KBA6np8vIZzO6oeiOvcDBttAY/view) and [USR](https://drive.google.com/file/d/1PPAX0W4eyfn1cUrb2aBefnbrmhB1htoJ/view) should be downloaded into a dataset folder named “./datasets/” under the working directory, as “./datasets/ISTD/” and “./datasets/USR/”. 
 
-Download the datasets [ISTD](https://drive.google.com/file/d/1I0qw-65KBA6np8vIZzO6oeiOvcDBttAY/view) and [USR](https://drive.google.com/file/d/1PPAX0W4eyfn1cUrb2aBefnbrmhB1htoJ/view), put them into the “./datasets/” folder as “./datasets/ISTD/” and “./datasets/USR/”. 
+"main.py" is responsible for training the models, see the path variables in the file and adjust them according to your environment. 
+
+For testing purposes, the folder settings are provided in "test" folder. Download the pretrained models: [paired](https://drive.google.com/drive/folders/1EIN752CzIXI_ADpxpmzSnDhquF9h28Zt?usp=sharing) and [unpaired](https://drive.google.com/drive/folders/1qoNzxviQIKRJXtGWMmi3Z-5lO7VMxEeL?usp=sharing). Put them into the locations "./output/pretrained_models/pair/" and "./output/pretrained_models/unpair/" respectively. 
+
+To run the .ipynb file, see [Jupyter Notebook](https://jupyter.org/install). Follow the instructions in the "cycleGAN.ipynb" and run the cells one by one. The notebook also installs the dependencies of the project.
 
 
 ## 3.3. Results
@@ -58,32 +62,37 @@ In our experiments, we didn’t include the VGG16 model for the loss functions w
 
 In addition, due to the computational limitations, we trained the model with a smaller dataset size, small batch size and less epochs than the original paper. When we took a batch size of 1 to use SGD, we encountered with mode collapse due to dominating gradients of a single image type. 
 
-In the end, we obtained the results as given in Figures 2-5. For some images, our deshadowing network successfully removes the shadow with minimal artifacts as seen in Figures 3 and 4. For some cases, the shadows ghosts are still visible as listed in Figure 5. In general, we obtain results as given in Figure 2.1 and 2.2. The networks are often successful at removing shadows from the consistent environment patterns, such as the flat surface in column two of Figure 2.1 or the tiles in the second column of Figure 2.2. Although it doesn’t change for most of the images, for some cases such as the last two columns of Figure 2.2, training with unpaired data  produces better results.
+In the end, we obtained the results as given in Figures 2-5. For some images, our deshadowing network successfully removes the shadow with minimal artifacts as seen in Figures 3 and 4. For some cases, the shadows ghosts are still visible as listed in Figure 5. In general, we obtain results as given in Figure 2.1 and 2.2. The networks are often successful at removing shadows from the consistent environment patterns, such as the flat surface in column two of Figure 2.1 or the tiles in the second column of Figure 2.2. Although it doesn’t change for most of the images, for some cases such as the last two columns of Figure 2.2, training with unpaired data  produces better results. Samples from the original paper are also provided in Figure 6.
 
-![results 2022-07-06 11:43:32 359622](https://user-images.githubusercontent.com/77360680/177615373-cec08aef-5729-4cc3-a68c-43f26a693962.png)
+![1](https://user-images.githubusercontent.com/77360680/177642533-8dcb000f-c6f2-4442-8d66-ca331578a3d6.png)
 
 **Figure 2.1:** (Top) Original shadow images, (Middle) Original shadow-free images, (Bottom) Generated shadow-free images
 
-![results 2022-07-06 15:33:57 871341](https://user-images.githubusercontent.com/77360680/177615230-c4ab349c-81f8-4e34-a5c0-7a53907fd46c.png)
+![2](https://user-images.githubusercontent.com/77360680/177643441-4ae9f8d3-2dde-470d-8298-c3df1e985204.png)
 
 **Figure 2.2:** (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
 
-![results 2022-07-06 15:33:01 791320](https://user-images.githubusercontent.com/77360680/177615117-74683669-a68e-49b5-8aef-8c11b5baaf75.png)
+
+![3](https://user-images.githubusercontent.com/77360680/177643479-ad7d98e9-ee8a-4f05-8872-9c0fc40c20be.png)
 
 **Figure 3:** Selected successful cases (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
 
-![results 2022-07-06 15:32:25 952211](https://user-images.githubusercontent.com/77360680/177615044-66da15e0-84ce-44e6-9347-47cf695b7c10.png)
+![4](https://user-images.githubusercontent.com/77360680/177643551-2cd78ae6-af5d-4d0d-9d2f-57c7545e9d66.png)
 
 **Figure 4:** Selected successful cases (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
 
-![results 2022-07-06 15:28:41 625278](https://user-images.githubusercontent.com/77360680/177614997-4c0cbd59-1f19-4922-bbc4-e29b2bb56818.png)
+![5](https://user-images.githubusercontent.com/77360680/177643608-d71dfe54-0a5b-40ee-80b8-ddff9a1dd2ad.png)
 
-**Figure 5:** Selected failure cases (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
+**Figure 5:** Cases where improve is needed (First) Original shadow (Second) Original shadow-free (Third) Generated shadow-free images from paired data (Fourth) Generated shadow-free images from unpaired data
+
+![paper_results](https://user-images.githubusercontent.com/77360680/177645352-8a7d7580-3967-4cde-863a-87ae9dcf7fb5.png)
+
+**Figure 6:** Original paper results with paired and unpaired trainings
 
 
 # 4. Conclusion
 
-In conclusion, the results of the original paper seem to be reproducible with enough computing power. The differences in loss functions affects the network performance and the experiments illustrated the importance of the various loss functions utilized in the original paper. Selecting suitable loss functions for the networks allowed the generators to generate images that are close to original ones even in the early stages of training, and they were able to learn to bleach the shadow mask area while preserving the semantic details.
+In conclusion, the results of the original paper seem to be reproducible with enough computing power. We observed that the unpaired training works better than paired setting in some cases, which is in parallel with the original paper's results. The differences in loss functions affects the network performance and the experiments illustrated the importance of the various loss functions utilized in the original paper. Selecting suitable loss functions for the networks allowed the generators to generate images that are close to original ones even in the early stages of training, and they were able to learn to bleach the shadow mask area while preserving the semantic details.
 
 The original paper gives almost enough information to rebuild the entire architecture; although training of the models requires adequate computing power as the RAM provided by Google Colab wasn’t enough for training with the whole dataset after a few epochs. In the end, the architecture proposed in this paper is capable of training with both paired and unpaired datasets and with reproducible results. 
 
@@ -101,3 +110,13 @@ The original paper gives almost enough information to rebuild the entire archite
 Yusuf Soydan yusuf.soydan@metu.edu.tr
 
 Bartu Akyürek bartu.akyurek@metu.edu.tr
+
+# Appendix
+
+![gen_s_model_plot_copy](https://user-images.githubusercontent.com/77360680/177639618-3dabe3a3-6c66-43fe-9e7e-82ba5973d342.png)
+
+**Figure 7.1:** Generator implementation
+
+![disc_s_model_plot_copy](https://user-images.githubusercontent.com/77360680/177640162-074fd847-abc2-411c-8219-775abf162063.png)
+
+**Figure 7.2:** Discriminator implementation

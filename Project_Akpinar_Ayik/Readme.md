@@ -1,4 +1,5 @@
-# @TODO: Paper title
+# Spiking Neural Networks with Improved Inherent Recurrence Dynamics for Sequential Learning
+
 
 This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.edu.tr/~skalkan/DL/) project for reproducing a paper without an implementation. See [CENG501 (Spring 2022) Project List](https://github.com/CENG501-Projects/CENG501-Spring2022) for a complete list of all paper reproduction projects.
 
@@ -7,6 +8,8 @@ This readme file is an outcome of the [CENG501 (Spring 2022)](https://ceng.metu.
 Spiking neural networks (SNNs) are artificial neural networks that lead to promising solutions for low-power computing. They include the idea of time in their working model in addition to neuronal and synaptic states. Through binary values, neurons in SNNs asynchronously communicate with one another. The main idea behind their working principle is that neurons in the SNN only communicate information when a membrane potential reaches a particular value rather than at the beginning of each propagation cycle. Due to the event-driven manner they have, SNNs create a possibility to process inputs sequentially at low-power consumption so, SNNs with leaky integrate and (LIF) neurons provide opportunities for energy-efficient computing and they are convenient for sequential learning. 
 
 In their paper which was published in AAAI22, Ponghiran and Roy [1] show that SNNs can be trained for sequential tasks such that the internal states of a network of LIF neurons can be modified to learn extended sequences and are resilient to the vanishing gradient problem. In the experiment, TIMIT (TIMIT Acoustic-Phonetic Continuous Speech Corpus) and LibriSpeech 100h speech recognition datasets were used. TIMIT is a typical dataset that is employed in the testing of automatic speech recognition models. It consists of recordings of 630 speakers reading 10 phonetically dense lines in each of eight American English dialects [2]. And the LibriSpeech corpus is a group of approximately 1,000 hours of audiobooks. The training data on this dataset is split into 3 divisions such as 100hr, 360hr, and 500hr sets [3].
+
+Our goal is to implement the proposed method and reproduce the experiment results.
 
 ## 1.1. Paper summary
 
@@ -48,6 +51,11 @@ Another problem which should be solved during the training is gradient mismatch 
 
 ## 3.1. Experimental setup
 
+
+@TODO: Describe the setup of the original paper and whether you changed any settings.
+
+
+
 LSTM and GRU models are used as a baseline. LSTMs, GRUs, and spiking neurons were stacked into different two-layer networks with 550 non-spiking or spiking units for each layer. Then, a fully connected layer received the final outputs and generated a probability of the most likely used words for speech recognition purpose. Inputs for neural networks were created based on Kaldi principle [4]. Feature space maximum likelihood linear regression [5] was used to convert raw audios into acoustic features. The features were calculated using 25 ms windows with a 10 ms overlap. All weight matrices excpect recurrent weight matrices which had orthogonal initialization were initialized based on Glorot’s scheme [6]. Adam used as the optimizer, and recurrent dropout used as the regularization method [7]. On all architectures, a dropout rate of 0:1 was discovered to provide the best performance. All architectures were trained for 24 epochs with a batch size of 64 and the starting learning rate was set to $10^{-3}$. The error on the development set was monitored every epoch and the learning rate was halved after 3 epochs of improvement less than 0.1. 
 
 ## 3.2. Running the code
@@ -56,6 +64,10 @@ LSTM and GRU models are used as a baseline. LSTMs, GRUs, and spiking neurons wer
 
 ## 3.3. Results
 
+@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+
+
+
 LSTM architecture surpass GRU architecture by a small amount.  First approach called “the SNNs with improved dynamics v1” increases the accuracy of the prediction by 8.98% and 9.84% on TIMIT and LibriSpeech 100h datasets, respectively compared to conventional SNNs. The increase in accuracy shows the significance of learning without the problems occurred on training such as gradient mismatch and vanishing gradient. Second approach called “the SNNs with improved dynamics v2” further boosted the values reached in v1 version by 1.64% and 5.57% on TIMIT and LibriSpeech 100h datasets, respectively. So, the result is that maximizing the recognition accuracy was made possible by choosing the forget and candidate signals depending on the past synaptic current. 
 
 When it comes to computational savings, 4.37-5.40 x fewer number of sparse outputs multiplications caused by the proposed v1 SNN compared to GRUs. However, the SNN with improved dynamics v2 led to 10.13 and 11.14 x fewer multiplication operations compared to the GRUs on TIMIT and LibriSpeech 100h datasets, respectively. The difference in recognition accuracy between SNNs and the baseline LSTMs became 1.10% and 0.36% using all the proposed architecture and training on TIMIT and LibriSpeech 100h datasets, respectively with halved parameter numbers.
@@ -63,6 +75,10 @@ When it comes to computational savings, 4.37-5.40 x fewer number of sparse outpu
 # 4. Conclusion
 
 @TODO: Discuss the paper in relation to the results in the paper and your results.
+
+
+
+Due to their event-driven computation and built-in repetition that aids in information retention over time, SNNs have been proposed as a potential option for low-power machine intelligence. However, due to a poor task selection and the vanishing gradient problem, practical applications of SNNs have not been successfully shown. In this paper, SNNs having developed inherent recurrence dynamics which can learn long sequences effectively was proposed with 2 x reduction in number of the trainable parameters compared to the LSTMs. It was shown that the proposed SNN model on the TIMIT and LibriSpeech 100h dataset, narrowed the difference between the speech recognition capabilities of LSTMs and GRUs to 1.10% and 0.36%, respectively. Also, it results in 10.13–11.14 x savings in multiplication operations over conventional GRUs.
 
 # 5. References
 
@@ -82,4 +98,7 @@ When it comes to computational savings, 4.37-5.40 x fewer number of sparse outpu
 
 # Contact
 
-@TODO: Provide your names & email addresses and any other info with which people can contact you.
+Gulfem Akpinar (gulfem.akpinar@metu.edu.tr)
+
+Muratcan Ayik (muratcan.ayik@metu.edu.tr)
+
