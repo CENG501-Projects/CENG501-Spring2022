@@ -128,8 +128,24 @@ A Google colab file is prepared which extensively explains the steps to run it, 
 
 
 # 4. Conclusion
+### 3.3.1 `Multi-task Segmentation Network`
 
+< Add info here >
 @TODO: Discuss the paper in relation to the results in the paper and your results.
+
+### 3.3.2 `Polygon Refinement Network`
+#### Discussion on Result
+![image](https://user-images.githubusercontent.com/69632507/177663863-ec7e2f51-1a77-4075-92dc-d42f0ede55e8.png)
+Out of the desired model to duplicate above :
+* Building Instance : 
+  * It was interpreted by self defined bounding box through polygon vertices and further adding a margin to the bounding box to keep the building instance centred and give room to add noise to the vectors as they are no longer on the edge of the cropped image as they would be if tolerance was not added.
+* ResNet Backbone :
+  * The Resnet backbone was duplciated successfully to generate a 112x112x256 feature map given a scaled input of 224x224x3
+* Vertex Embedding :
+  * The vertex embedding was done by transforming the vertices from original image to bounding box image, to the image rescaled for resnet input ,to the feature map generated from encoder, and the vertex coordinate was embedded with the channel values in the feature map.
+* Propogation Model :
+  *  The Gated Graph Neural Network could not be implemeted due to limited resources on the topic and few implementation details on the matter. It was attempted to be replaced with two other models which did not work. The suspected reason behind model 1 , treated as classification model, failing was with the large amount of classes available and limited training data provided in the scale of classes exisiting. Another reason for it to fail was that ,as it is treated as a categorical cross entropy, two incorrect classes are treated equally incorrect, however, a misclassification of [6,7] for truth value of [7,7] should be penalized less than a misclassification of [0,0] for truth of [7,7]. The second model,treating as a regression problem, also faile to learn. Multiple hyperparameters and model variations were tested, it was concluded that a single channel of the feature map is not satisfactory to predict the displacement value. However, it is possible to preidct the displacement of the vertex just from a single polygon node withou the need of a graph, this would be possible with not just inputting a single channel as the node of the polygon but rather a larger receptive field of the final feature map to the propogation model, such as a kernel size of 3x3 or 5x5 with the polygon node in the centre. A more effective way of achieving this would be , as a future work, to train the encoder and the propogation model together for a single node of the polygon where the input to the propogation model is not just a 1x356 feature but a 3x3x256 
+
 
 # 5. References
 
