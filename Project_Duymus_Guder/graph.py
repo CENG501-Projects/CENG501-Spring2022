@@ -3,7 +3,6 @@ import numpy as np
 """
     Creation of the graph of a network layer. Gamma decides the sparsity. 
     As gamma increases, the similarity threshold for an edge decreases, allowing a denser graph.
-    Can be made more efficient by looking at each edge once
 """
 def constructGraph(layer, gamma):
   noFilters = layer.out_channels

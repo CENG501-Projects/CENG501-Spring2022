@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import math
 
 class VGG16(nn.Module):
     def __init__(self):
@@ -41,19 +42,32 @@ class VGG16(nn.Module):
         )
 
         self.classifier = nn.Sequential(
-            nn.Linear(512, 256),
+            nn.Linear(512, 128),
             nn.ReLU(inplace=True),
             nn.Dropout(),
-            nn.Linear(256, 128),
+            nn.Linear(128, 128),
             nn.ReLU(inplace=True),
             nn.Dropout(),
             nn.Linear(128, 10)
         )
 
-    def forward(self, input):
-        assert input.shape[-3:] == (3, 32, 32), "Input must be of shape 3x32x32"
-        
-        features = self.encoder(input)
+        self._initialize_weights()
+
+    def _initialize_weights(self):
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+                m.weight.data.normal_(0, math.sqrt(2. / n))
+                if m.bias is not None:
+                    m.bias.data.zero_()
+            elif isinstance(m, nn.Linear):
+                m.weight.data.normal_(0, 0.01)
+                m.bias.data.zero_()
+
+    def forward(self, x):
+        assert x.shape[-3:] == (3, 32, 32), "Input must be of shape 3x32x32"
+
+        features = self.encoder(x)
         features = features.reshape(features.shape[0], -1)
         scores = self.classifier(features)
 

@@ -1,30 +1,27 @@
 import torch
+import model
+import redundancy
+import test
+from graph import *
 
 def pruneLayer(network, layer_idx, count): # layer_idx: int, count: int
-    # layer_idx: 17
-    # count: 3
-
     network = network.cpu()
-    dim = 0         # corresponding dim of FILTER WEIGHT to prunee [out_ch, in_ch, k1, k2]
+    dim = 0         # corresponding dim of FILTER WEIGHT to prune [out_ch, in_ch, k1, k2]
 
-    for i in range(len(network.features)):
-        layer = network.features[i]
+    for i in range(len(network.encoder)):
+        layer = network.encoder[i]
 
         if isinstance(layer, torch.nn.Conv2d):
             if dim == 1:    # Prune filters' DEPTH
                 new_= getNewConv(layer, dim, channel_index)
-                network.features[i] = new_
+                network.encoder[i] = new_
                 dim ^= 1
 
             if i == layer_idx:
                 channel_index = getFilterIdx(layer.weight.data, count)     # filter indices to be pruned [0, 25, 55]
                 new_ = getNewConv(layer, dim, channel_index)
-                network.features[i] = new_
+                network.encoder[i] = new_
                 dim ^= 1
-
-        elif dim == 1 and isinstance(layer, torch.nn.BatchNorm2d):
-            new_ = getNewBN(layer, channel_index)
-            network.features[i] = new_
 
     # update to check last conv layer pruned
     if layer_idx == 28: # The last conv layer
@@ -76,22 +73,6 @@ def getNewConv(conv, dim, channel_index):
 
         return new_conv
 
-def getNewBN(norm, channel_index):
-    new_norm = torch.nn.BatchNorm2d(num_features=int(norm.num_features - len(channel_index)),
-                                    eps=norm.eps,
-                                    momentum=norm.momentum,
-                                    affine=norm.affine,
-                                    track_running_stats=norm.track_running_stats)
-
-    new_norm.weight.data = removeIdx(norm.weight.data, 0, channel_index)
-    new_norm.bias.data = removeIdx(norm.bias.data, 0, channel_index)
-
-    if norm.track_running_stats:
-        new_norm.running_mean.data = removeIdx(norm.running_mean.data, 0, channel_index)
-        new_norm.running_var.data = removeIdx(norm.running_var.data, 0, channel_index)
-        
-    return new_norm
-
 def getNewLinear(linear, channel_index):
     new_linear = torch.nn.Linear(in_features=int(linear.in_features - len(channel_index)),
                                 out_features=linear.out_features,
@@ -100,3 +81,56 @@ def getNewLinear(linear, channel_index):
     new_linear.bias.data = linear.bias.data
 
     return new_linear
+
+if __name__ == '__main__':
+    model = model.VGG16()
+    model.load_state_dict(torch.load('checkpoints/checkpoint.pt'))
+    model.eval()
+
+    gamma = 0.023
+    w1 = 0.35
+    layers = list()
+
+    with torch.no_grad():
+        print('Creating graphs for each conv. layer')
+
+        for i in range(len(model.encoder)):
+            layer = model.encoder[i]
+
+            if(isinstance(layer, torch.nn.Conv2d)):
+                graph = constructGraph(layer, gamma)
+                red = redundancy.redundancy(graph, w1)
+                print(f"\tLayer index: {i}, redundancy: {red}")
+
+                layers.append({'idx': i,
+                                'graph': graph,
+                                'redVal': red})
+
+        print('Pruning starts...')
+
+        for j in range(10):
+            maxRed = 1
+            maxLayer = 0
+            maxIndex = 0
+
+            for i in range(len(layers)):
+                if(layers[i].get('redVal') >= maxRed):
+                    maxRed = layers[i].get('redVal')
+                    maxLayer = layers[i]['idx']
+                    maxIndex = i
+
+            if maxRed == 1:
+                break
+
+            pruneNumber = (int) (np.sqrt(maxRed) * 2)
+            print(f'\tRemoving {pruneNumber} filters from layer {maxLayer}')
+
+            model = pruneLayer(model, maxLayer, pruneNumber)
+
+            # Reconstruct the graph for the pruned layer
+            graph = constructGraph(model.encoder[maxLayer], gamma)
+            red = redundancy.redundancy(graph, w1)
+            layers[maxIndex]['redVal'] = red
+            layers[maxIndex]['graph'] = graph
+
+            test.test(model)
