@@ -39,6 +39,7 @@ We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Mo
 
 The results of the implementation and original results are presented in the following tables. Table 1 and Table 2 are optimized for accuracy whereas Table 3 and Table 4 are optimized for ECE.
 
+
 Table 1: Implemented Results on MNIST and Fashion-MNIST (Opt. for acc.)
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
 |--------------------|-------------|--------------|-----------------|-----------------|
@@ -46,6 +47,7 @@ Table 1: Implemented Results on MNIST and Fashion-MNIST (Opt. for acc.)
 |     CE (α=0)       |   0.983     |    0.016     |      0.875      |      0.094      |
 |LS (α opt. for acc.)|   0.960     |    0.218     |      0.898      |      0.014      |
 |LR (α opt. for acc.)|   0.972     |    0.017     |      0.901      |      0.029      |
+
 
 Table 2: Original Results on MNIST and Fashion-MNIST (Opt. for acc.)
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
@@ -55,6 +57,7 @@ Table 2: Original Results on MNIST and Fashion-MNIST (Opt. for acc.)
 |LS (α opt. for acc.)|   0.988     |    0.106     |      0.915      |      0.155      |
 |LR (α opt. for acc.)|   0.985     |    0.007     |      0.912      |      0.059      |
 --------------------------------------------------
+
 Table 3: Implemented Results on MNIST and Fashion-MNIST (Opt. for ECE)
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
 |--------------------|-------------|--------------|-----------------|-----------------|
@@ -62,6 +65,7 @@ Table 3: Implemented Results on MNIST and Fashion-MNIST (Opt. for ECE)
 |  CE (α=0, T opt.)  |   0.976     |    0.024     |      0.894      |      0.095      |
 |LS (α opt. for ECE) |   0.982     |    0.017     |      0.875      |      0.024      |
 |LR (α opt. for ECE) |   0.976     |    0.006     |      0.887      |      0.111      |
+
 
 Table 4: Original Results on MNIST and Fashion-MNIST (Opt. for ECE)
 |                    |  **MNIST**  |  **MNIST**   |**Fashion-MNIST**|**Fashion-MNIST**|
