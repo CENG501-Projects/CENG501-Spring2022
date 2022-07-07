@@ -33,13 +33,15 @@ To evaluate the degree of calibration of the networks, the study adapts techniqu
 
 ## 3.1. Experimental setup
 
-MNIST, FMNIST, CIFAR10, and CIFAR100 datasets are used in this study. MNIST and FMNIST datasets are used for 2-layer dense architecture, and the rest is used for VGG16, ResNet56(v2) and DenseNet-BC(100-12).
-We imported the datasets using “Keras” and 1/6 of the training set was labeled as the validation set using "train_test_split". Then, we performed preprocessing by subtracting the mean from the inputs. The batch size is taken as 64 as stated in the article. We used Pytorch's Cross Entropy loss and implemented the Label Smoothing and Label Relaxation losses. In training phase, a code piece is taken from PyTorch examples and modified for our case.
-We obtained results for 2-layer architecture using MNIST and FMNIST datasets. Moreover, architecture for VGG16 is also prepared and presented, however, the results could not be presented due to lack of time and computational power.
+MNIST, Fashion-MNIST, CIFAR10, and CIFAR100 datasets are used in this study. MNIST and Fashion-MNIST datasets are used for 2-layer dense architecture, and the rest is used for VGG16, ResNet56(v2) and DenseNet-BC(100-12) networks.
+We imported the datasets using “Keras” and 1/6 of the training set was seperately hold out as a validation set for finetuning using "train_test_split". Then, we performed preprocessing by subtracting the mean from the inputs. The batch size is taken as 64 as stated in the study. We used Pytorch's Cross Entropy loss and implemented the Label Smoothing and Label Relaxation losses. In training phase, a code piece is taken from PyTorch examples and modified for our case.
+We obtained results for 2-layer architecture using MNIST and Fashion-MNIST datasets. Moreover, architecture for VGG16 is also prepared but the results could not be presented due to lack of time and computational power.
+
+The finetuning of hyperparameters are done in accordance with initial values and ranges specified in the study considering explicit calibration methods, non-calibration, and temperature scaling as baselines of our comparisons. Subsequently, the final results are obtained by training the model for the best hyperparameters using the full training set and then tested the final trained model with the test set.   
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+In the uploaded file, a comprehensive google-colab script containing all the used packages and libraries to perform the analyses is provided. Nevertheless, we divided the script into seperate sequential blocks containing the created and used functions with explicit step-by-step explanations for each one. Moreover, we specify the sources of some parts that are adapted from other examples/codes.   
 
 ## 3.3. Results
 
