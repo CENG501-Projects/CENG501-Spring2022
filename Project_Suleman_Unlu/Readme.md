@@ -17,7 +17,9 @@ The original method consists of two parts which is a `Multi-task Segmentation Ne
 
 ### 2.1.1 `Multi-task Segmentation Network`
 
-< Add info here >
+This module uses Res-U-Net architecture. Resnet101 for encoder and U-Net for decoder. For each pixel, cross entropy loss is used for the correct class value. And total loss can be summarized as:
+
+L_total = X1*L_seg + X2*L_corner + X3*L_orient where X is used to denote weights 
 
 ### 2.1.2 `Polygon Refinement Network`
 
