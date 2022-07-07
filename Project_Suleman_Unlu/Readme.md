@@ -128,13 +128,6 @@ A Google colab file is prepared which extensively explains the steps to run it, 
 * Regarding the result of the Second Propogation Model which was trained as a regression model with Mean Squared Error, it was expected to perform better than the first model as there was more room to learn with the possibility of predicting displacements closer and closer to the ground truth. However, despite several iterations and efforts, the model was not learning as shown in the image illustarted below.
   * ![image](https://user-images.githubusercontent.com/69632507/177662271-8c4ac60f-5608-49da-9b16-192d369ec874.png)
 
-
-# 4. Conclusion
-### 3.3.1 `Multi-task Segmentation Network`
-
-< Add info here >
-@TODO: Discuss the paper in relation to the results in the paper and your results.
-
 ### 3.3.2 `Polygon Refinement Network`
 #### Discussion on Result
 ![image](https://user-images.githubusercontent.com/69632507/177663863-ec7e2f51-1a77-4075-92dc-d42f0ede55e8.png)
@@ -160,8 +153,8 @@ Out of the desired model to duplicate above :
 
 # 5. References
 
-@TODO: Provide your references here.
+Joint Semantic-Geometric Learning for Polygonal Building Segmentation (Li et al. 2021)
 
 # Contact
 
-@TODO: Provide your names & email addresses and any other info with which people can contact you.
+Giray Unlu unlu.giray@metu.edu.tr
