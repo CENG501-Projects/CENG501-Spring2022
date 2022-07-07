@@ -149,7 +149,8 @@ Out of the desired model to duplicate above :
 
 # 5. References
 
-Joint Semantic-Geometric Learning for Polygonal Building Segmentation (Li et al. 2021)
+[Joint Semantic-Geometric Learning for Polygonal Building Segmentation (Li et al. 2021)](https://ojs.aaai.org/index.php/AAAI/article/view/16291)
+[Efficient Interactive Annotation of Segmentation Datasets with Polygon-RNN++](https://arxiv.org/pdf/1803.09693.pdf)
 
 # Contact
 * Muhammad Suleman e227885@metu.edu.tr
