@@ -53,49 +53,49 @@ Even though it is not explicitly stated in the paper, the proposed method is a n
 In the Slot Machines (SM), the number of options per connection (k) amount of weights is initialized per traditional weight (Eq. 1). Initialization is made by the uniform sampling of a Glorot Uniform distribution[^glo] bound by the standard deviation of the Glorot Normal distribution(Eq. 2-3). The standard deviation of the Glorot Normal distribution is calculated according to traditional weight size, ignoring the "k." This is because the SM network's capacity is identical to a traditional network for a forward pass.
 
 <p align="center">
-<img src="https://bit.ly/3arEO46" align="center" border="0" alt="W_{ij}  \Longrightarrow  ( W_{ij1},...,W_{ijK} )  " width="179" height="21" /> (Eq. 1)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eq1.png?raw=true" align="center" border="0" alt="W_{ij}  \Longrightarrow  ( W_{ij1},...,W_{ijK} )  " width="179" height="21" /> (Eq. 1)
 </p>
 
 <p align="center">
-<img src="https://bit.ly/3yKy2zL" align="center" border="0" alt="std =  \sqrt{ \frac{2}{ fan_{in} +  fan_{out}  } } " width="187" height="57" /> (Eq. 2)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn2.png?raw=true" align="center" border="0" alt="std =  \sqrt{ \frac{2}{ fan_{in} +  fan_{out}  } } " width="187" height="57" /> (Eq. 2)
 </p>
 
 <p align="center">
-<img src="https://bit.ly/3nGKVF1" align="center" border="0" alt="\pazocal{U}( - \sigma _{x} ,  \sigma _{x} )" width="90" height="18" /> (Eq. 3)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn3.png?raw=true" align="center" border="0" alt="\pazocal{U}( - \sigma _{x} ,  \sigma _{x} )" width="90" height="18" /> (Eq. 3)
 </p>
 
 Each weight has its own score(Eq. 4). The scores are initialized independently from a uniform distribution, upper bound as constant lambda multiplied by the standard deviation of the Glorot Normal distribution(Eq. 2, 5). Lambda is chosen as "1" for convolution layers and "0.1" for fully connected layers.
 
 <p align="center">
-<img src="https://bit.ly/3yjNQYV" align="center" border="0" alt="( W_{ij1},...,W_{ijK} ) \Longrightarrow ( s_{ij1},...,s_{ijK} )" width="254" height="21" /> (Eq. 4)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn4.png?raw=true" align="center" border="0" alt="( W_{ij1},...,W_{ijK} ) \Longrightarrow ( s_{ij1},...,s_{ijK} )" width="254" height="21" /> (Eq. 4)
 </p>
 
 <p align="center">
-<img src="https://bit.ly/3o2dQ6F" align="center" border="0" alt="\pazocal{U}( 0 ,   \lambda \sigma _{x} )" width="79" height="18" /> (Eq. 5)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn5.png?raw=true" align="center" border="0" alt="\pazocal{U}( 0 ,   \lambda \sigma _{x} )" width="79" height="18" /> (Eq. 5)
 </p>
 
 Active, current weights are found by processing corresponding potential weights' scores(Eq. 6). Two methods are proposed for processing. Greedy Selection(GS), using the maximum scored weight (Eq. 7) and Probabilistic Sampling (PS), the scores are sampled as a multinomial distribution, resulting score's weight is chosen (Eq. 8).
 
 <p align="center">
-<img src="https://bit.ly/3uwOjpM" align="center" border="0" alt=" k^{*}  =  \rho (s_{ij1},...,s_{ijK})" width="157" height="22" /> (Eq. 6)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn6.png?raw=true" align="center" border="0" alt=" k^{*}  =  \rho (s_{ij1},...,s_{ijK})" width="157" height="22" /> (Eq. 6)
 </p>
 
 <p align="center">
-<img src="https://bit.ly/3bQT72G" align="center" border="0" alt=" \rho   =  argmax(s_{ij1},...,s_{ijK})" width="204" height="21" />(Eq. 7)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn7.png?raw=true" align="center" border="0" alt=" \rho   =  argmax(s_{ij1},...,s_{ijK})" width="204" height="21" />(Eq. 7)
 </p>
 
 <p align="center">
-<img src="https://bit.ly/3RfHB1a" align="center" border="0" alt=" \rho   =  Mult(SoftMax(s_{ij1},...,s_{ijK}))" width="261" height="21" />(Eq. 8)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn8.png?raw=true" align="center" border="0" alt=" \rho   =  Mult(SoftMax(s_{ij1},...,s_{ijK}))" width="261" height="21" />(Eq. 8)
 </p>
 
 Finally, the gradient of the score is calculated by the multiplication of its corresponding weight's gradient and the weight itself(Eq. 9). The found gradient is decreased from the corresponding score after multiplication with the learning rate. Completely ignoring any memory, momentum if there is any(Eq. 10).
 
 <p align="center">
-<img src="https://bit.ly/3R8Jj4a" align="center" border="0" alt="  \nabla _{ s_{ijk} }   \leftarrow  \frac{ \partial \pazocal{L}}{ \partial  a(x)_{i}^{(l)} } h(x)_{j}^{(l-1)} W_{ijk} ^{l} " width="226" height="53" /> (Eq. 9)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn9.png?raw=true" align="center" border="0" alt="  \nabla _{ s_{ijk} }   \leftarrow  \frac{ \partial \pazocal{L}}{ \partial  a(x)_{i}^{(l)} } h(x)_{j}^{(l-1)} W_{ijk} ^{l} " width="226" height="53" /> (Eq. 9)
 </p>
 
 <p align="center">
-<img src="https://bit.ly/3RfuaOE" align="center" border="0" alt="    \widetilde{s_{ijk}}  = s_{ijk} - \alpha \nabla _{ s_{ijk} }   " width="139" height="24" /> (Eq. 10)
+<img src="https://github.com/CENG501-Projects/CENG501-Spring2022/blob/main/Project_Germen/images/eqn10.png?raw=true" align="center" border="0" alt="    \widetilde{s_{ijk}}  = s_{ijk} - \alpha \nabla _{ s_{ijk} }   " width="139" height="24" /> (Eq. 10)
 </p>
 
 ## 2.2. My interpretation 
