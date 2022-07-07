@@ -69,12 +69,12 @@ The code is separated into execution blocks in Jupyter notebooks and models, aux
 ## 3.3. Results
 
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
-![Framework](/assets/framework.png "Framework")
-![Encoder Architecture](/assets/encoder.png "Encoder Architecture")
-![Feature Computation](/assets/feature_comp.png "Feature Computation")
-![Rendered Image](/assets/image_438.png "Rendered Image")
-![Loss curve for Stage 2](/assets/loss_history_stage2.png "Loss History Curve")
-![Merged Input/Output](/assets/merged_io.png "Merged Input/Output")
+![Framework](./assets/framework.png "Framework")
+![Encoder Architecture](./assets/encoder.png "Encoder Architecture")
+![Feature Computation](./assets/feature_comp.png "Feature Computation")
+![Rendered Image](./assets/image_438.png "Rendered Image")
+![Loss curve for Stage 2](./assets/loss_history_stage2.png "Loss History Curve")
+![Merged Input/Output](./assets/merged_io.png "Merged Input/Output")
 
 # 4. Conclusion
 
