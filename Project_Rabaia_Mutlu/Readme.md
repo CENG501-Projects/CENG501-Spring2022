@@ -27,7 +27,7 @@ The original method is mainly based on classification problem in which the train
 
 ## 2.2. Our interpretation 
 
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+To evaluate the degree of calibration of the networks, the study adapts techniques such as the expected calibration error (ECE) as done by (Guo et al. 2017) and temperature scaling for comparing it with label smoothing. However, as the core idea of these concepts were difficult to understand, it required further reading and research.   
 
 # 3. Experiments and results
 
