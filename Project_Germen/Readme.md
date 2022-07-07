@@ -362,8 +362,6 @@ Comparing the Figure 3 and Figure 4, for all models, performance is reported bet
 Comparing the second plot of the Figure 5 to Figure 6. Trend of SMs with GS are similar, with implementation being lower. In Figure 6, an unexpected behaviour is observed, SMs with PS's performance drops as K is increased.
 # 4. Conclusion
 
-@TODO: Discuss the paper in relation to the results in the paper and your results.
-
 Overall, all models of the implementation perform worse than their paper pairs. However, trends are similar, except for Figure 6, SMs with PS's performance.
 
 The immediate difference between traditional, canon learned weight models indicate a difference in training method, which was expected with the omission of data augmentation. Also, this could be due to differences in the unspecified part of the models. However, having such a significant difference was unexpected (Figure 1, 2) for SM models. This could show that SMs benefit more from augmentation compared to the traditional method.
@@ -376,7 +374,11 @@ The SM models are too delicate since they can only use the initialized discrete 
 
 Its unique property of implicit regularization with weight option limitation can regularize it to not converge to minimums. 
 
+**Future Work**
+  
+In a network where weights are constrained, when a weight hits its maximum/minimum and if the gradient is steep, trying to push the weight even higher/lower network has to search for the solution in other weights on the error signal that are not in their maximum/minimum value. This is a neat way to push optimization from weight to weight combinations. However, this could make the network slow to adapt, even limited to certain solutions.
 
+Discretely increased/decreased, not bounded weights can be used to solve this. Much like initializing possible weights, a discrete increase/decrease rate and accumulated gradient threshold to increase/decrease weight's value can be initialized per weight. In this way, if the gradient accumulation is not large enough, in other words, smaller than the threshold, the network has to search for weight combinations; however, when gradient accumulation passes the threshold, the weight's value is increased/decreased. As a result, Creating semi-constrained weights and an unconstrained network. The model can be called an infinite slotted machine.
 
 # Contact
 
