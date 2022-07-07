@@ -30,7 +30,7 @@ To run our code you just open the "DualGraph.ipynb" file with google colab and r
 ## 3.3. Results
 The Test Accuracy: 0.8025
 
-![image](https://user-images.githubusercontent.com/108792896/177661911-36654fd1-ba9a-43e5-85a8-6e8bb3045b2f.png)
+![image](https://user-images.githubusercontent.com/108792896/177662161-b00af080-d276-4333-a9df-62c4d7a21877.png)
 
 
 # 4. Conclusion
